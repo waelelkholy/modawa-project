@@ -18,22 +18,22 @@ msgstr ""
 #. module: sh_secondary_unit
 #: model_terms:ir.ui.view,arch_db:sh_secondary_unit.sh_stock_product_inherit_view
 msgid "<span class=\"o_stat_text\">Forecasted</span>"
-msgstr ""
+msgstr "<span class = \ 'o_stat_text \'> pronosticado </ span>"
 
 #. module: sh_secondary_unit
 #: model_terms:ir.ui.view,arch_db:sh_secondary_unit.sh_stock_product_inherit_view
 msgid "<span class=\"o_stat_text\">On Hand</span>"
-msgstr ""
+msgstr "<span class = \ 'o_stat_text \'> a mano </ span>"
 
 #. module: sh_secondary_unit
 #: model_terms:ir.ui.view,arch_db:sh_secondary_unit.sh_report_account_invoice
 msgid "<span>Secondary Quantity</span>"
-msgstr ""
+msgstr "<span> cantidad secundaria </ span>"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_account_move_line__category_id
 msgid "Account UOM Category"
-msgstr ""
+msgstr "Cuenta UOM Categoría"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,help:sh_secondary_unit.field_account_move_line__category_id
@@ -46,6 +46,8 @@ msgid ""
 "Conversion between Units of Measure can only occur if they belong to the "
 "same category. The conversion will be made based on the ratios."
 msgstr ""
+"La conversión entre las unidades de medida solo puede ocurrir si pertenecen a la"
+"misma categoría. La conversión se realizará en función de las relaciones."
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_account_move__display_name
@@ -62,13 +64,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_quant__display_name
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_scrap__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre para mostrar"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_product_product__sh_secondary_uom_forecasted
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_product_template__sh_secondary_uom_forecasted
 msgid "Forecasted"
-msgstr ""
+msgstr "Previsto"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_account_move__id
@@ -85,22 +87,22 @@ msgstr ""
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_quant__id
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_scrap__id
 msgid "ID"
-msgstr ""
+msgstr "IDENTIFICACIÓN"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_stock_immediate_transfer
 msgid "Immediate Transfer"
-msgstr ""
+msgstr "Transferencia inmediata"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_account_move
 msgid "Journal Entry"
-msgstr ""
+msgstr "Entrada de diario"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_account_move_line
 msgid "Journal Item"
-msgstr ""
+msgstr "Artículo de diario"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_account_move____last_update
@@ -117,54 +119,54 @@ msgstr ""
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_quant____last_update
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_scrap____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificación en"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_product_product__sh_secondary_uom_onhand
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_product_template__sh_secondary_uom_onhand
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_quant__sh_secondary_unit_qty
 msgid "On Hand"
-msgstr ""
+msgstr "A mano"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "Producto"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_stock_move_line
 msgid "Product Moves (Stock Move Line)"
-msgstr ""
+msgstr "Movimientos del producto (línea de movimiento de stock)"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Plantilla de producto"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_product_product__category_id
 msgid "Product UOM Category"
-msgstr ""
+msgstr "Producto UOM Categoría"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_purchase_order_line
 msgid "Purchase Order Line"
-msgstr ""
+msgstr "Línea de orden de compra"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_purchase_report
 msgid "Purchase Report"
-msgstr ""
+msgstr "Informe de compra"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_purchase_order_line__category_id
 msgid "Purchase UOM Category"
-msgstr ""
+msgstr "Comprar la categoría UOM"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_stock_quant
 msgid "Quants"
-msgstr ""
+msgstr "Quantes"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_account_move_line__sh_is_secondary_unit
@@ -173,47 +175,47 @@ msgstr ""
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_move__sh_is_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_move_line__sh_is_secondary_unit
 msgid "Related Sec Unit"
-msgstr ""
+msgstr "Unidad SEC relacionada"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_scrap__sh_is_secondary_unit
 msgid "Related sec. unit"
-msgstr ""
+msgstr "Segundo relacionado. unidad"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_sale_order_line__category_id
 msgid "Sale UOM Category"
-msgstr ""
+msgstr "Venta uom categoría"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_sale_report
 msgid "Sales Analysis Report"
-msgstr ""
+msgstr "Informe de análisis de ventas"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_sale_order_line
 msgid "Sales Order Line"
-msgstr ""
+msgstr "Línea de pedido de venta"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_stock_scrap
 msgid "Scrap"
-msgstr ""
+msgstr "Chatarra"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_scrap__category_id
 msgid "Scrap UOM Category"
-msgstr ""
+msgstr "Categoría de scrap uom"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_move__sh_sec_done_qty
 msgid "Secondary Done Qty"
-msgstr ""
+msgstr "Secundaria HECHO CANTY"
 
 #. module: sh_secondary_unit
 #: model_terms:ir.ui.view,arch_db:sh_secondary_unit.sh_report_stock_delivery_document
 msgid "Secondary Done Quantity"
-msgstr ""
+msgstr "Cantidad secundaria realizada"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_account_move_line__sh_sec_qty
@@ -236,7 +238,7 @@ msgstr "Cantidad secundaria"
 #: model_terms:ir.ui.view,arch_db:sh_secondary_unit.sh_report_stock_picking_operation_document
 #: model_terms:ir.ui.view,arch_db:sh_secondary_unit.sh_sale_order_report_document
 msgid "Secondary Quantity"
-msgstr ""
+msgstr "Cantidad secundaria"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_account_move_line__sh_sec_uom
@@ -256,40 +258,40 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:sh_secondary_unit.sh_stock_move_line_custom_form_view
 #: model_terms:ir.ui.view,arch_db:sh_secondary_unit.sh_stock_move_line_custom_tree_view
 msgid "Secondary UOM"
-msgstr ""
+msgstr "UOM secundario"
 
 #. module: sh_secondary_unit
 #: model:res.groups,name:sh_secondary_unit.group_secondary_unit_inventory
 msgid "Secondary Unit On Inventory"
-msgstr ""
+msgstr "Unidad secundaria en inventario."
 
 #. module: sh_secondary_unit
 #: model:res.groups,name:sh_secondary_unit.group_secondary_unit_invoice
 msgid "Secondary Unit On Invoice"
-msgstr ""
+msgstr "Unidad secundaria en la factura."
 
 #. module: sh_secondary_unit
 #: model:res.groups,name:sh_secondary_unit.group_secondary_unit_purchase
 msgid "Secondary Unit On Purchase"
-msgstr ""
+msgstr "Unidad secundaria en la compra"
 
 #. module: sh_secondary_unit
 #: model:res.groups,name:sh_secondary_unit.group_secondary_unit_sale
 msgid "Secondary Unit On Sale"
-msgstr ""
+msgstr "Unidad secundaria a la venta"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_stock_move
 msgid "Stock Move"
-msgstr ""
+msgstr "Moverse"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_product_template__category_id
 msgid "UOM Category"
-msgstr ""
+msgstr "Categoría UOM"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_product_product__sh_is_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_product_template__sh_is_secondary_unit
 msgid "is Secondary Unit ?"
-msgstr ""
+msgstr "¿Es la unidad secundaria?"

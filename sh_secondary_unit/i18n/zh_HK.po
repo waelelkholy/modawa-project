@@ -18,22 +18,22 @@ msgstr ""
 #. module: sh_secondary_unit
 #: model_terms:ir.ui.view,arch_db:sh_secondary_unit.sh_stock_product_inherit_view
 msgid "<span class=\"o_stat_text\">Forecasted</span>"
-msgstr "<span class = \"o_stat_text \"> التنبؤ </ span>"
+msgstr "<span class = \“o_stat_text \”>预测</ span>"
 
 #. module: sh_secondary_unit
 #: model_terms:ir.ui.view,arch_db:sh_secondary_unit.sh_stock_product_inherit_view
 msgid "<span class=\"o_stat_text\">On Hand</span>"
-msgstr "<span class = \"o_stat_text \"> في اليد </ span>"
+msgstr "<span class = \“o_stat_text \”>在手上</ span>"
 
 #. module: sh_secondary_unit
 #: model_terms:ir.ui.view,arch_db:sh_secondary_unit.sh_report_account_invoice
 msgid "<span>Secondary Quantity</span>"
-msgstr "<span> الكمية الثانوية </ span>"
+msgstr "<span>辅助量</ span>"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_account_move_line__category_id
 msgid "Account UOM Category"
-msgstr "حساب UOM الفئة"
+msgstr "帐户UOM类别"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,help:sh_secondary_unit.field_account_move_line__category_id
@@ -46,8 +46,8 @@ msgid ""
 "Conversion between Units of Measure can only occur if they belong to the "
 "same category. The conversion will be made based on the ratios."
 msgstr ""
-"التحويل بين وحدات القياس يمكن أن يحدث إلا إذا كانوا ينتمون إلى"
-"نفس الفئة. سيتم تحويل التحويل بناء على النسب."
+"尺寸单位之间的转换只能在它们属于时出现"
+"相同的类别。转换将基于比率进行。"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_account_move__display_name
@@ -64,13 +64,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_quant__display_name
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_scrap__display_name
 msgid "Display Name"
-msgstr "اسم العرض"
+msgstr "显示名称"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_product_product__sh_secondary_uom_forecasted
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_product_template__sh_secondary_uom_forecasted
 msgid "Forecasted"
-msgstr "من المتوقع"
+msgstr "预测"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_account_move__id
@@ -87,22 +87,22 @@ msgstr "من المتوقع"
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_quant__id
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_scrap__id
 msgid "ID"
-msgstr "هوية شخصية"
+msgstr "ID"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_stock_immediate_transfer
 msgid "Immediate Transfer"
-msgstr "تحويل فوري"
+msgstr "立即转移"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_account_move
 msgid "Journal Entry"
-msgstr "إفتتاحية المجلة"
+msgstr "日记入场"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_account_move_line
 msgid "Journal Item"
-msgstr "مجلة البند"
+msgstr "期刊项目"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_account_move____last_update
@@ -119,54 +119,54 @@ msgstr "مجلة البند"
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_quant____last_update
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_scrap____last_update
 msgid "Last Modified on"
-msgstr "آخر تعديل في"
+msgstr "最后修改了"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_product_product__sh_secondary_uom_onhand
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_product_template__sh_secondary_uom_onhand
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_quant__sh_secondary_unit_qty
 msgid "On Hand"
-msgstr "علي يدك"
+msgstr "手上"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_product_product
 msgid "Product"
-msgstr "المنتج"
+msgstr "产品"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_stock_move_line
 msgid "Product Moves (Stock Move Line)"
-msgstr "تحركات المنتجات (خط نقل الأسهم)"
+msgstr "产品移动（库存移动线）"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_product_template
 msgid "Product Template"
-msgstr "قالب المنتج"
+msgstr "产品模板"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_product_product__category_id
 msgid "Product UOM Category"
-msgstr "المنتج UOM الفئة"
+msgstr "产品UOM类别"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_purchase_order_line
 msgid "Purchase Order Line"
-msgstr "خط طلب الشراء"
+msgstr "采购订单线"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_purchase_report
 msgid "Purchase Report"
-msgstr "تقرير الشراء"
+msgstr "购买报告"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_purchase_order_line__category_id
 msgid "Purchase UOM Category"
-msgstr "شراء الفئة UOM"
+msgstr "购买UOM类别"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_stock_quant
 msgid "Quants"
-msgstr "نوايا"
+msgstr "qu"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_account_move_line__sh_is_secondary_unit
@@ -175,47 +175,47 @@ msgstr "نوايا"
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_move__sh_is_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_move_line__sh_is_secondary_unit
 msgid "Related Sec Unit"
-msgstr "وحدة SEC ذات الصلة"
+msgstr "相关秒单位"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_scrap__sh_is_secondary_unit
 msgid "Related sec. unit"
-msgstr "الثانوية ذات الصلة. وحدة"
+msgstr "相关秒。单元"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_sale_order_line__category_id
 msgid "Sale UOM Category"
-msgstr "بيع UOM الفئة"
+msgstr "销售UOM类别"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_sale_report
 msgid "Sales Analysis Report"
-msgstr "تقرير تحليل المبيعات"
+msgstr "销售分析报告"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "خط ترتيب المبيعات"
+msgstr "销售订单线"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_stock_scrap
 msgid "Scrap"
-msgstr "خردة"
+msgstr "废料"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_scrap__category_id
 msgid "Scrap UOM Category"
-msgstr "الخردة UOM الفئة"
+msgstr "Scrap UOM类别"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_stock_move__sh_sec_done_qty
 msgid "Secondary Done Qty"
-msgstr "الثانوي القيام به الكمية"
+msgstr "次要完成数量"
 
 #. module: sh_secondary_unit
 #: model_terms:ir.ui.view,arch_db:sh_secondary_unit.sh_report_stock_delivery_document
 msgid "Secondary Done Quantity"
-msgstr "الثانوية تم القيام بها"
+msgstr "二次完成数量"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_account_move_line__sh_sec_qty
@@ -229,7 +229,7 @@ msgstr "الثانوية تم القيام بها"
 #: model_terms:ir.ui.view,arch_db:sh_secondary_unit.sh_stock_move_detailed_operation_view
 #: model_terms:ir.ui.view,arch_db:sh_secondary_unit.sh_stock_move_line_custom_tree_view
 msgid "Secondary Qty"
-msgstr "الكمية الثانوية"
+msgstr "次要数量"
 
 #. module: sh_secondary_unit
 #: model_terms:ir.ui.view,arch_db:sh_secondary_unit.sh_purchase_order_report_document
@@ -238,7 +238,7 @@ msgstr "الكمية الثانوية"
 #: model_terms:ir.ui.view,arch_db:sh_secondary_unit.sh_report_stock_picking_operation_document
 #: model_terms:ir.ui.view,arch_db:sh_secondary_unit.sh_sale_order_report_document
 msgid "Secondary Quantity"
-msgstr "الكمية الثانوية"
+msgstr "二次数量"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_account_move_line__sh_sec_uom
@@ -258,40 +258,40 @@ msgstr "الكمية الثانوية"
 #: model_terms:ir.ui.view,arch_db:sh_secondary_unit.sh_stock_move_line_custom_form_view
 #: model_terms:ir.ui.view,arch_db:sh_secondary_unit.sh_stock_move_line_custom_tree_view
 msgid "Secondary UOM"
-msgstr "الثانوية UOM."
+msgstr "二级uom"
 
 #. module: sh_secondary_unit
 #: model:res.groups,name:sh_secondary_unit.group_secondary_unit_inventory
 msgid "Secondary Unit On Inventory"
-msgstr "الوحدة الثانوية في المخزون"
+msgstr "库存上的二级单位"
 
 #. module: sh_secondary_unit
 #: model:res.groups,name:sh_secondary_unit.group_secondary_unit_invoice
 msgid "Secondary Unit On Invoice"
-msgstr "الوحدة الثانوية على الفاتورة"
+msgstr "发票上的辅助单位"
 
 #. module: sh_secondary_unit
 #: model:res.groups,name:sh_secondary_unit.group_secondary_unit_purchase
 msgid "Secondary Unit On Purchase"
-msgstr "وحدة ثانوية عند الشراء"
+msgstr "购买次要单位"
 
 #. module: sh_secondary_unit
 #: model:res.groups,name:sh_secondary_unit.group_secondary_unit_sale
 msgid "Secondary Unit On Sale"
-msgstr "وحدة ثانوية للبيع"
+msgstr "次要单位出售"
 
 #. module: sh_secondary_unit
 #: model:ir.model,name:sh_secondary_unit.model_stock_move
 msgid "Stock Move"
-msgstr "نقل الأسهم"
+msgstr "股票飞"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_product_template__category_id
 msgid "UOM Category"
-msgstr "UOM الفئة"
+msgstr "UOM类别"
 
 #. module: sh_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_product_product__sh_is_secondary_unit
 #: model:ir.model.fields,field_description:sh_secondary_unit.field_product_template__sh_is_secondary_unit
 msgid "is Secondary Unit ?"
-msgstr "هل الوحدة الثانوية؟"
+msgstr "是二级单位吗？"

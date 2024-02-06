@@ -1,10 +1,11 @@
 # -*- coding: UTF-8 -*-
 # Part of Softhealer Technologies.
 
-from . import sh_product
-from . import sh_sale_order
-from . import sh_purchase_order
-from . import sh_stock_picking
-from . import sh_account_invoice
-from . import sh_stock_scrap
-from . import sh_sales_analysis_custom_report
+from . import product_product
+from . import sale_order
+from . import purchase_order
+from . import stock_move
+from . import account_invoice
+from . import stock_scrap
+from . import sale_report
+from . import purchase_report

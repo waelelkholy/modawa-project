@@ -7,13 +7,7 @@
     "support": "support@softhealer.com",
     "category": "Extra Tools",
     "license": "OPL-1",
-    "summary": """
-sales secondary uom app,
-purchase secondary unit of measure,
-request for quotation multiple uom odoo,
-account double uom,
-warehouse multiple unit Odoo
-""",
+    "summary": "sales secondary uom purchase secondary unit of measure request for quotation multiple uom account double uom warehouse multiple unit Stock secondary unit of measure Odoo",
     "description": """
 Do you have more than one unit of measure in product ?
 Yes! so, you are at right palce.
@@ -24,7 +18,7 @@ so you don't need to waste your time to calculate that value.
 you can also show that value in pdf reports
 so your customer/vendor also easily understand that.
 """,
-    "version": "14.0.3",
+    "version": "16.0.6",
     "depends": [
         "sale_management",
         "account",
@@ -33,20 +27,21 @@ so your customer/vendor also easily understand that.
     ],
     "application": True,
     "data": [
-        "security/secondary_unit_group.xml",
-        "views/sh_product_template_custom.xml",
-        "views/sh_product_custom.xml",
-        "views/sh_sale_order_view.xml",
-        "views/sh_purchase_order_view.xml",
-        "views/sh_stock_picking_view.xml",
-        "views/sh_stock_move_view.xml",
-        "views/sh_account_invoice_view.xml",
-        "views/sh_stock_scrap_view.xml",
-        "report/sh_report_sale_order.xml",
-        "report/sh_report_purchase_order.xml",
-        "report/sh_report_account_invoice_view.xml",
-        "report/sh_report_stock_picking_operation.xml",
-        "report/sh_report_deliveryslip.xml",
+        "security/sh_secondary_unit_group.xml",
+        "views/product_template_views.xml",
+        "views/product_product_views.xml",
+        "views/sale_order_views.xml",
+        "views/purchase_order_views.xml",
+        "views/stock_picking_views.xml",
+        "views/stock_move_views.xml",
+        "views/account_move_views.xml",
+        "views/stock_scrap_views.xml",
+        "report/sale_order_templates.xml",
+        "report/purchase_order_templates.xml",
+        "report/account_move_templates.xml",
+        "report/stock_picking_templates.xml",
+        "report/stock_picking_deliveryslip_templates.xml",
+        "report/invoice_report_view.xml",
     ],
     "auto_install": False,
     "installable": True,

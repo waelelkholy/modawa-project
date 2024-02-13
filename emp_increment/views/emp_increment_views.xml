@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Form View -->
+    <record id="emp_increment_form" model="ir.ui.view">
+        <field name="name">emp.increment.form</field>
+        <field name="model">emp.increment</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_approve" string="Approve" type="object" states="draft" groups="emp_increment.group_increment_manager" confirm="Are you sure you want to Approve?"/>
+                    <button name="%(emp_increment.reject_reason_action)d" string="Reject" type="action" states="draft" groups="emp_increment.group_increment_manager" confirm="Are you sure you want to Reject?"/>
+                    <field name="state" widget="statusbar" />
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_id" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="employee_no" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="employee_old_no" invisible="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="contract_id" readonly="1" force_save="1"/>
+                            <field name="department_id" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        </group>
+                        <group>
+                            <field name="start_date" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="first_contract" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="date_of_join" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="backdate_boolean" attrs="{'readonly':[('state','!=','draft')]}" invisible="1"/>
+                            <field name="effective_date" attrs="{'readonly':[('state','!=','draft')],'required':[('backdate_boolean','=',False)]}" force_save="1"/>
+                            <field name="backdate" attrs="{'invisible':[('backdate_boolean','=',False)],'required':[('backdate_boolean','=',True)]}"/>
+                            <field name="reject_reason" attrs="{'invisible':[('reject_reason','=',False)]}" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="Monthly Advantages in Cash">
+                        <group name="old_pay" string="Old">
+                            <field name="old_wage" readonly="1" force_save="1"/>
+                            <field name="old_basic_salary" readonly="1" force_save="1"/>
+                            <field name="old_basic_allowance" readonly="1" force_save="1"/>
+                            <field name="old_extra_allowance" invisible="1" readonly="1" force_save="1"/>
+                            <field name="old_total_deduction" readonly="1" force_save="1" invisible="1"/>
+                        </group>
+                        <group name="new_pay" string="New">
+                            <field name="revised_wage" readonly="1"/>
+                            <!-- attrs="{'readonly':[('state','!=','draft')]}" -->
+                            <field name="old_basic_salary" readonly="1" force_save="1"/>
+                            <field name="addition_type" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="percentage" attrs="{'invisible':[('addition_type','!=','percentage')],
+                            'readonly':[('state','!=','draft')]}"/>
+                            <field name="addition_value" attrs="{'invisible':[('addition_type','!=','amount')],
+                            'readonly':[('state','!=','draft')]}"/>
+                            <!--                            <field name="new_new_basic" readonly="1" force_save="1"/>-->
+                            <field name="new_basic_salary" readonly="1" />
+                            <field name="new_basic_allowance" readonly="1" force_save="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="old_monthly_advantages_ids" attrs="{'readonly':[('state','!=','draft')]}" nolabel="1">
+                                <tree edit="false" delete="false" create="false" options="{'no_open': True}">
+                                    <field name="old_allowance_id"/>
+                                    <field name="old_category"/>
+                                    <field name="old_type"/>
+                                    <field name="old_rate"/>
+                                    <field name="old_amount"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="old_allowance_id" readonly="1"/>
+                                            <field name="old_category" readonly="1"/>
+                                            <field name="old_type" readonly="1"/>
+                                        </group>
+                                        <group>
+                                            <field name="old_rate" readonly="1"/>
+                                            <field name="old_amount" readonly="1"/>
+                                        </group>
+                                    </group>
+                                </form>
+                            </field>
+                        </group>
+                        <group>
+                            <field name="new_monthly_advantages_ids" attrs="{'readonly':[('state','!=','draft')]}" nolabel="1">
+                                <tree editable="bottom" delete="false" create="false">
+                                    <field name="allowance_id"/>
+                                    <field name="category"/>
+                                    <field name="type"/>
+                                    <field name="rate"/>
+                                    <field name="amount" readonly="1" force_save="1"/>
+                                    <field name="final_amount" force_save="1"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="emp_increment_tree" model="ir.ui.view">
+        <field name="name">emp.increment.tree</field>
+        <field name="model">emp.increment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id"/>
+                <field name="department_id" optional="show"/>
+                <field name="start_date"/>
+                <field name="date_of_join" optional="show"/>
+                <field name="effective_date" optional="show"/>
+                <field name="old_wage" optional="show"/>
+                <field name="revised_wage" optional="show"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- kanban view -->
+    <record id="view_emp_increment_kanban" model="ir.ui.view">
+        <field name="name">emp.increment.kanban</field>
+        <field name="model">emp.increment</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" sample="1" js_class="account_bills_kanban">
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="start_date"/>
+                <field name="state"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="row mb4">
+                                <div class="col-6 o_kanban_record_headings">
+                                    <strong>
+                                        <span>
+                                            <field name="employee_id" />
+                                        </span>
+                                    </strong>
+                                </div>
+                                <div class="col-6 text-right">
+                                    <strong><i class="fa fa-clock-o" aria-label="Date" role="img" title="Date"/> <t t-esc="record.start_date.value"/></strong>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <span><field name="department_id"/></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <span class="float-right">
+                                        <field name="state" widget="label_selection" options="{'classes': {'draft': 'default', 'approve': 'success'}}"/>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <!-- Pivot view   -->
+    <record model="ir.ui.view" id="view_emp_increment_pivot">
+        <field name="name">emp.increment</field>
+        <field name="model">emp.increment</field>
+        <field name="arch" type="xml">
+            <pivot string="Employee Increment" sample="1">
+                <field name="employee_id" type="row"/>
+                <field name="start_date"/>
+                <field name="state" type="col"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Graph view  -->
+    <record model="ir.ui.view" id="view_contract_allowance_graph">
+        <field name="name">emp.increment</field>
+        <field name="model">emp.increment</field>
+        <field name="arch" type="xml">
+            <graph string="Employee Increment" sample="1">
+                <field name="employee_id" type="row"/>
+                <field name="start_date"/>
+                <field name="state" type="col"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Action for Employee Bonus Model -->
+    <record id="action_emp_increment" model="ir.actions.act_window">
+        <field name="name">Employee Increment</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">emp.increment</field>
+        <field name="view_mode">tree,kanban,pivot,graph,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="emp_increment_menu"
+              name="Employee Increment"
+              parent="hr_payroll.menu_hr_payroll_employees_root"
+              action="action_emp_increment"
+              groups="emp_increment.group_increment_hr,emp_increment.group_increment_manager"
+              sequence="53"/>
+
+</odoo>

@@ -1,0 +1,75 @@
+<odoo>
+    <data>
+        <!-- iqama form view-->
+        <record model="ir.ui.view" id="view_hr_insurance_form">
+            <field name="name">hr.insurance.form</field>
+            <field name="model">hr.insurance</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Insurance" >
+                    <sheet>
+                        <group>
+                            <field name="is_employee"/>
+                            <field name="insurance_company" readonly="1" force_save="1"/>
+                            <field name="insurance_member_emp"/>
+                            <field name="contract_id"/>
+<!--                             <field name="iqama_no" attrs="{'invisible': [('is_employee' ,'=', True)]}"/>
+                            <field name="iqama_expiry_date" attrs="{'invisible': [('is_employee' ,'=', True)]}"/>
+ --> 
+ <!--                            <field name="iqama_no_emp" attrs="{'invisible': [('is_employee' ,'!=', True)]}" readonly="1" force_save="1" invisible="1"/>
+                            <field name="iqama_expiry_date_emp" attrs="{'invisible': [('is_employee' ,'!=', True)]}" readonly="1" force_save="1"/>
+  -->                           <field name="insurance_member_non_emp"  attrs="{'required': [('is_employee' ,'=', True)]}"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <!-- <field name="premium"/> -->
+                            <field name="insurance_relation" />
+                            <!-- attrs="{'required': [('insurance_member_non_emp' ,'=', False)]}" -->
+                            <field name="classes" attrs="{'required': [('insurance_member_non_emp' ,'=', False)]}"/>
+<!--                             <field name="card_code"/>
+                            <field name="gender"/>
+ -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View -->
+        <record model="ir.ui.view" id="view_hr_insurance_tree">
+            <field name="name">hr.insurance.tree</field>
+            <field name="model">hr.insurance</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="is_employee"/>
+                    <field name="insurance_company"/>
+                    <field name="insurance_member_non_emp"/>
+                    <field name="insurance_member_emp" string="Dependant name"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <!-- <field name="premium"/> -->
+                    <field name="insurance_relation"/>
+                    <field name="classes"/>
+<!--                     <field name="card_code"/>
+                    <field name="gender"/>
+ -->
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="hr_sf_insurance_action">
+            <field name="name">Employee Insurance</field>
+            <field name="res_model">hr.insurance</field>
+<!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form</field>
+        </record>
+
+<!--         <menuitem name="Employee Insurance"
+                  id="hr_emp_insurance_menu"
+                  parent="hr_ext.hr_iqama_menu"
+                  action="hr_sf_insurance_action"
+                  sequence="14"
+        groups="hr.group_hr_manager,hr.group_hr_user"/>
+ -->
+    </data>
+</odoo>

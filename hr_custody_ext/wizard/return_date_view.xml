@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+    	<record id="wizard_return_date" model="ir.ui.view">
+			<field name="name">return.date</field>
+			<field name="model">return.date</field>
+			<field name="arch" type="xml">
+				<form>
+					<group>
+						<field name="date" required="1"/>
+					</group>	
+					<footer>
+						<button name="action_confirm" type="object" string="Confirm" 
+						class="oe_highlight"/>
+						<button string="Cancel" class="oe_link" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+		<record id="action_return_date" model="ir.actions.act_window">
+			<field name="name">Return Date</field>
+			<field name="res_model">return.date</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="wizard_return_date" />
+			<field name="target">new</field>
+		</record>
+	</data>
+</odoo>

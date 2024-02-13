@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="reference_letter_bank_form" model="ir.ui.view">
+        <field name="name">reference.letter.bank.form</field>
+        <field name="model">reference.letter.bank</field>
+        <field name="arch" type="xml">
+            <form string="Reference Letter For Bank Form">
+                <header>
+                    <button name="print_document_one" type="object" string="Print Document One" class="oe_highlight"/>
+                    <button name="print_document_two" type="object" string="Print Document Two" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="ref_no"/>
+                            <field name="employee_id"/>
+                            <field name="bank_name_ar"/>
+                            <field name="since_date" />
+                            <field name="file_1" filename="file_name_1" readonly="1"/>
+                            <field name="file_2" filename="file_name_2" readonly="1"/>
+                            <field name="file_name_1" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="document_date"/>
+                            <field name="date_ar" />
+                            <field name="basic_salary"/>
+                            <field name="housing_allowance" />
+                            <field name="trans_allowance" />
+                            <field name="total_salary" />
+                            <field name="file_name_2" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="reference_letter_bank_tree" model="ir.ui.view">
+        <field name="name">reference.letter.bank.tree</field>
+        <field name="model">reference.letter.bank</field>
+        <field name="arch" type="xml">
+            <tree string="Reference Letter For Bank Tree">
+                <field name="ref_no"/>
+                <field name="document_date"/>
+                <field name="basic_salary"/>
+                <field name="housing_allowance"/>
+                <field name="trans_allowance"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="reference_letter_bank_action" model="ir.actions.act_window">
+        <field name="name">Reference Letter Form</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">reference.letter.bank</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+<!--    <menuitem id="ref_letter_bank_menu" name="Reference Letter For Bank" parent="hr_sf.hr_iqama_menu" action="reference_letter_bank_action" sequence="2" groups="hr.group_hr_manager,hr.group_hr_user"/>-->
+</odoo>

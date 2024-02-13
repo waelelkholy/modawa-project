@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_deduction_type,deduction.type,model_deduction_type,base.group_user,1,1,1,1
+access_payroll_deduction,payroll.deduction,model_payroll_deduction,base.group_user,1,1,1,1
+access_payroll_allowance,payroll.allowance,model_payroll_allowance,base.group_user,1,1,1,1
+access_allowance_type,allowance.type,model_allowance_type,base.group_user,1,1,1,1
+access_payslip_hr_manager_approve,hr.manager.approve,model_hr_manager_approve,base.group_user,1,1,1,1

@@ -1,0 +1,55 @@
+<odoo>
+  <data>
+   <record id="hr_policy_and_grading_form" model="ir.ui.view">
+       <field name="name">hr_policy_and_grading_form</field>
+       <field name="model">hr.policies</field>
+       <field name="arch" type="xml">
+           <form>
+               <sheet>
+                   <group>
+                       <field name="name"/>
+                   </group>
+                 <group>
+                   <group string="Gross Salary">
+                     <field name="max_salary"/>
+                     <field name="min_salary"/>
+                   </group>
+                   <group string="Working Days">
+                     <field name="sick_leave"/>
+                     <field name="marriage_leave"/>
+                     <field name="paternity_leave"/>
+                     <field name="death_leave"/>
+                     <field name="paid_maternity_leave"/>
+                     <field name="unpaid_maternity_leave"/>
+                     <field name="muslim_widow"/>
+                     <field name="non_muslim_widow"/>
+                     <field name="exams"/>
+                     <field name="hajj"/>
+                     <field name="annual"/>
+                   </group>
+                   <group string="Medical Insurance Class">
+                     <field name="insurance_class"/>
+                   </group>
+                   <group string="Ticket Expats">
+                     <field name="air_ticket"/>
+                     <field name="class_air_ticket"/>
+                   </group>
+                   <group>
+                     <field name="re_entry_for_annual_vacation"/>
+                     <field name="notice_period"/>
+                     <field name="schooling_assistance"/>
+                   </group>
+                 </group>
+               </sheet>
+           </form>
+       </field>
+   </record>
+    <record id="hr_policies_action" model="ir.actions.act_window">
+        <field name="name">Level</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.policies</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+<!--     <menuitem id="level_menu_item" name="Level" action="hr_ext.hr_policies_action" parent="hr.menu_human_resources_configuration" sequence="18"/>
+ -->  </data>
+</odoo>

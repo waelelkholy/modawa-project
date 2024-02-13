@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="view_provision_close_confirm_form" model="ir.ui.view">
+		<field name="name">provision.close.confirm.form</field>
+		<field name="model">provision.close.confirm</field>
+		<field name="arch" type="xml">
+			<form>
+				<group>
+					<field name="provision_close_id" readonly="1" invisible="1"/>
+					<lable name="">It's Partially Paid, Are you sure you want to Close ?</lable>
+				</group>
+				<footer>
+					<button name="action_confirm" type="object" string="Confirm" class="oe_highlight"/>
+					<button string="Cancel" class="oe_link" special="cancel" />
+				</footer>
+			</form>
+		</field>
+	</record>
+	
+	<record id="action_provision_create" model="ir.actions.act_window">
+		<field name="name">Provision Confirm</field>
+		<field name="res_model">provision.close.confirm</field>
+		<field name="view_mode">form</field>
+		<field name="view_id" ref="view_provision_close_confirm_form" />
+		<field name="target">new</field>
+	</record>
+	
+</odoo>

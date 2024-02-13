@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="view_provision_rule_tree" model="ir.ui.view">
+		<field name="name">provision.rule.tree</field>
+		<field name="model">provision.rule</field>
+		<field name="arch" type="xml">
+			<tree string="Provision Rule" create="0" delete="0">
+				<field name="name" />
+			</tree>
+		</field>
+	</record>
+	<record id="view_provision_rule_form" model="ir.ui.view">
+		<field name="name">provision.rule.form</field>
+		<field name="model">provision.rule</field>
+		<field name="arch" type="xml">
+			<form string="Provision Rule" create="0" delete="0" edit="0">
+				<sheet>
+					<widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+					<widget name="web_ribbon" title="Active" bg_color="bg-success" attrs="{'invisible': [('active', '!=', True)]}"/>
+					<div class="oe_title">
+						<h1>
+							<field name="name" required="1" />
+						</h1>
+						<field name="active" invisible="1"/>
+					</div>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	<record id="action_provision_rule" model="ir.actions.act_window">
+		<field name="name">Provision Rule</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">provision.rule</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<menuitem id="menu_provision_accounting_rule" name="Provision Rule" sequence="3" groups="base.group_no_one" parent="provision_accouting.menu_provision_accounting" action="provision_accouting.action_provision_rule" />
+</odoo>

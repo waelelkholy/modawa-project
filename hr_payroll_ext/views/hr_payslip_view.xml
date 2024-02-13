@@ -1,0 +1,163 @@
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="hr_payroll_form_inherit" model="ir.ui.view">
+            <field name="name">hr_payroll_form_inherit</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+            <field name="arch" type="xml">
+                <!--                <xpath expr="//field[@name='employee_id']" position="attributes">-->
+                <!--                    <attribute name="domain">['&amp;',('employee_type','=','internal'),'|', ('company_id', '=', False), ('company_id', '=', company_id)]</attribute>-->
+                <!--                </xpath>-->
+                <xpath expr="//header" position="inside">
+                    <button name="hr_approved" string="Hr Approved" type="object" states="hr" class="oe_highlight" groups="hr.group_hr_manager"/>
+                </xpath>
+                <xpath expr="//button[@name='action_payslip_done']" position="attributes">
+                    <attribute name="groups">account.group_account_user</attribute>
+                </xpath>
+                <xpath expr="//field[@name='worked_days_line_ids']" position="before">
+                    <group>
+                        <group>
+                            <field name="computed_salary" groups="hr_payroll.group_hr_payroll_employee_manager"/>
+<!--                            <field name="salary_days_count" groups="hr_payroll.group_hr_payroll_manager"/>-->
+                            <field name="unpaid_leaves"/>
+                            <field name="over_time"/>
+                            <field name="actually_over_time"/>
+                            <field name="overtime_amount" />
+                            <field name="per_day_cost"/>
+                            <field name="per_hour_cost"/>
+                            <field name="basic_salary_cost"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+         
+         <!-- Inherit Form View to Modify it  -->
+<!--        <record id="hr_payroll_run_form_inherit" model="ir.ui.view">-->
+<!--            <field name="name">hr_payroll_run_form_inherit</field>-->
+<!--            <field name="model">hr.payslip.run</field>-->
+<!--            <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//button[@name='action_draft']" position="replace"/>-->
+<!--            </field>-->
+<!--        </record>-->
+
+<!--        <record id="hr_payslip_run_view_form_extend" model="ir.ui.view">-->
+<!--            <field name="name">hr_payroll_run_form_inherit</field>-->
+<!--            <field name="model">hr.payslip.run</field>-->
+<!--            <field name="inherit_id" ref="om_hr_payroll_account.hr_payslip_run_view_form"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <button name="action_validate" position="replace">-->
+<!--                    <field name="is_payslip_approve" invisible="1"/>-->
+<!--                    <button name="action_validate" type="object" string="Create Draft Entry" attrs="{'invisible': [('is_payslip_approve', '=', False)]}" class="oe_highlight" confirm="Are you sure you want to proceed ?" context="{'payslip_generate_pdf': True}"/>-->
+<!--                </button>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <!-- Inherit Form View to Modify it -->
+        <!--        <record id="time_off_form_inherit" model="ir.ui.view">-->
+        <!--            <field name="name">time_off_form_inherit</field>-->
+        <!--            <field name="model">hr.leave</field>-->
+        <!--            <field name="inherit_id" ref="hr_holidays.hr_leave_view_form_manager"/>-->
+        <!--            <field name="arch" type="xml">-->
+
+        <!--                <xpath expr="//field[@name='employee_id']" position="attributes">-->
+        <!--                    <attribute name="domain">[('employee_type','=','internal')]</attribute>-->
+        <!--                </xpath>-->
+
+        <!--            </field>-->
+        <!--        </record>-->
+        <!-- Inherit Form View to Modify it -->
+<!--         <record id="view_hr_payslip_by_employees_ext" model="ir.ui.view">
+            <field name="name">view_hr_payslip_by_employees_ext</field>
+            <field name="model">hr.payslip.employees</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_by_employees"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='structure_id']" position="after">
+                    <group>
+                        <field name="options" widget="radio" options="{'horizontal': true}"/>
+                        <field name="department_id" attrs="{'invisible':[('options','!=','dept')]}"/>
+                        <field name="emp_type" widget="radio" options="{'horizontal': true}"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+ -->
+        <!-- make structure id file mandetory -->
+<!--        <record id="view_hr_payslip_by_employees_ext" model="ir.ui.view">-->
+<!--            <field name="name">view_hr_payslip_by_employees_ext</field>-->
+<!--            <field name="model">hr.payslip.employees</field>-->
+<!--            <field name="inherit_id" ref="om_hr_payroll.view_hr_payslip_by_employees"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <field name="structure_id" position="attributes">-->
+<!--                    <attribute name="required">1</attribute>-->
+<!--                </field>-->
+<!--            </field>-->
+<!--        </record>-->
+
+<!--        <record id="payroll_hr_approve_view" model="ir.ui.view">-->
+<!--            <field name="name">payroll_hr_approve_view</field>-->
+<!--            <field name="model">hr.manager.approve</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <form string="Marking Time Sheet Entry Manager Approve or Disapprove">-->
+<!--                    <p class="oe_grey">-->
+<!--                        Marking payslip entry hr Manager Approve-->
+<!--                    </p>-->
+<!--                    <footer>-->
+<!--                        <button string="Mark As Hr Manager Approve" name="mark_manager_approve" type="object" default_focus="1"-->
+<!--                                class="btn-primary"/>-->
+<!--                        <button string="Cancel" class="btn-secondary" special="cancel"/>-->
+<!--                    </footer>-->
+<!--                </form>-->
+<!--            </field>-->
+<!--        </record>-->
+
+<!--        <record id="action_payroll_hr_Approve" model="ir.actions.act_window">-->
+<!--            <field name="name">Hr Approve Payslip</field>-->
+<!--            <field name="type">ir.actions.act_window</field>-->
+<!--            <field name="res_model">hr.manager.approve</field>-->
+<!--            <field name="view_mode">form</field>-->
+<!--            <field name="view_id" ref="payroll_hr_approve_view"/>-->
+<!--            <field name="context">{}</field>-->
+<!--            <field name="target">new</field>-->
+<!--            <field name="binding_model_id" ref="hr_payroll.model_hr_payslip"/>-->
+<!--            <field name="binding_view_types">list</field>-->
+<!--        </record>-->
+
+<!--        <record id="hr_salary_rule_view_form_extend" model="ir.ui.view">-->
+<!--            <field name="name">hr_salary_rule_form_inherit</field>-->
+<!--            <field name="model">hr.salary.rule</field>-->
+<!--            <field name="inherit_id" ref="om_hr_payroll.hr_salary_rule_form"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//form/sheet/h1[1]" position="after">-->
+<!--                    <label for="arbic_name" string="Arbic Rule Name"/>-->
+<!--                    <h1><field name="arbic_name" placeholder="Arbic Name"/></h1>-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
+
+    <!-- inherit to disable grant view here-->
+<!--    <record id="hr_payroll_holidays.hr_leave_work_entry_action" model="ir.actions.act_window">-->
+<!--        <field name="name">Time Off</field>-->
+<!--        <field name="res_model">hr.leave</field>-->
+<!--        <field name="view_mode">tree,kanban,form,calendar,activity</field>-->
+<!--    </record>    -->
+
+    <!-- make draft entry Server Action-->
+<!--    <record model="ir.actions.server" id="action_draft_payslip">-->
+<!--        <field name="name">Reset To Draft</field>-->
+<!--        <field name="model_id" ref="om_hr_payroll.model_hr_payslip"/>-->
+<!--        <field name="binding_model_id" ref="om_hr_payroll.model_hr_payslip"/>-->
+<!--        <field name="binding_view_types">list</field>-->
+<!--        <field name="state">code</field>-->
+<!--        <field name="code">-->
+<!--        if records:-->
+<!--            for data in records:-->
+<!--                data.action_payslip_draft()-->
+<!--        </field>-->
+<!--    </record>-->
+
+
+    </data>
+</odoo>

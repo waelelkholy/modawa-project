@@ -1,0 +1,91 @@
+<odoo>
+    <data>
+        <!-- inherit list view for adding custom need on it -->
+        <record id="hr_leave_view_tree_extend" model="ir.ui.view">
+            <field name="name">hr_holiday_form_ext</field>
+            <field name="model">hr.leave</field>
+            <field name="inherit_id" ref="hr_holidays.hr_leave_view_tree"/>
+            <field name="arch" type="xml">
+                <button name="action_approve" position="replace">
+                    <button string="Approve" name="action_approve" type="object" icon="fa-thumbs-up" states="confirm" groups="hr_holidays.group_hr_holidays_user"/>
+                </button>
+                <button name="action_validate" position="replace">
+                    <button string="Validate" name="action_validate" type="object" icon="fa-check" states="validate1"  groups="hr_holidays.group_hr_holidays_manager"/>
+                </button>
+            </field>
+        </record>
+
+
+        <record id="hr_holiday_form_ext" model="ir.ui.view">
+            <field name="name">hr_holiday_form_ext</field>
+            <field name="model">hr.leave</field>
+            <field name="inherit_id" ref="hr_holidays.hr_leave_view_form"/>
+            <field name="arch" type="xml">
+                <button name="action_approve" position="replace">
+                    <button string="Approve" name="action_approve" type="object" class="oe_highlight" attrs="{'invisible': ['|', ('can_approve', '=', False), ('state', '!=', 'confirm')]}" groups="hr_holidays.group_hr_holidays_user"/>
+                </button>
+<!--                <field name="holiday_type" position="replace">-->
+<!--                    <field name="holiday_type" string="Mode" groups="hr_holidays.group_hr_holidays_manager"/>-->
+<!--                </field>-->
+            </field>
+        </record>
+
+        <record id="hr_holiday_form_ext" model="ir.ui.view">
+            <field name="name">hr_holiday_form_ext</field>
+            <field name="model">hr.leave</field>
+            <field name="inherit_id" ref="hr_holidays.hr_leave_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="is_readoly" invisible="1"/>
+                    <field name="include_holidays" readonly="1" force_save="1"/>
+                    <!-- attrs="{'readonly': [('is_readoly', '=', True)]}" -->
+                    <!-- <field name="old_employee_no" invisible="1" string="Old Employee Number"/> -->
+                    <!-- <field name="x_employee_code" invisible="1"/> -->
+                </xpath>
+                <button name="action_refuse" position="replace">
+                    <button string="Refuse" name="action_refuse" type="object" attrs="{'invisible': ['|', ('can_approve', '=', False), ('state', 'not in', ('confirm','validate1','validate'))]}" groups="hr_holidays.group_hr_holidays_manager" confirm="Are you Sure to Refuse it ...?" />
+                </button>
+                <button name="action_confirm" position="replace">
+                    <button string="Confirm" name="action_confirm" states="draft" type="object" class="oe_highlight" confirm="Are you Sure to Confirm it ...?"/>
+                </button>
+                <button name="action_approve" position="replace">
+                    <button string="Approve" name="action_approve" type="object" class="oe_highlight" attrs="{'invisible': ['|', ('can_approve', '=', False), ('state', '!=', 'confirm')]}" confirm="Are you Sure to Approve it ...?"/>
+                </button>
+            </field>
+        </record>
+        <record id="hr_holiday_allocation_form_ext" model="ir.ui.view">
+            <field name="name">hr_holiday_allocation_form_ext</field>
+            <field name="model">hr.leave.allocation</field>
+            <field name="inherit_id" ref="hr_holidays.hr_leave_allocation_view_form_manager"/>
+            <field name="arch" type="xml">
+<!--                 <xpath expr="//field[@name='employee_id']" position="after">
+                    <field name="x_employee_code" invisible="1"/>
+                </xpath>
+ -->                <button name="action_validate" position="replace">
+                    <button string="Validate" name="action_validate" states="confirm" type="object" class="oe_highlight" confirm="Are you Sure to Confirm it ...?"/>
+                </button>
+                <button name="action_refuse" position="replace">
+                    <button string="Refuse" name="action_refuse" type="object"
+                    attrs="{'invisible': ['|', ('can_approve', '=', False), ('state', 'not in', ('confirm','validate'))]}" confirm="Are you Sure to Refuse it ...?" />
+                </button>
+            </field>
+        </record>
+        <record id="hr_holiday_type_form_ext" model="ir.ui.view">
+            <field name="name">hr_holiday_type_form_ext</field>
+            <field name="model">hr.leave.type</field>
+            <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='request_unit']" position="after">
+                    <field name="include_holidays"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+
+    <!-- menu access to overriden -->
+    <record model="ir.ui.menu" id="hr_holidays.menu_hr_holidays_root">
+        <field name="name">Time Off</field>
+        <field name="groups_id" eval="[(4, ref('hr_ext.group_hr_holidays_custom_user')),(4, ref('hr_holidays.group_hr_holidays_user')),(4, ref('hr_holidays.group_hr_holidays_manager'))]"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- adding custom filed as needed-->
+    <record id="hr_work_entry_regeneration_wizard_extended" model="ir.ui.view">
+        <field name="name">hr.work.entry.regeneration.wizard.form</field>
+        <field name="model">hr.work.entry.regeneration.wizard</field>
+        <field name="inherit_id" ref="hr_work_entry_contract.hr_work_entry_regeneration_wizard"/>
+        <field name="arch" type="xml">
+            <!-- <field name="employee_id" position="replace"/> -->
+            <field name="employee_id" position="after">
+                <field name="work_entry_type" widget="radio" options="{'horizontal': true}"/>
+                <field name="department_id" attrs="{'invisible': [('work_entry_type', '!=', 'by_department')], 'required' : [('work_entry_type', '=', 'by_department')]}"/>
+                <field name="employee_ids" context="{'is_work_entry' : True}" widget="many2many_tags"/>
+            </field>
+            <field name="employee_id" position="replace">
+                <field name="employee_id" invisible="1"/>
+            </field>
+            <button name="regenerate_work_entries" position="replace">
+                <button name="regenerate_work_entries" string="Regenerate Work Entries" data-hotkey="q" type="object" class="oe_highlight" attrs="{'invisible': [('employee_ids', '=', [])]}"/>
+                <!-- attrs="{'invisible': ['|', ('search_criteria_completed', '=', False), ('valid', '=', False)]}" -->
+            </button>
+            <button name="regenerate_work_entries_disabled" position="replace">
+                <button name="regenerate_work_entries_disabled" string="Cancel" special="cancel" class="btn-secondary" />
+            </button>
+        </field>
+    </record>
+</odoo>

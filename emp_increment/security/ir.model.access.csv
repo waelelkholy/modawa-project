@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_emp_increment,emp.increment,model_emp_increment,emp_increment.group_increment_hr,1,1,1,1
+access_old_monthly_advantages,old.monthly.advantages,model_old_monthly_advantages,,1,1,1,1
+access_new_monthly_advantages,new.monthly.advantages,model_new_monthly_advantages,,1,1,1,1
+access_reject_reason,access_reject_reason,model_reject_reason,,1,1,1,1
+access_emp_increment_manager,access_emp_increment_manager,model_emp_increment,emp_increment.group_increment_manager,1,1,1,1

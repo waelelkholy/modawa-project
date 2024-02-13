@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="document_expiry_channel" model="mail.channel">
+            <field name="channel_type">channel</field>
+            <field name="name">Document Expiry</field>
+            <field name="public">groups</field>
+            <field name="group_public_id" ref="hr.group_hr_manager"/>
+            <field name="group_ids" eval="[(6, 0, [ ref('hr.group_hr_manager')])]"/>
+        </record>
+    </data>
+</odoo>

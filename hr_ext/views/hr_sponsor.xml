@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <!-- assettype form view-->
+        <record model="ir.ui.view" id="hr_sponsor_action_form">
+            <field name="name">hr.sponsor.form</field>
+            <field name="model">hr.sponsor</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Document Type" >
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="sponsor_id"/>
+                            <field name="Phone"/>
+                            <field name="email"/>
+                            <!-- <field name="establ_labor_off_no"/> -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View -->
+        <record model="ir.ui.view" id="hr_sponsor_action_tree">
+            <field name="name">hr.sponsor.tree</field>
+            <field name="model">hr.sponsor</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="sponsor_id"/>
+                            <field name="Phone"/>
+                            <field name="email"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="hr_sponsor_action">
+            <field name="name">Sponsors</field>
+            <field name="res_model">hr.sponsor</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+                id="hr_menu_sponsor"
+                action="hr_sponsor_action"
+                parent="hr.menu_human_resources_configuration"
+                sequence="7"/>
+    </data>
+</odoo>

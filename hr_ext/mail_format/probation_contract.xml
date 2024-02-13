@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="send_probation_contract_template" model="mail.template">
+        <field name="name">probation contract About to end</field>
+        <field name="email_from">${(user.login and '%s &lt;%s&gt;' % (user.name,
+        user.partner_id.email) or '')|safe}
+        </field>
+        <field name="subject">contract about to end  ${object.employee_id.name}</field>
+        <field name="email_to">${object.to_mails|safe}</field>
+        <field name="model_id" ref="hr_contract.model_hr_contract"/>
+        <field name="auto_delete" eval="True"/>
+        <field name="body_html">
+            <![CDATA[
+
+
+
+ <div style="padding:0px;width:600px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777">
+
+                                </div>
+                                <div style="padding:0px;width: 600px; margin: auto; background-image: initial; background-position: center top; background-size: 100%; background-repeat: repeat; background-attachment: initial; background-origin: initial; background-clip: initial;">
+                                    <p style="background-color:rgb(255, 255, 255);font-size: 13px; font-family: &quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; margin: 0px 0px 9px;"><b style="font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;color: rgb(119, 119, 119);"><i><font style="font-size:18px;">Dear</font></i></b><b style="font-style:initial;font-variant-ligatures: initial; font-variant-caps: initial; color: rgb(119, 119, 119);"><i><font style="font-size:18px;">,</font></i></b></p><p style="background-color:rgb(255, 255, 255);font-size: 13px; font-family: &quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; margin: 0px 0px 9px;"><b style="font-style:initial;font-variant-ligatures: initial; font-variant-caps: initial; color: rgb(119, 119, 119);"><i><font style="font-size:18px;"><br></font></i></b></p><p style="background-color:rgb(255, 255, 255);margin: 0px 0px 0.14in; line-height: 115%;"><span style="font-size:14px;">The contract&nbsp; for&nbsp;<b>${object.employee_id.name} </b>about to end for probation period.</span><br><br><span style="color:rgb(119, 119, 119);font-style: initial; font-variant-ligatures: initial; font-variant-caps: initial; font-weight: initial;">Thanks&nbsp;</span><br></p><p style="background-color:rgb(255, 255, 255);margin: 0px 0px 0.14in; line-height: 115%;"><br></p><p style="background-color:rgb(255, 255, 255);margin: 0px 0px 0.14in; line-height: 115%;"><br></p><div style="background:center top / 100% repeat rgb(255, 255, 255);color: rgb(119, 119, 119); padding: 0px; width: 600px; margin: 10px auto auto;"><p style="font-
+                                 family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;font-size: 11px;
+                                 margin-top: 10px;"><strong>Sent by ${user.company_id.name}
+
+                            </strong></p></div></div><style type="text/css"> 		@page { margin: 0.79in } 	 	p { margin-bottom: 0.1in; direction: ltr; line-height: 120%; text-align: left; orphans: 2; 	 		widows: 2 } 	</style>
+
+
+
+
+
+
+         ]]>
+        </field>
+    </record>
+
+</odoo>

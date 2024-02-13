@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--Loan Tree view-->
+    <record id="loan_type_tree_view" model="ir.ui.view">
+        <field name="name">loan.type.tree</field>
+        <field name="model">loan.type</field>
+        <field name="arch" type="xml">
+            <tree string="Loan Type">
+                <field name="name"/>
+                <field name="max_loan_amount_percentage"/>
+                <field name="max_deduction"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Loan Form view-->
+    <record id="loan_type_form_view" model="ir.ui.view">
+        <field name="name">loan.type.form</field>
+        <field name="model">loan.type</field>
+        <field name="arch" type="xml">
+            <form string="Loan Type">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="max_loan_amount_percentage"/>
+                            <field name="max_deduction"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--loan search view-->
+    <record id="view_loan_type_search_form" model="ir.ui.view">
+        <field name="name">loan.type.search.form</field>
+        <field name="model">loan.type</field>
+        <field name="arch" type="xml">
+           <search string="Loan Type">
+                <field name="name"/>
+                <group expand="0" string="Group By">
+                    <filter string="Loan Type" name="Loan_type" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hr_loan_type" model="ir.actions.act_window">
+        <field name="name">Loan Type</field>
+        <field name="res_model">loan.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_loan_type_search_form"/>
+    </record>
+
+    <menuitem name="Loan Type"
+        parent="emp_loan.menu_base_hr_loan_request"
+        id="menu_hr_loan_type"
+        groups="emp_loan.loan_emp_manager,emp_loan.loan_ceo"
+        action="action_hr_loan_type"/>
+
+
+</odoo>

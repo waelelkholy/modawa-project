@@ -1,0 +1,4 @@
+python-docx
+docx-mailmerge
+num2words
+html2text

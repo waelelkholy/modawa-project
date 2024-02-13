@@ -1,0 +1,353 @@
+<odoo>
+    <data>
+        <template id="internal_layout_employee_increment">
+            <div class="header"/>
+            <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+                <t t-raw="0"/>
+            </div>
+            <div class="footer">
+                <div style="width:100%;font-size:10px;text-align:center;">
+                    <span>Hassan Bin Ali Street, Ar Rawdah – P.O. Box 101911 Riyadh, 11665 – KSA | T: 011 492 2288 – F: 011 497 2459 | CR# 1010191178</span>
+                </div>
+            </div>
+        </template>
+
+        <template id="employee_increment_template">
+            <t t-call="web.html_container">
+                <t t-call="emp_increment.internal_layout_employee_increment">
+                    <t t-foreach="docs" t-as="o">
+                        <style type="text/css">
+                            @font-face {
+                            font-family: 'Amiri-Regular';
+                            font-style: bold;
+                            font-weight: 1200;
+                            src:url(/emp_increment/static/src/fonts/Amiri/Amiri-Regular.ttf) format('truetype');
+                            }
+                        </style>
+                        <style>
+                            table.border {
+                            width: 100%;
+                            border-collapse: collapse;
+                            }
+                            table.border, table.border th, table.border td{
+                            border: 1px solid gray;
+                            padding: 3px;
+                            }
+                            table{
+                            width: 100%;
+                            border-collapse: collapse;
+                            }
+                            table, table th, table td{
+                            padding: 3px;
+                            }
+                        </style>
+                        <div class="page">
+                            <div>
+                                <table style="border: hidden">
+                                    <tr>
+                                        <td style="width:32%"/>
+                                        <td style="width:36%; border: hidden">
+                                            <table class="border">
+                                                <tr>
+                                                    <th class="text-center" style="font-size:20px; font-family:'Amiri-Regular'"><strong><b>نموذج زيادة راتب</b></strong></th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="text-center" style="font-size:18px; background-color: #c4ced9"><strong><b>Increment Form</b></strong></th>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td style="width:32%"/>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div>
+                                <table class="border">
+                                    <tr>
+                                        <th style="background-color: #c4ced9; width:25%">Name</th>
+                                        <td colspan="2" class="text-center" style="width:50%"><span t-esc="o.employee_id.name"/></td>
+                                        <th class="text-right" style="background-color: #c4ced9; width:25%; font-family:'Amiri-Regular'">الإسم</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #c4ced9;">ID/Iqama No.</th>
+                                        <td colspan="2" class="text-center"><span t-esc="o.employee_id.iqama_no"/></td>
+                                        <th class="text-right" style="background-color: #c4ced9; font-family:'Amiri-Regular'">رقم الهوية/الإقامة</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #c4ced9;">Request Date</th>
+                                        <td colspan="2" class="text-center"><span t-esc="o.effective_date"/></td>
+                                        <th class="text-right" style="background-color: #c4ced9; font-family:'Amiri-Regular'">تاريخ الطلب</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #c4ced9;">Joining Date</th>
+                                        <td colspan="2" class="text-center"><span t-esc="o.date_of_join"/></td>
+                                        <th class="text-right" style="background-color: #c4ced9; font-family:'Amiri-Regular'">تاريخ المباشرة</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #c4ced9;">Dept.</th>
+                                        <td colspan="2" class="text-center"><span t-esc="o.department_id.name"/></td>
+                                        <th class="text-right" style="background-color: #c4ced9; font-family:'Amiri-Regular'">الادارة</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #c4ced9;">Job Title</th>
+                                        <td colspan="2" class="text-center"></td>
+                                        <th class="text-right" style="background-color: #c4ced9; font-family:'Amiri-Regular'">الوظيفة</th>
+                                    </tr>
+                                </table>
+                                <table style="border: 1px solid gray; border-top: hidden;">
+                                    <tr>
+                                        <th style="width:30%;">
+                                            <span>The rate of  increment in salary is</span>
+                                        </th>
+                                        <td style="width:20%; border-right:1px solid gray">
+                                            <span>(SAR)</span>
+                                        </td>
+                                        <td class="text-right" style="width:20%">
+                                            <span style="font-family:'Amiri-Regular'">(ريال سعودي)</span>
+                                        </td>
+                                        <th class="text-right" style="width:30%">
+                                            <span style="font-family:'Amiri-Regular'">: معدل الزيادة على الراتب</span>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2" style="border-right; border-right:1px solid gray">
+                                            <span>increment Type:</span>
+                                        </th>
+                                        <th colspan="2" class="text-right">
+                                            <span style="font-family:'Amiri-Regular'">: نوع الزيادة</span>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2" style="border-right:1px solid gray">
+                                            <span style="margin-left:5px;">&#9744;</span>
+                                            <span>Increment for the first time:</span>
+                                        </th>
+                                        <th colspan="2" class="text-right">
+                                            <span style="font-family:'Amiri-Regular'">زيادة لأول مرة</span>
+                                            <span style="margin-right:5px;">&#9744;</span>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <span style="margin-left:5px;">&#9744;</span>
+                                            <span>Promotion</span>
+                                        </th>
+                                        <th style="border-right:1px solid gray">
+                                            <span style="margin-left:5px;">&#9744;</span>
+                                            <span>Other</span>
+                                        </th>
+                                        <th class="text-right">
+                                            <span style="font-family:'Amiri-Regular'">أخرى</span>
+                                            <span style="margin-right:5px;">&#9744;</span>
+                                        </th>
+                                        <th class="text-right">
+                                            <span style="font-family:'Amiri-Regular'">ترقية</span>
+                                            <span style="margin-right:5px;">&#9744;</span>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <span>Increment due date:</span>
+                                        </th>
+                                        <th style="border-right:1px solid gray">
+                                            <span></span>
+                                        </th>
+                                        <th class="text-right">
+                                            <span style="font-family:'Amiri-Regular'"></span>
+                                        </th>
+                                        <th class="text-right">
+                                            <span style="font-family:'Amiri-Regular'">: تاريخ استحقاق الزيادة</span>
+                                        </th>
+                                    </tr>
+                                </table>
+                                <table class="border" style="border-top: hidden">
+                                    <tr>
+                                        <th colspan="4" class="text-center" style="background-color: #c4ced9;">
+                                            <span>Human Resources use only</span>
+                                            <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+                                            <span style="font-family:'Amiri-Regular'">خــــــاص بالموارد البشرية</span>
+                                        </th>
+                                    </tr>
+                                </table>
+                                <div class="row" style="width:100%">
+                                    <div style="width:1.8%;"/>
+                                    <div style="width:50.2%;">
+                                        <table class="border" style="border-top: hidden">
+                                            <tr class="text-center" style="border-right: hidden">
+                                                <th style="width:25%"/>
+                                                <th style="width:25%">
+                                                    <span style="font-family:'Amiri-Regular'">المرشح لها</span>
+                                                    <br/>
+                                                    <span>Proposed</span>
+                                                </th>
+                                            </tr>
+                                            <tr style="border-right: hidden">
+                                                <th>
+                                                    <span>Basic Salary</span>
+                                                </th>
+                                                <th class="text-right"><span t-esc="'{0:,.2f}'.format(o.new_basic_salary)"/></th>
+                                            </tr>
+                                            <tr t-foreach="o.new_monthly_advantages_ids" t-as="new_line" style="border-right: hidden">
+                                                <th>
+                                                    <span t-field="new_line.new_allowance_id.name"/>
+                                                </th>
+                                                <th class="text-right">
+                                                    <span t-esc="'{0:,.2f}'.format(new_line.new_amount)"/>
+                                                </th>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div style="width:49.9%;">
+                                        <table class="border" style="border-top: hidden">
+                                            <tr class="text-center">
+                                                <th style="width:25%">
+                                                    <span style="font-family:'Amiri-Regular'">الحالية</span>
+                                                    <br/>
+                                                    <span>Current</span>
+                                                </th>
+                                                <th style="width:25%"/>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-right"><span t-esc="'{0:,.2f}'.format(o.old_basic_salary)"/></th>
+                                                <th class="text-right">
+                                                    <span style="font-family:'Amiri-Regular'">الراتب الاساسي</span>
+                                                </th>
+                                            </tr>
+                                            <tr t-foreach="o.old_monthly_advantages_ids" t-as="old_line">
+                                                <th class="text-right">
+                                                    <span t-esc="'{0:,.2f}'.format(old_line.old_amount)"/>
+                                                </th>
+                                                <th class="text-right">
+                                                    <span style="font-family:'Amiri-Regular'"></span>
+                                                </th>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top:15px">
+                                <table style="border:1px solid gray">
+                                    <tr style="border-bottom:1px solid gray">
+                                        <th colspan="2" class="text-center" style="background-color: #c4ced9;">
+                                            <span>Approval of Managers</span>
+                                            <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+                                            <span style="font-family:'Amiri-Regular'">الاعتمادات</span>
+                                        </th>
+                                    </tr>
+                                    <tr style="border-right:1px solid gray">
+                                        <th style="width:50%">Remarks/Recommendations:</th>
+                                        <th class="text-right" style="width:50%; font-family:'Amiri-Regular'">: الملاحظات والمقترحات</th>
+                                    </tr>
+                                </table>
+                            </div>
+                            <table style="border:1px solid gray; border-top: hidden">
+                                <tr style="border-bottom:1px solid gray">
+                                    <th colspan="2" class="text-center" style="background-color: #c4ced9; border-right:1px solid gray">
+                                        <span>Direct Manager</span>
+                                    </th>
+                                    <th colspan="2" class="text-center" style="background-color: #c4ced9;">
+                                        <span style="font-family:'Amiri-Regular'">المدير المباشر</span>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td style="width:20%;">
+                                        <span>Name :</span>
+                                    </td>
+                                    <td style="width:30%; border-right:1px solid gray">
+                                        <span></span>
+                                    </td>
+                                    <td class="text-right" style="width:20%;">
+                                        <span style="font-family:'Amiri-Regular'"></span>
+                                    </td>
+                                    <td class="text-right" style="width:30%;">
+                                        <span style="font-family:'Amiri-Regular'">: الاسم</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Signature :</span>
+                                    </td>
+                                    <td style="border-right:1px solid gray">
+                                        <span></span>
+                                    </td>
+                                    <td class="text-right">
+                                        <span style="font-family:'Amiri-Regular'"></span>
+                                    </td>
+                                    <td class="text-right">
+                                        <span style="font-family:'Amiri-Regular'">: التوقــــيع</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Date :</span>
+                                    </td>
+                                    <td style="border-right:1px solid gray">
+                                        <span></span>
+                                    </td>
+                                    <td class="text-right">
+                                        <span style="font-family:'Amiri-Regular'"></span>
+                                    </td>
+                                    <td class="text-right">
+                                        <span style="font-family:'Amiri-Regular'">: التاريخ</span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table style="border:1px solid gray; border-top:hidden">
+                                <tr style="border-bottom:1px solid gray">
+                                    <th colspan="2" class="text-center" style="background-color: #c4ced9; border-right:1px solid gray">
+                                        <span>General Manager</span>
+                                    </th>
+                                    <th colspan="2" class="text-center" style="background-color: #c4ced9;">
+                                        <span style="font-family:'Amiri-Regular'">المدير العام</span>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td style="width:20%;">
+                                        <span>Name :</span>
+                                    </td>
+                                    <td style="width:30%; border-right:1px solid gray">
+                                        <span></span>
+                                    </td>
+                                    <td class="text-right" style="width:20%;">
+                                        <span style="font-family:'Amiri-Regular'"></span>
+                                    </td>
+                                    <td class="text-right" style="width:30%;">
+                                        <span style="font-family:'Amiri-Regular'">: الاسم</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Signature :</span>
+                                    </td>
+                                    <td style="border-right:1px solid gray">
+                                        <span></span>
+                                    </td>
+                                    <td class="text-right">
+                                        <span style="font-family:'Amiri-Regular'"></span>
+                                    </td>
+                                    <td class="text-right">
+                                        <span style="font-family:'Amiri-Regular'">: التوقــــيع</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Date :</span>
+                                    </td>
+                                    <td style="border-right:1px solid gray">
+                                        <span></span>
+                                    </td>
+                                    <td class="text-right">
+                                        <span style="font-family:'Amiri-Regular'"></span>
+                                    </td>
+                                    <td class="text-right">
+                                        <span style="font-family:'Amiri-Regular'">: التاريخ</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

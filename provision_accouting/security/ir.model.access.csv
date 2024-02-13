@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_provision_rule,provision.rule,model_provision_rule,,1,1,1,1
+access_provision_configuration,provision.configuration,model_provision_configuration,,1,1,1,1
+access_account_provision,account.provision,model_account_provision,,1,1,1,1
+access_account_provision_line,account.provision.line,model_account_provision_line,,1,1,1,1
+access_eos_config,eos.config,model_eos_config,,1,1,1,1
+access_employee_provision_import,employee.provision.import,model_employee_provision_import,,1,1,1,1
+access_provision_create,provision.create,model_provision_create,,1,1,1,1
+access_provision_close,provision.close,model_provision_close,,1,1,1,1
+access_mass_provision_close,mass.provision.close,model_mass_provision_close,,1,1,1,1
+access_provision_close_confirm,provision.close.confirm,model_provision_close_confirm,,1,1,1,1

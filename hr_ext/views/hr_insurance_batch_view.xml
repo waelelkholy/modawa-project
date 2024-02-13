@@ -1,0 +1,78 @@
+<odoo>
+    <data>
+        <!-- form view-->
+       <record model="ir.ui.view" id="view_hr_insurance_batch_form">
+            <field name="name">hr.insurance.batch.form</field>
+            <field name="model">hr.insurance.batch</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Insurance Batches">
+                    <header>
+                        <button name="%(hr_ext.action_insurance_batch)d" type="action" states="draft" string="Generate Insurance" class="oe_highlight"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_open_insurance" class="oe_stat_button" icon="fa-book" type="object" help="Generated Payslips" attrs="{'invisible': [('state', '=', 'draft')]}">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">Insurance</span>
+                                 </div>
+                            </button>
+                        </div>
+                        <label for="name" string="Batch Name"/>
+                        <h1>
+                            <field name="name" placeholder="Insurance Batch  Year...." required="1"  attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <label for="start_date" string="Period"/>
+                                 <div class="o_row">
+                                       <field name="start_date" class="oe_inline" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/> - <field name="end_date" class="oe_inline" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                 </div>
+                             </group>
+                             <group>
+                                <field name="insurance_company_name" attrs="{'readonly': [('state', '!=', 'draft')]}" required="1"/>
+                                <field name="policy_number" attrs="{'readonly': [('state', '!=', 'draft')]}" required="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View -->
+        <record model="ir.ui.view" id="view_hr_insurance_batch_tree">
+            <field name="name">hr.insurance.batch.tree</field>
+            <field name="model">hr.insurance.batch</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="insurance_company_name"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record model="ir.actions.act_window" id="action_employee_insurance_batch">
+            <field name="name">Employee Insurance Batch</field>
+            <field name="res_model">hr.insurance.batch</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- menu item -->
+        <menuitem name="Employee Batch Insurance"
+                  id="hr_emp_insurance_batch"
+                  parent="hr.menu_hr_root"
+                  action="action_employee_insurance_batch"
+                  sequence="10"/>
+
+    </data>
+</odoo>

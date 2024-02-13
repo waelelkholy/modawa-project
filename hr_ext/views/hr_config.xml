@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Inherit Form View to Modify it -->
+    <record id="res_config_settings_inherit" model="ir.ui.view">
+        <field name="name">res_config_settings_inherit_form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="hr.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='employee_rights_setting_container']" position="after">
+<!--                 <div class="app_settings_block" data-string="Employees" string="Employees" data-key="hr" groups="hr.group_hr_manager">
+                    <t>
+ -->                        <h2>Notification Configuration For Probation Contract</h2>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <label for="notify_probation_emp_contract"/>
+                                    <div class="text-muted">
+                                        Default notification For probation contract
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="row mt16 ml4">
+                                            <field name="notify_probation_emp_contract"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <label for="email_probation"/>
+                                    <div class="text-muted">
+                                        Default Email For probation contract Email
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="row mt16 ml4">
+                                            <field name="email_probation"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2>Notification Configuration For Iqama Expiry</h2>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <label for="iqama_expiry_days"/>
+                                    <div class="text-muted">
+                                        Default notification For Iqama Expiry days before
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="row mt16 ml4">
+                                            <field name="iqama_expiry_days"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <label for="iqama_expiry_email"/>
+                                    <div class="text-muted">
+                                        Default Email For Iqama Expiry Email
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="row mt16 ml4">
+                                            <field name="iqama_expiry_email"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2>Notification Configuration For Passport Expiry</h2>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <label for="passport_expiry_days"/>
+                                    <div class="text-muted">
+                                        Default notification For Passport Expiry days before
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="row mt16 ml4">
+                                            <field name="passport_expiry_days"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <label for="passport_expiry_email"/>
+                                    <div class="text-muted">
+                                        Default Email For Passport Expiry Email
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="row mt16 ml4">
+                                            <field name="passport_expiry_email"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2>Notification Configuration For Insurance Expiry</h2>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <label for="insurance_expiry_days"/>
+                                    <div class="text-muted">
+                                        Default notification For Insurance Expiry days before
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="row mt16 ml4">
+                                            <field name="insurance_expiry_days"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <label for="insurance_expiry_email"/>
+                                    <div class="text-muted">
+                                        Default Email For Insurance Expiry Email
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="row mt16 ml4">
+                                            <field name="insurance_expiry_email"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2>Email Notification For Employee Contract Expiry</h2>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <label for="contract_expiry_days"/>
+                                    <div class="text-muted">
+                                        Default notification For Employee Contract Expiry days before
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="row mt16 ml4">
+                                            <field name="contract_expiry_days"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <label for="contract_expiry_email"/>
+                                    <div class="text-muted">
+                                        Default Email For Employee Contract Expiry Email
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="row mt16 ml4">
+                                            <field name="contract_expiry_email"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2>Notification Configuration For Resignation Expiry</h2>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <label for="resignation_expiry_days"/>
+                                    <div class="text-muted">
+                                        Default notification For Resignation Expiry days before
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="row mt16 ml4">
+                                            <field name="resignation_expiry_days"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <label for="resignation_expiry_email"/>
+                                    <div class="text-muted">
+                                        Default Email For Resignation Expiry Email
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="row mt16 ml4">
+                                            <field name="resignation_expiry_email"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+<!--                     </t>
+                </div>
+ -->            </xpath>
+
+        </field>
+    </record>
+</odoo>

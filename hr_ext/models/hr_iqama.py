@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import re
-from ummalqura.hijri_date import HijriDate
+# from ummalqura.hijri_date import HijriDate
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 
@@ -51,13 +51,13 @@ class HrIqama(models.Model):
             if i.issue_date or i.expiry_date:
                 i.get_arabic_dates()
 
-    @api.onchange('issue_date','expiry_date')
-    def get_arabic_dates(self):
-        """it convert dates into arabic and assign to fields"""
-        if self.issue_date:
-            self.issue_date_ar = 'هـ' + HijriDate.get_hijri_date(self.issue_date)
-        if self.expiry_date:
-            self.expiry_date_ar = 'هـ' + HijriDate.get_hijri_date(self.expiry_date)
+    # @api.onchange('issue_date','expiry_date')
+    # def get_arabic_dates(self):
+    #     """it convert dates into arabic and assign to fields"""
+    #     if self.issue_date:
+    #         self.issue_date_ar = 'هـ' + HijriDate.get_hijri_date(self.issue_date)
+    #     if self.expiry_date:
+    #         self.expiry_date_ar = 'هـ' + HijriDate.get_hijri_date(self.expiry_date)
 
 
     @api.depends('m_i_r', 'gov_pay', 'e_lic', 'other_payment')

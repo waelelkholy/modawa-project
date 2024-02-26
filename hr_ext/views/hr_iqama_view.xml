@@ -16,9 +16,9 @@
                             <field name="employee" domain="[('emp_iqama','=',False),('country_id.code','!=','SA')]"/>
                             <field name="department"/>
                             <field name="issue_date"/>
-                            <field name="issue_date_ar" readonly="1" force_save="1"/>
+<!--                            <field name="issue_date_ar" readonly="1" force_save="1"/>-->
                             <field name="expiry_date"/>
-                            <field name="expiry_date_ar" readonly="1" force_save="1"/>
+<!--                            <field name="expiry_date_ar" readonly="1" force_save="1"/>-->
                             <field name="date_of_birth"/>
                             <field name="Date_rec_gos"/>
                             <field name="job_pos"/>

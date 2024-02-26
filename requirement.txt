@@ -2,3 +2,4 @@ python-docx
 docx-mailmerge
 num2words
 html2text
+ummalqura==2.0.1

@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api,_
-from ummalqura.hijri_date import HijriDate
 from odoo.exceptions import UserError, ValidationError
 import os
 from num2words import num2words

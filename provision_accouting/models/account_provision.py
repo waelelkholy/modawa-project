@@ -106,7 +106,7 @@ class AccountProvisionLine(models.Model):
                     'name':'Debit',
                     'partner_id':parent_id.employee_id.address_home_id.id,
                     # 'employee_id':parent_id.employee_id.id,
-                    'analytic_account_id':parent_id.cost_center.id,
+                    # 'analytic_account_id':parent_id.cost_center.id,
                     'debit': round(self.value,2),
                 })
             if i==1:
@@ -115,7 +115,7 @@ class AccountProvisionLine(models.Model):
                     'name': 'Credit',
                     'partner_id':parent_id.employee_id.address_home_id.id,
                     # 'employee_id':parent_id.employee_id.id,
-                    'analytic_account_id':parent_id.cost_center.id,
+                    # 'analytic_account_id':parent_id.cost_center.id,
                     'credit': round(self.value,2),
                 })
         lines = [(0, 0, line_move) for line_move in move_lines]

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Inherit Form View to Modify it -->
+    <record id="mrp_production_form_ext" model="ir.ui.view">
+        <field name="name">mrp_production_form_ext</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="recipe_id" readonly="1"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

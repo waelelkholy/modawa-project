@@ -82,5 +82,7 @@ class SaleLineRecipe(models.Model):
     sale_line_id = fields.Many2one('sale.order.line')
     mo_id = fields.Many2one('mrp.production')
     attachment = fields.Binary()
+    state = fields.Selection([('draft', 'Draft'), ('approve', 'Approved')],default='draft')
 
-
+    def approve_recipe(self):
+        self.state = 'approve'

@@ -27,4 +27,52 @@
 
         </field>
     </record>
+    <record id="sale_line_recipe_view_form" model="ir.ui.view">
+        <field name="name">sale_line_recipe_view_form</field>
+        <field name="model">sale.line.recipe</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                        <button name="approve_recipe" type="object" string="Approved" attrs="{'invisible':[('state','=','approve')]}"/>
+                        <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="product_id"  attrs="{'readonly':[('state','=','approve')]}"/>
+                            <field name="sale_id" attrs="{'readonly':[('state','=','approve')]}"/>
+                            <field name="sale_line_id" attrs="{'readonly':[('state','=','approve')]}"/>
+                        </group>
+                        <group>
+                            <field name="mo_id" attrs="{'readonly':[('state','=','approve')]}"/>
+                            <field name="attachment" attrs="{'readonly':[('state','=','approve')]}"/>
+                        </group>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="sale_recipe_view_tree" model="ir.ui.view">
+        <field name="name">sale_recipe_view_tree</field>
+        <field name="model">sale.line.recipe</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="product_id"/>
+                <field name="sale_id"/>
+                <field name="sale_line_id"/>
+                <field name="mo_id"/>
+                <field name="attachment"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="action_view_recipe" model="ir.actions.act_window">
+        <field name="name">Recipe</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.line.recipe</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="sale_recipe_menuitem" name="Recipes" parent="sale.menu_sale_config" action="action_view_recipe" sequence="21"/>
 </odoo>

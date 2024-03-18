@@ -1,0 +1,69 @@
+<odoo>
+    <data>
+        <!-- doctype form view-->
+        <record model="ir.ui.view" id="view_payroll_allowance_form">
+            <field name="name">view_payroll_allowance_form</field>
+            <field name="model">payroll.allowance</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="approve_allowance" confirm="Hi, Are you sure to Approve it..!" groups="hr_contract_allowances.payroll_allowances_manager" string="Approve" type="object" />
+                        <field name="state" widget="statusbar" />
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="allowance_type"/>
+                                <field name="allowance_price"/>
+                            </group>
+                            <group>
+                                <field name="employee_id"/>
+                                <field name="date"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View -->
+        <record model="ir.ui.view" id="view_payroll_allowance_tree">
+            <field name="name">view_payroll_allowance_tree</field>
+            <field name="model">payroll.allowance</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="employee_id"/>
+                    <field name="date"/>
+                    <field name="allowance_type"/>
+                    <field name="allowance_price"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="emp_payroll_allowance_action">
+            <field name="name">Payroll Allowance</field>
+            <field name="res_model">payroll.allowance</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record model="ir.actions.act_window" id="emp_payroll_allowances_type_action">
+            <field name="name">Payroll Allowance Type</field>
+            <field name="res_model">allowance.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Payroll Allowance Type"
+                  id="payroll_allowances_menu"
+                  parent="hr_work_entry_contract_enterprise.menu_hr_payroll_configuration"
+                  action="emp_payroll_allowances_type_action"
+                  sequence="13"/>
+        <menuitem name="Payroll Allowances"
+                  id="payroll_allowancews_type_menu"
+                  parent="hr_contract_allowances.menu_hr_contract_allowance_root"
+                  action="emp_payroll_allowance_action"
+                  groups="hr_contract_allowances.payroll_allowances_user,hr_contract_allowances.payroll_allowances_manager"
+                  sequence="11"/>
+
+    </data>
+</odoo>

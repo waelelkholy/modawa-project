@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="hr_view_employee_form_inherit_increment" model="ir.ui.view">
+		<field name="name">hr.employee.form.inherit.increment</field>
+		<field name="model">hr.employee</field>
+		<field name="inherit_id" ref="hr.view_employee_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+				<field name="increment_line" invisible="1"/>
+				<button name="action_open_increment" type="object" class="oe_stat_button" icon="fa-money" attrs="{'invisible':[('increment_line','=',False)]}">
+					<span>Increment</span>
+				</button>
+			</xpath>
+			<xpath expr="//field[@name='hire_date']" position="after">
+				<field name="five_year_provision" invisible="1"/>
+			</xpath>
+		</field>
+	</record>
+</odoo>

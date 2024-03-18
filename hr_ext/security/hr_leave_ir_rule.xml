@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <record id="group_hr_holidays_custom_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="base.module_category_human_resources_time_off"/>
+        <field name="implied_ids" eval="[(4, ref('hr_holidays.group_hr_holidays_responsible'))]"/>
+    </record>
+
+    <record id="hr_holidays.group_hr_holidays_user" model="res.groups">
+        <field name="name">Time Off Officer</field>
+        <!-- <field name="implied_ids" eval="[(4, ref('hr_ext.group_hr_holidays_custom_user'))]"/> -->
+        <field name="category_id" ref="base.module_category_human_resources_time_off"/>
+        <field name="implied_ids" eval="[(4, ref('hr_holidays.group_hr_holidays_responsible')),(4, ref('hr_ext.group_hr_holidays_custom_user'))]"/>
+    </record>
+
+    <record id="hr_holidays.group_hr_holidays_manager" model="res.groups">
+        <field name="name">Administrator</field>
+        <field name="category_id" ref="base.module_category_human_resources_time_off"/>
+        <field name="implied_ids" eval="[(4, ref('hr_holidays.group_hr_holidays_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+
+    <record model="ir.rule" id="timeoff_user_see_own_leave_onlt">
+        <field name="name">Time Off USer Can see only OWN records</field>
+        <field name="model_id" ref="hr_holidays.model_hr_leave"/>
+        <field name="groups" eval="[(4,ref('group_hr_holidays_custom_user'))]"/>
+        <field name="domain_force">[('employee_ids.user_id.id','=',user.id)]</field>
+        <field eval="1" name="perm_write"/>
+        <field eval="1" name="perm_read"/>
+        <field eval="1" name="perm_unlink"/>
+        <field eval="1" name="perm_create"/>
+    </record>
+
+
+    <record model="ir.rule" id="timeoff_office_see_own_department_leave">
+        <field name="name">Time Off Officer Can see relevant department records</field>
+        <field name="model_id" ref="hr_holidays.model_hr_leave"/>
+        <field name="groups" eval="[(4,ref('hr_holidays.group_hr_holidays_user'))]"/>
+        <field name="domain_force">[('department_id.manager_id.user_id.id','=',user.id)]</field>
+        <field eval="1" name="perm_write"/>
+        <field eval="1" name="perm_read"/>
+        <field eval="1" name="perm_unlink"/>
+        <field eval="1" name="perm_create"/>
+    </record>
+
+    <record model="ir.rule" id="hr_holidays.hr_leave_rule_employee">
+        <field name="name">Time Off base.group_user read</field>
+        <field name="active" eval="False"/>
+    </record>
+
+    <record model="ir.rule" id="hr_holidays.hr_leave_rule_employee_update">
+        <field name="name">Time Off base.group_user create/write</field>
+        <field name="active" eval="False"/>
+    </record>
+
+    <record model="ir.rule" id="hr_holidays.hr_leave_rule_employee_unlink">
+        <field name="name">Time Off base.group_user unlink</field>
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="hr_holidays.hr_leave_rule_responsible_read" model="ir.rule">
+        <field name="name">Time Off Responsible read</field>
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="hr_holidays.hr_leave_rule_responsible_update" model="ir.rule">
+        <field name="name">Time Off Responsible create/write</field>
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="hr_holidays.hr_leave_rule_user_read" model="ir.rule">
+        <field name="name">Time Off All Approver read</field>
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="hr_holidays.hr_leave_rule_officer_update" model="ir.rule">
+        <field name="name">Time Off All Approver create/write</field>
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="hr_holidays.hr_leave_rule_multicompany" model="ir.rule">
+        <field name="name">Time Off: multi company global rule</field>
+        <field name="active" eval="False"/>
+    </record>
+
+
+    </data>
+</odoo>

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Sale Ext",
+    'name': "Sale Ext ",
 
     'summary': """ it customize Sale module """,
 

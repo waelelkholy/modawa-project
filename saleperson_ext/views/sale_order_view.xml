@@ -1,0 +1,43 @@
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="sale_order_ext_form_view" model="ir.ui.view">
+            <field name="name">sale_order_ext_form_view</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="domain">[('type', '!=', 'private'), ('company_id', 'in', (False, company_id)),('customer_rank','>',0)]</attribute>
+                </xpath>
+                <xpath expr="//field[@name='partner_shipping_id']" position="attributes">
+                    <attribute name="domain">[('parent_id','=',partner_id),'|', ('company_id', '=', False), ('company_id', '=', company_id)]</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='pricelist_id']" position="replace">
+                    <field name="check_user" invisible="1"/>
+                    <field name="pricelist_id" options="{'no_open':True,'no_create': True}" attrs="{'readonly':[('check_user','=', True)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_invoice_id']" position="replace">
+                    <field name="check_user" invisible="1"/>
+                    <field name="partner_invoice_id" groups="account.group_delivery_invoice_address" attrs="{'readonly':[('check_user','=', True)]}" context="{'default_type':'invoice'}" options="{&quot;always_reload&quot;: True}"/>
+                </xpath>
+                <xpath expr="//field[@name='payment_term_id']" position="replace">
+                    <field name="check_user" invisible="1"/>
+                    <field name="payment_term_id" options="{'no_open':True,'no_create': True}" attrs="{'readonly':[('check_user','=', True)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='name']" position="replace">
+                    <field name="name" widget="section_and_note_text" optional="show" attrs="{'readonly':[('parent.check_user','=', True)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="replace">
+                    <field name="price_unit" attrs="{'readonly': ['|',('qty_invoiced', '&gt;', 0),('parent.check_user','=', True)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom'][2]" position="replace">
+                    <field name="product_uom" force_save="1" string="UoM" attrs="{'readonly': ['|',('parent.check_user','=', True),('product_uom_readonly', '=', True)],'required': [('display_type', '=', False)],}" context="{'company_id': parent.company_id}" groups="uom.group_uom" options="{&quot;no_open&quot;: True}" optional="show"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='tax_id']" position="replace">
+                    <field name="tax_id" widget="many2many_tags" options="{'no_create': True}" domain="[('type_tax_use','=','sale'),('company_id','=',parent.company_id), ('country_id', '=', parent.tax_country_id)]" context="{'active_test': True}" attrs="{'readonly': ['|',('parent.check_user','=', True),('qty_invoiced', '&gt;', 0)]}" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

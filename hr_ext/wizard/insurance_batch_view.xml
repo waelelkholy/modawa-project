@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+    	<record id="wizard_insurance_batch_form" model="ir.ui.view">
+			<field name="name">insurance.batch.form</field>
+			<field name="model">insurance.batch</field>
+			<field name="arch" type="xml">
+				<form string="Insurance Batch" >
+					<group>
+						<field name="employee_type" widget="radio" options="{'horizontal': true}" required="1"/>
+						<field name="department_id" attrs="{'invisible' : [('employee_type','!=','by department')]}"/>
+					</group>	
+					<group>
+						<field name="employee_line_ids">
+							<tree editable="bottom" delete="1">
+								<field name="member_name" readonly="1" force_save="1" />
+								<field name="insurance_relation" force_save="1"/>
+								<field name="policy_number"/>
+								<field name="classes"/>
+								<field name="employee_id" invisible="1"/>
+							</tree>
+							<form>
+								<field name="member_name" />
+								<field name="insurance_relation" />
+								<field name="policy_number"/>
+								<field name="classes"/>
+							</form>
+						</field>
+					</group>
+					<footer>
+						<button string="Generate" name="action_generate_insurance"
+							type="object" class="oe_highlight" />
+						<button string="Cancel" class="oe_link" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+		<record id="action_insurance_batch" model="ir.actions.act_window">
+			<field name="name">Insurance Batch</field>
+			<field name="res_model">insurance.batch</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="wizard_insurance_batch_form" />
+			<field name="target">new</field>
+		</record>
+	</data>
+</odoo>

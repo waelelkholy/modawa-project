@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        <!--Email template -->
+        <record id="loan_notification_template" model="mail.template">
+            <field name="name">Loan Request Notification</field>
+            <field name="email_from">${(user.login and '%s &lt;%s&gt;' % (user.name,
+        user.partner_id.email) or '')|safe}</field>
+            <field name="model_id" ref="emp_loan.model_hr_loan"/>
+            <field name="subject">Loan Request Detail: ${object.name}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Kindly Approve Loan Request ${object.name} for  ${object.employee_id.name}
+                        <br />
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

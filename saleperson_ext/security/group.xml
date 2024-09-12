@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+
+		<record model="res.groups" id="group_sale_person">
+			<field name="name">sale Person</field>
+			<field name="menu_access" eval="[(4, ref('sale.menu_sale_order')),(4, ref('sale.menu_sale_quotations'))]" />
+		</record>
+    </data>
+</odoo>
+

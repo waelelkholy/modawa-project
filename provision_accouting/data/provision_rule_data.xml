@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+	
+		<record id="model_provision_rule_eos" model="provision.rule">
+			<field name="name">EOS</field>
+			<field name="type">EOS</field>
+			<field name="active" eval="True"/>
+		</record>
+
+		<record id="model_provision_rule_tickets" model="provision.rule">
+			<field name="name">Tickets</field>
+			<field name="type">Tickets</field>
+			<field name="active" eval="True"/>
+		</record>
+
+		<record id="model_provision_rule_vacation" model="provision.rule">
+			<field name="name">Vacation</field>
+			<field name="type">Vacation</field>
+			<field name="active" eval="True"/>
+		</record>
+		
+		<record id="model_provision_rule_car_policy" model="provision.rule">
+			<field name="name">Car Policy</field>
+			<field name="type">Car Policy</field>
+			<field name="active" eval="True"/>
+		</record>
+		
+		<record id="model_provision_rule_exit_reentry" model="provision.rule">
+			<field name="name">Exit Re-Entry</field>
+			<field name="type">Exit Re-Entry</field>
+			<field name="active" eval="False"/>
+		</record>
+		
+		<record id="model_provision_rule_medical_insurance" model="provision.rule">
+			<field name="name">Medical Insurance</field>
+			<field name="type">Medical Insurance</field>
+			<field name="active" eval="False"/>
+		</record>
+		
+	</data>
+</odoo>

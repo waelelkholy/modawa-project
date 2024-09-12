@@ -1,0 +1,84 @@
+<odoo>
+    <data>
+        <!-- nationality form view-->
+        <record model="ir.ui.view" id="view_hr_natioinality_form">
+            <field name="name">hr.nationality.form</field>
+            <field name="model">hr.nationality</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="nationality" >
+                    <sheet>
+                        <group>
+                            <field name="id"/>
+                            <field name="nationality_name"/>
+                            <field name="employee" domain="[('national_id','=',False),('country_id.code','=','SA')]"/>
+                            <field name="x_emp_id"/>
+                            <field name="department"/>
+                            <field name="issue_date"/>
+                            <field name="expiry_date"/>
+                            <field name="date_of_birth"/>
+                            <field name="place_of_issue"/>
+                            <field name="blood_group"/>
+                            <field name="dependent" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="family" attrs="{'invisible': [('dependent' ,'=', False)]}">
+                                <form>
+                                    <group>
+                                        <field name="name"/>
+                                        <field name="iqama_number"/>
+                                        <field name="relation"/>
+                                        <field name="iqama_expiry"/>
+                                        <field name="iqama_issue_place"/>
+                                    </group>
+                                </form>
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="iqama_number"/>
+                                    <field name="iqama_number"/>
+                                    <field name="relation"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View -->
+        <record model="ir.ui.view" id="view_hr_nationality_tree">
+            <field name="name">hr.nationality.tree</field>
+            <field name="model">hr.nationality</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="id"/>
+                    <field name="nationality_name"/>
+                    <field name="employee"/>
+                    <field name="department"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="hr_sf_nationality_action">
+            <field name="name">Employee National ID</field>
+            <field name="res_model">hr.nationality</field>
+<!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form</field>
+        </record>
+
+<!--         <menuitem name="Human Resource"
+              id="hr_iqama_menu"
+              parent="hr.menu_hr_root"
+              sequence="11"
+        groups="hr.group_hr_manager,hr.group_hr_user"/>
+ -->
+<!--         <menuitem name="Employee National ID"
+              id="hr_emp_nationality_menu"
+              parent="hr_iqama_menu"
+              action="hr_sf_nationality_action"
+              sequence="12"
+        groups="hr.group_hr_manager,hr.group_hr_user"/>
+ -->
+    </data>
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+    	<record id="wizard_hr_employee_import" model="ir.ui.view">
+			<field name="name">hr.employee.import</field>
+			<field name="model">hr.employee.import</field>
+			<field name="arch" type="xml">
+				<form string="Import" >
+					<group>
+						<field name="file" filename="name"/>
+					</group>	
+					<footer>
+						<button string="Import" name="imoport_file"
+							type="object" class="oe_highlight" />
+						
+						<button string="Cancel" class="oe_link" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+		<record id="action_hr_employee_import" model="ir.actions.act_window">
+			<field name="name">Hr Employee Import</field>
+			<field name="res_model">hr.employee.import</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="wizard_hr_employee_import" />
+			<field name="target">new</field>
+		</record>
+		<menuitem id="menu_hr_employee_import"
+			name="Employee Import" 
+			action="employee_extention.action_hr_employee_import" 
+			parent="hr.menu_human_resources_configuration"/>
+	</data>
+</odoo>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="view_provision_close_form" model="ir.ui.view">
+		<field name="name">provision.close.form</field>
+		<field name="model">provision.close</field>
+		<field name="arch" type="xml">
+			<form string="Provision Close">
+				<group>
+					<group>
+						<field name="employee_id" readonly="1"/>
+						<field name="amount"/>
+						<field name="real_amount" invisible="1"/>
+						<field name="is_diffirent" invisible="1"/>
+						<field name="is_positive" invisible="1"/>
+						<field name="difference_account_id" attrs="{'invisible':[('is_diffirent','=',False)],'required':[('is_diffirent','=',True)]}"/>
+						<field name="positive_account_id" string="Difference Account" attrs="{'invisible':[('is_positive','=',False)],'required':[('is_positive','=',True)]}"/>
+					</group>
+					<group>
+						<field name="provision_configuration_id" required="1"/>
+						<field name="credit_account_id" required="1"/>
+						<field name="reason" required="1"/>
+						<field name="not_posted_amt" invisible="1"/>
+					</group>
+				</group>
+				<footer>
+					<button name="%(provision_accouting.action_provision_create)d" type="action" string="Close" class="oe_highlight" attrs="{'invisible':[('not_posted_amt','=',0)]}"/>
+					<button string="Close" name="action_close_provision" type="object" attrs="{'invisible':[('not_posted_amt','!=',0)]}" class="oe_highlight" />
+					<button string="Cancel" class="oe_link" special="cancel" />
+				</footer>
+			</form>
+		</field>
+	</record>
+	
+	<record id="action_provision_close" model="ir.actions.act_window">
+		<field name="name">Provision Close</field>
+		<field name="res_model">provision.close</field>
+		<field name="view_mode">form</field>
+		<field name="view_id" ref="view_provision_close_form" />
+		<field name="context">{'default_payment_request':False}</field>
+		<field name="target">new</field>
+	</record>
+
+</odoo>

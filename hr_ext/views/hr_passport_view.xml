@@ -1,0 +1,67 @@
+<odoo>
+    <data>
+        <!-- passport form view-->
+        <record model="ir.ui.view" id="view_hr_passport_form">
+            <field name="name">hr.passport.form</field>
+            <field name="model">hr.passport</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Iqama" >
+                    <sheet>
+                        <group>
+                            <field name="is_employee" attrs="{'required': [('is_dependent', '=', False)]}"/>
+                            <field name="is_dependent" attrs="{'required': [('is_employee', '=', False)]}"/>
+                            <field name="d_emp" invisible="1"/>
+                            <field name="employee"/>
+                            <field name="passport_name" attrs="{'invisible': [('is_dependent', '==', True)]}"/>
+                            <field name="d_passport_name" attrs="{'invisible': [('is_dependent', '==', False)]}"/>
+                            <field name="passport_relation" attrs="{'invisible': [('is_dependent', '==', False)],'required': [('is_dependent', '==', True)]}"/>
+                            <field name="passport_number"/>
+                            <field name="iqama_no"/>
+                            <field name="passport_issue_date" required="1"/>
+                            <field name="expiry_date"/>
+                            <field name="passport_issue_country"/>
+                            <field name="passport_issue_place"/>
+                            <field name="passport_status"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View -->
+        <record model="ir.ui.view" id="view_hr__passport_tree">
+            <field name="name">hr.passport.tree</field>
+            <field name="model">hr.passport</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="is_employee" invisible="1"/>
+                    <field name="employee" invisible="1"/>
+                    <field name="passport_name"/>
+                    <field name="d_passport_name"/>
+                    <field name="passport_relation"/>
+                    <field name="passport_number"/>
+                    <field name="iqama_no"/>
+                    <field name="passport_issue_country"/>
+                    <field name="passport_status"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="hr_sf__passport_action">
+            <field name="name">Employee Passport</field>
+            <field name="res_model">hr.passport</field>
+<!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form</field>
+        </record>
+
+<!--         <menuitem name="Employee Passport"
+                  id="hr_emp__passport_menu"
+                  parent="hr_ext.hr_iqama_menu"
+                  action="hr_sf__passport_action"
+                  sequence="13"
+        groups="hr.group_hr_manager,hr.group_hr_user"/>
+
+ -->    </data>
+</odoo>

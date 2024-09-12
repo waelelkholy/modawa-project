@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hr_contract_from_extend" model="ir.ui.view">
+        <field name="name">hr_contract_from_extend</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='top_info']" position="after">
+                <group string="Joining">
+                    <field name="joining_date"/>
+                    <field name="policies" invisible="1" readonly="0"/>
+                    <field name="contract_status" invisible="0" readonly="0"/>
+                    <field name="probation_period"/>
+                    <field name="probation_end_date"/>
+                    <button name="notify_probation_contract" type="object" string="ObjectButton" invisible="1"/>
+                </group>
+            </xpath>
+            <xpath expr="//page[@name='information']" position="after">
+                <page string="Policies Info" invisible="1">
+                    <group>
+                        <group string="Medical Insurance Class">
+                            <field name="insurance_class"/>
+                        </group>
+                        <group string="Ticket Expats">
+                            <field name="air_ticket"/>
+                            <field name="class_air_ticket"/>
+                        </group>
+                        <group>
+                            <field name="re_entry_for_annual_vacation"/>
+                            <field name="notice_period"/>
+                            <field name="schooling_assistance"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='date_start']" position="after">
+                <field name="contract_end_at"/>
+            </xpath>
+            <xpath expr="//field[@name='structure_type_id']" position="after">
+                <field name="religion"/>
+                <field name="gender"/>
+                <field name="level" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='state']" position="before">
+                <field name="policies" invisible="1"/>
+                <!-- <button string="Run Policies and Grading" name="run_policies"  type="object" class="oe_highlight" attrs="{'invisible':[('policies','=',True)]}"/> -->
+            </xpath>
+            <xpath expr="//field[@name='employee_id']" position="after">
+                <field name="employee_no"/>
+                <!-- <field name="employee_old_no"/> -->
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_contract_view_search_extend" model="ir.ui.view">
+        <field name="name">hr.contract</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_search"/>
+        <field name="arch" type="xml">
+            <filter name="activities_overdue" position="after">
+                <filter string="This Month Contract Expiry" name="activities_overdue"
+                domain="[('date_end','&lt;',(context_today()+relativedelta(months=1)).strftime('%%Y-%%m-01')), ('date_end','&gt;=',time.strftime('%%Y-%%m-01'))]"
+                help="Show all contract which will expiry within 1 month..!"/>
+            </filter>
+        </field>
+    </record>
+
+
+    <!-- This Menu Item must have a parent and an action -->
+    <!-- <menuitem id="hr_contract" name="Hr Contract" parent="hr_payroll.menu_hr_payroll_employees_root" action="hr_contract.action_hr_contract" sequence="1"/> -->
+</odoo>

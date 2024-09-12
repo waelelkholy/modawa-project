@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.module.category" id="module_loan_request">
+            <field name="name">Loan Management</field>
+            <field name="description">Helps you handle your Loan Management</field>
+            <field name="sequence">1</field>
+        </record>
+
+       <record id="loan_hr" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="module_loan_request"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="loan_emp_manager" model="res.groups">
+            <field name="name">Hr Manager</field>
+            <field name="category_id" ref="module_loan_request"/>
+        </record>
+
+<!--         <record id="loan_officer" model="res.groups">
+            <field name="name">Loan Officer</field>
+            <field name="category_id" ref="module_loan_request"/>
+        </record>
+ -->
+        <record id="loan_ceo" model="res.groups">
+            <field name="name">Loan CEO</field>
+            <field name="category_id" ref="module_loan_request"/>
+        </record>
+
+        <record model="ir.rule" id="group_loan_manager_record_rule">
+            <field name="name">Loan Manager Can See all records</field>
+            <field name="model_id" ref="emp_loan.model_hr_loan"/>
+            <field name="groups" eval="[(4,ref('emp_loan.loan_emp_manager')),(4,ref('emp_loan.loan_ceo')),(4,ref('account.group_account_user'))]"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+
+        <record id="loan_company_relevant_rule" model="ir.rule">
+            <field name="name">Company: Loan Company wise</field>
+            <field name="model_id" ref="emp_loan.model_hr_loan"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_create"/> 
+        </record>
+
+        <record model="ir.rule" id="group_loan_user_record_rule">
+            <field name="name">Loan User Can See his records</field>
+            <field name="model_id" ref="emp_loan.model_hr_loan"/>
+            <field name="groups" eval="[(4,ref('emp_loan.loan_hr'))]"/>
+            <field name="domain_force">[('employee_id.user_id.id','=',user.id)]</field>
+            <!-- ['|',('create_uid','=',user.id),('employee_id.user_id.id','=',user.id)] -->
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+
+<!--         <record model="ir.rule" id="group_loan_user_can_own_employee">
+            <field name="name">Loan User Can See his records</field>
+            <field name="model_id" ref="hr.model_hr_employee"/>
+            <field name="groups" eval="[(4,ref('emp_loan.loan_hr'))]"/>
+            <field name="domain_force">[('user_id.id','=',user.id)]</field>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+
+ -->    
+<!--         <record model="ir.rule" id="access_office_can_sell_all">
+            <field name="name">Loan HR/Office User Can See All</field>
+            <field name="model_id" ref="hr.model_hr_employee"/>
+            <field name="groups" eval="[(4,ref('emp_loan.loan_emp_manager')),(4,ref('emp_loan.loan_ceo'))]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+ -->
+<!--         <record model="ir.rule" id="group_loan_officer_record_rule">
+            <field name="name">Loan officer Can See his records</field>
+            <field name="model_id" ref="emp_loan.model_hr_loan"/>
+            <field name="groups" eval="[(4,ref('emp_loan.loan_officer'))]"/>
+            <field name="domain_force">[('department_id.id','=',user.employee_id.department_id.id)]</field>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+ -->
+    </data>
+</odoo>

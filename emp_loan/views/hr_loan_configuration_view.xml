@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--Loan Tree view-->
+    <record id="hr_loan_amount_configuration" model="ir.ui.view">
+        <field name="name">loan.amount.configuration.tree</field>
+        <field name="model">loan.amount.configuration</field>
+        <field name="arch" type="xml">
+            <tree string="Loan Amount Configuration">
+                <field name="loan_type_id"/>
+                <field name="max_loan_amount_percentage"/>
+                <field name="max_deduction"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Loan Form view-->
+    <record id="hr_loan_amount_configuration_form_view" model="ir.ui.view">
+        <field name="name">loan.amount.configuration.form</field>
+        <field name="model">loan.amount.configuration</field>
+        <field name="arch" type="xml">
+            <form string="Loan Type">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="loan_type_id"/>
+                        </group>
+                        <group>
+                            <field name="max_loan_amount_percentage"/>
+                            <field name="max_deduction"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_loan_type_configuration" model="ir.actions.act_window">
+        <field name="name">Loan Amount Configuration</field>
+        <field name="res_model">loan.amount.configuration</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Loan Amount Configuration"
+        parent="emp_loan.menu_base_hr_loan_request"
+        id="menu_loan_amount_configuration"
+        groups="emp_loan.loan_emp_manager,emp_loan.loan_ceo"
+        action="action_loan_type_configuration"/>
+
+
+</odoo>

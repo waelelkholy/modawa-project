@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="view_provision_create_form" model="ir.ui.view">
+		<field name="name">provision.create.form</field>
+		<field name="model">provision.create</field>
+		<field name="arch" type="xml">
+			<form string="Provision Create">
+				<group>
+					<group>
+						<field name="department_id" required="1"/>
+						<field name="type" attrs="{'invisible':[('department_id','=',False)],'required':[('department_id','!=',False)]}"/>
+						<field name="employee_ids" attrs="{'invisible':[('type','!=','specific')],'required':[('type','=','specific')]}" domain="[('department_id','=',department_id)]" widget="many2many_tags"/>
+					</group>
+					<group>
+						<field name="start_date" required="1"/>
+						<field name="end_date" required="1"/>
+					</group>
+				</group>
+				<footer>
+					<button string="Create" name="action_create_provision" type="object" class="oe_highlight" />
+					<button string="Cancel" class="oe_link" special="cancel" />
+				</footer>
+			</form>
+		</field>
+	</record>
+	
+	<record id="action_provision_create" model="ir.actions.act_window">
+		<field name="name">Provision Create</field>
+		<field name="res_model">provision.create</field>
+		<field name="view_mode">form</field>
+		<field name="view_id" ref="view_provision_create_form" />
+		<field name="target">new</field>
+	</record>
+
+	<menuitem id="menu_account_provision" 
+			name="Provision"
+			sequence="91"
+			parent="hr.menu_hr_root" groups="provision_accouting.group_provision_user"/>
+
+ 	<menuitem id="menu_provision_create"
+ 			name="Provision Create"
+ 			sequence="2"
+ 			parent="provision_accouting.menu_account_provision"
+ 			action="provision_accouting.action_provision_create"/>
+	
+</odoo>

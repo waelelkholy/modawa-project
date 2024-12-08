@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_tpn_form_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div class="page">
+                    <!-- Header -->
+                    <h2 class="text-center">KINGDOM OF SAUDI ARABIA</h2>
+                    <h3 class="text-center">MINISTRY OF HEALTH</h3>
+                    <h3 class="text-center">Pharmaceutical Services IV Admixture and TPN Department</h3>
+                    <h3 class="text-center">TOTAL PARENTERAL NUTRITION NEONATAL FORM</h3>
+
+                    <!-- Prescriber and Patient Information -->
+                    <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;" border="1">
+                        <tr>
+                            <td colspan="2"><strong>Name:</strong> <t t-esc="doc.name"/></td>
+                            <td colspan="2"><strong>Hospital No.:</strong> <t t-esc="doc.hospital_no"/></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><strong>Nationality:</strong> <t t-esc="doc.nationality"/></td>
+                            <td colspan="2"><strong>Treating Physician:</strong> <t t-esc="doc.treating_physician"/></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ward:</strong> <t t-esc="doc.ward"/></td>
+                            <td><strong>Age:</strong> <t t-esc="doc.age"/> days</td>
+                            <td><strong>Weight:</strong> <t t-esc="doc.weight"/> kg</td>
+                            <td><strong>Height:</strong> <t t-esc="doc.height"/> cm</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"><strong>Diagnosis:</strong> <t t-esc="doc.diagnosis"/></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"><strong>TPN Indication(s):</strong> <t t-esc="doc.tpn_indications"/></td>
+                        </tr>
+                    </table>
+
+                    <!-- TPN Details -->
+                    <h4>TPN Prescription Details</h4>
+                    <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;" border="1">
+                        <tr>
+                            <td><strong>Day(s) of TPN:</strong></td>
+                            <td><t t-esc="doc.tpn_day"/></td>
+                            <td><strong>Route:</strong></td>
+                            <td><t t-esc="dict(doc._fields['tpn_route'].selection).get(doc.tpn_route)"/></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dextrose (mg/kg/min):</strong></td>
+                            <td><t t-esc="doc.dextrose_mg_kg_min"/></td>
+                            <td><strong>Dextrose (gm/day):</strong></td>
+                            <td><t t-esc="doc.dextrose_gm_day"/></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Amino Acids (gm/kg/day):</strong></td>
+                            <td><t t-esc="doc.amino_acids_gm_kg_day"/></td>
+                            <td><strong>Fat Emulsion (gm/kg/day):</strong></td>
+                            <td><t t-esc="doc.fat_emulsion_gm_kg_day"/></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Fluid Intake (ml/kg/day):</strong></td>
+                            <td><t t-esc="doc.total_fluid_intake"/></td>
+                            <td><strong>Total Volume of TPN (ml/day):</strong></td>
+                            <td><t t-esc="doc.total_volume_tpn"/></td>
+                        </tr>
+                    </table>
+
+                    <!-- Additives Section -->
+                    <h4>Additives</h4>
+                    <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;" border="1">
+                        <tr>
+                            <td><strong>Sodium (mmol/day):</strong></td>
+                            <td><t t-esc="doc.sodium"/></td>
+                            <td><strong>Potassium (mmol/day):</strong></td>
+                            <td><t t-esc="doc.potassium"/></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Calcium (mmol/day):</strong></td>
+                            <td><t t-esc="doc.calcium"/></td>
+                            <td><strong>Magnesium (mmol/day):</strong></td>
+                            <td><t t-esc="doc.magnesium"/></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Phosphate (mmol/day):</strong></td>
+                            <td><t t-esc="doc.phosphate"/></td>
+                            <td><strong>Chloride (mmol/day):</strong></td>
+                            <td><t t-esc="doc.chloride"/></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Acetate:</strong></td>
+                            <td><t t-esc="doc.acetate"/></td>
+                            <td><strong>Fat Soluble Vitamins (ml/day):</strong></td>
+                            <td><t t-esc="doc.fat_soluble_vitamins"/></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Water Soluble Vitamins (ml/day):</strong></td>
+                            <td><t t-esc="doc.water_soluble_vitamins"/></td>
+                            <td><strong>Trace Elements (ml/day):</strong></td>
+                            <td><t t-esc="doc.trace_elements"/></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Heparin (units/ml):</strong></td>
+                            <td><t t-esc="doc.heparin"/></td>
+                            <td colspan="2"></td>
+                        </tr>
+                    </table>
+
+                    <!-- Pharmacy and Calculations -->
+                    <h4>Pharmacy Information and Calculations</h4>
+                    <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;" border="1">
+                        <tr>
+                            <td><strong>TPN Rate (ml/hr):</strong></td>
+                            <td><t t-esc="doc.tpn_rate"/></td>
+                            <td><strong>Total TPN Fluid Rate (ml/hr):</strong></td>
+                            <td><t t-esc="doc.total_tpn_fluid_rate"/></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Non-Protein Calories (kcal/day):</strong></td>
+                            <td><t t-esc="doc.non_protein_calories"/></td>
+                            <td><strong>Nitrogen Ratio:</strong></td>
+                            <td><t t-esc="doc.nitrogen_ratio"/></td>
+                        </tr>
+                    </table>
+
+                    <!-- Prescriber Section -->
+                    <h4>Prescriber and Technician Information</h4>
+                    <table style="width: 100%; border-collapse: collapse;" border="1">
+                        <tr>
+                            <td><strong>Prescriber Name:</strong></td>
+                            <td><t t-esc="doc.prescriber_name"/></td>
+                            <td><strong>Prescriber ID:</strong></td>
+                            <td><t t-esc="doc.prescriber_id"/></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nurse Name:</strong></td>
+                            <td><t t-esc="doc.nurse_name"/></td>
+                            <td><strong>Technician Name:</strong></td>
+                            <td><t t-esc="doc.pharmacy_technician"/></td>
+                        </tr>
+                    </table>
+
+                    <p><strong>Notes:</strong> <t t-esc="doc.notes"/></p>
+                </div>
+            </t>
+        </t>
+    </template>
+    <report
+            id="action_report_tpn_form"
+            string="TPN Form Report"
+            model="tpn.form"
+            report_type="qweb-pdf"
+            name="hospital_ext.report_tpn_form_document"
+            file="hospital_ext.report_tpn_form_document"
+            print_report_name="'TPN_Form_Report_%s' % (object.name)"
+    />
+</odoo>

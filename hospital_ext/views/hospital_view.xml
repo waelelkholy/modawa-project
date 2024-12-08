@@ -89,6 +89,11 @@
                         <field name="notes"/>
                     </group>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
             </form>
         </field>
     </record>
@@ -100,12 +105,12 @@
     </record>
 
 
-        <record id="tpn_form_rule_portal" model="ir.rule">
-            <field name="name">Portal User Access to TPN Forms</field>
-            <field name="model_id" ref="model_tpn_form"/>
-            <field name="domain_force">[('portal_user_id', '=', user.id)]</field>
-            <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
-        </record>
+    <record id="tpn_form_rule_portal" model="ir.rule">
+        <field name="name">Portal User Access to TPN Forms</field>
+        <field name="model_id" ref="model_tpn_form"/>
+        <field name="domain_force">[('portal_user_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
+    </record>
 
     <menuitem id="menu_tpn_root" name="TPN Forms" sequence="10"/>
     <menuitem id="menu_tpn_form" name="Forms" parent="menu_tpn_root" action="action_tpn_form"/>
@@ -115,11 +120,11 @@
     <template id="portal_my_home_tpm" name="Show TPN Records" inherit_id="portal.portal_my_home" customize_show="True" priority="100">
         <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
             <a class="list-group-item list-group-item-action d-flex align-items-center justify-content-between" href="/my/tpn_forms" title="TPN Records">
-            TPN Records
+                TPN Records
                 <span class="badge text-bg-secondary rounded-pill" data-placeholder_count="1">
                     <i class="fa fa-spin fa-circle-o-notch"></i>
                 </span>
-        </a>
+            </a>
         </xpath>
     </template>
 </odoo>

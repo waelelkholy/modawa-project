@@ -15,6 +15,7 @@
         'security/ir.model.access.csv',
         'views/hospital_view.xml',
         'views/tpm_portal_template.xml',
+        'views/report_template.xml',
     ],
 
     'license': 'LGPL-3',

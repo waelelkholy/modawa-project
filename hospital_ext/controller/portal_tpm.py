@@ -20,9 +20,24 @@ class PortalTPNForm(http.Controller):
         tpn_form = request.env['tpn.form'].sudo().browse(form_id)
         if not tpn_form.exists() or tpn_form.portal_user_id.id != request.env.user.id:
             return request.redirect('/my')  # Prevent unauthorized access
+        messages = tpn_form.message_ids.sudo()
+        tracking_values = request.env['mail.tracking.value'].sudo().search([
+            ('mail_message_id', 'in', messages.ids)
+        ])
         return request.render('hospital_ext.portal_tpn_form_view', {
             'tpn_form': tpn_form,
+            'messages': messages,
+            'tracking_values': tracking_values,
         })
+
+    @http.route(['/my/tpn_form/<int:form_id>/post_message'], type='http', auth="user", methods=['POST'], website=True)
+    def post_message(self, form_id, **post):
+        tpn_form = request.env['tpn.form'].sudo().browse(form_id)
+        if tpn_form.exists():
+            body = post.get('message_body')
+            if body:
+                tpn_form.message_post(body=body)
+        return request.redirect('/my/tpn_form/%s' % form_id)
 
     @http.route('/portal/add_tpn_form', auth='user', website=True)
     def add_tpn_form(self, **kw):

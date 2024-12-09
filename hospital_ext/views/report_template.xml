@@ -19,7 +19,7 @@
                         <h4 class="text-center">TOTAL PARENTERAL NUTRITION NEONATAL FORM</h4>
 
                         <!-- Prescriber and Patient Information -->
-                        <table style=" border: 1px solid black;width: 100%; border-collapse: collapse; margin-bottom: 10px;" border="1">
+                        <table style=" border: 1px solid black;width: 90%; border-collapse: collapse; margin-bottom: 10px;margin-left: 5%;margin-right: 5%;" border="1">
                             <tr style=" border: 1px solid black;">
                                 <td colspan="2"><strong>Name:</strong> <t t-esc="doc.name"/></td>
                                 <td colspan="2"><strong>Hospital No.:</strong> <t t-esc="doc.hospital_no"/></td>
@@ -43,8 +43,8 @@
                         </table>
 
                         <!-- TPN Details -->
-                        <h5>TPN Prescription Details</h5>
-                        <table style="width: 100%; border-collapse: collapse; margin-bottom: 10px;" border="1">
+                        <h5 style="margin-left: 5%;">TPN Prescription Details</h5>
+                        <table style="width: 90%; border-collapse: collapse; margin-bottom: 10px;margin-left: 5%;margin-right: 5%;" border="1">
                             <tr style="border: 1px solid black;">
                                 <td style="background-color: #d3d3d3;" rowspan="3">No#1</td>
                                 <td><strong>Day(s) of TPN:</strong></td>
@@ -63,8 +63,8 @@
 
                         <!-- Nutritional Details -->
                         <div class="nutritional-details">
-                            <h5>Nutritional Details</h5>
-                            <table style="width: 100%; border: 1px solid black; border-collapse: collapse;margin-bottom: 10px;">
+                            <h5 style="margin-left: 5%;">Nutritional Details</h5>
+                            <table style="width: 90%; border: 1px solid black; border-collapse: collapse;margin-bottom: 10px;margin-left: 5%;margin-right: 5%;">
                                 <tr style="border: 1px solid black;">
                                     <td style="background-color: #d3d3d3;">No#2</td>
                                     <th style="text-align:left">Dextrose (mg/kg/min)</th>
@@ -114,8 +114,8 @@
                         <!-- Additives Section -->
                         <!-- Additives Section -->
                         <div class="additives-section">
-                            <h5>Additives</h5>
-                            <table style="width: 100%; border: 1px solid black; border-collapse: collapse; margin-bottom: 10px;">
+                            <h5 style="margin-left: 5%;">Additives</h5>
+                            <table style="width: 90%; border: 1px solid black; border-collapse: collapse; margin-bottom: 10px;margin-left: 5%;margin-right: 5%;">
                                 <tr style="border: 1px solid black;">
                                     <td></td>
                                     <th style="background-color: #d3d3d3;">No#7</th>
@@ -151,8 +151,8 @@
                             </table>
                         </div>
                         <!-- Pharmacy and Calculations -->
-                        <h5>Pharmacy Information and Calculations</h5>
-                        <table style="width: 100%; border-collapse: collapse; margin-bottom: 10px;" border="1">
+                        <h5 style="margin-left: 5%;">Pharmacy Information and Calculations</h5>
+                        <table style="width: 90%; border-collapse: collapse; margin-bottom: 10px;margin-left: 5%;margin-right: 5%;" border="1">
                             <tr style="border: 1px solid black;">
                                 <td rowspan="2" style="background-color: #d3d3d3;">No#8</td>
                                 <td><strong>TPN Rate (ml/hr):</strong></td>
@@ -169,8 +169,8 @@
                         </table>
 
                         <!-- Prescriber Section -->
-                        <h5>Prescriber and Technician Information</h5>
-                        <table style="width: 100%; border-collapse: collapse;" border="1">
+                        <h5 style="margin-left: 5%;">Prescriber and Technician Information</h5>
+                        <table style="width: 90%; border-collapse: collapse; margin-left: 5%;margin-right: 5%;" border="1">
                             <tr style="border: 1px solid black;">
                                 <td><strong>Prescriber Name:</strong></td>
                                 <td><t t-esc="doc.prescriber_name"/></td>
@@ -185,7 +185,7 @@
                             </tr>
                         </table>
 
-                        <p><strong>Notes:</strong> <t t-esc="doc.notes"/></p>
+                        <p  style="margin-left: 5%;"><strong>Notes:</strong> <t t-esc="doc.notes"/></p>
                     </div>
                 </t>
             </t>

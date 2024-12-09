@@ -21,38 +21,124 @@
                         </group>
                     </group>
 
-                    <group string="TPN Details">
-                        <field name="diagnosis"/>
-                        <field name="tpn_indications"/>
-                        <field name="tpn_day"/>
-                        <field name="tpn_route"/>
+                    <group>
+                        <group string="TPN Details">
+                            <field name="diagnosis"/>
+                            <field name="tpn_indications"/>
+                        </group>
+
+                        <group string="No#1">
+
+                            <field name="date"/>
+                            <field name="tpn_day"/>
+                            <field name="tpn_route"/>
+                        </group>
                     </group>
 
                     <notebook>
                         <page string="Nutritional Requirements">
                             <group>
-                                <field name="dextrose_mg_kg_min"/>
-                                <field name="dextrose_gm_day"/>
-                                <field name="amino_acids_gm_kg_day"/>
-                                <field name="fat_emulsion_gm_kg_day"/>
-                                <field name="total_fluid_intake"/>
-                                <field name="total_volume_tpn"/>
+                                <group string="No#2">
+                                    <field name="dextrose_mg_kg_min"/>
+                                    <field name="dextrose_gm_day"/>
+                                </group>
+                                <group string="No#3">
+                                    <field name="amino_acids_gm_kg_day"/>
+                                    <field name="amino_acids_gm_day"/>
+                                </group>
+                                <group string="No#4">
+                                    <field name="fat_emulsion_gm_kg_day"/>
+                                    <field name="fat_emulsion_gm_day"/>
+                                </group>
+                                <group string="No#5">
+                                    <field name="total_fluid_intake"/>
+                                    <field name="total_fluid_intake_ml_hr"/>
+                                    <field name="total_fluid_intake_ml_day"/>
+                                </group>
+                                <group string="No#6">
+                                    <field name="total_volume_tpn"/>
+                                </group>
                             </group>
                         </page>
 
                         <page string="Additives">
-                            <group>
-                                <field name="sodium"/>
-                                <field name="potassium"/>
-                                <field name="calcium"/>
-                                <field name="magnesium"/>
-                                <field name="phosphate"/>
-                                <field name="chloride"/>
-                                <field name="acetate"/>
-                                <field name="fat_soluble_vitamins"/>
-                                <field name="water_soluble_vitamins"/>
-                                <field name="trace_elements"/>
-                                <field name="heparin"/>
+                            <group string="No#7">
+                                <!-- Sodium -->
+                                <group string="Sodium">
+                                    <field name="sodium"/>
+                                    <field name="sodium_range"/>
+                                    <field name="sodium_notes"/>
+                                </group>
+
+                                <!-- Potassium -->
+                                <group string="Potassium">
+                                    <field name="potassium"/>
+                                    <field name="potassium_range"/>
+                                    <field name="potassium_notes"/>
+                                </group>
+
+                                <!-- Calcium -->
+                                <group string="Calcium">
+                                    <field name="calcium"/>
+                                    <field name="calcium_range"/>
+                                    <field name="calcium_notes"/>
+                                </group>
+
+                                <!-- Magnesium -->
+                                <group string="Magnesium">
+                                    <field name="magnesium"/>
+                                    <field name="magnesium_range"/>
+                                    <field name="magnesium_notes"/>
+                                </group>
+
+                                <!-- Phosphate -->
+                                <group string="Phosphate">
+                                    <field name="phosphate"/>
+                                    <field name="phosphate_range"/>
+                                    <field name="phosphate_notes"/>
+                                </group>
+
+                                <!-- Chloride -->
+                                <group string="Chloride">
+                                    <field name="chloride"/>
+                                    <field name="chloride_range"/>
+                                    <field name="chloride_notes"/>
+                                </group>
+
+                                <!-- Acetate -->
+                                <group string="Acetate">
+                                    <field name="acetate"/>
+                                    <field name="acetate_range"/>
+                                    <field name="acetate_notes"/>
+                                </group>
+
+                                <!-- Fat Soluble Vitamins -->
+                                <group string="Fat Soluble Vitamins">
+                                    <field name="fat_soluble_vitamins"/>
+                                    <field name="fat_soluble_vitamins_range"/>
+                                    <field name="fat_soluble_vitamins_notes"/>
+                                </group>
+
+                                <!-- Water Soluble Vitamins -->
+                                <group string="Water Soluble Vitamins">
+                                    <field name="water_soluble_vitamins"/>
+                                    <field name="water_soluble_vitamins_range"/>
+                                    <field name="water_soluble_vitamins_notes"/>
+                                </group>
+
+                                <!-- Trace Elements -->
+                                <group string="Trace Elements">
+                                    <field name="trace_elements"/>
+                                    <field name="trace_elements_range"/>
+                                    <field name="trace_elements_notes"/>
+                                </group>
+
+                                <!-- Heparin -->
+                                <group string="Heparin">
+                                    <field name="heparin"/>
+                                    <field name="heparin_range"/>
+                                    <field name="heparin_notes"/>
+                                </group>
                             </group>
                         </page>
 
@@ -72,7 +158,7 @@
                         </page>
 
                         <page string="Calculated Fields">
-                            <group>
+                            <group string="No#8">
                                 <field name="tpn_rate"/>
                                 <field name="total_tpn_fluid_rate"/>
                                 <field name="non_protein_calories"/>

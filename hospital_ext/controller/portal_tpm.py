@@ -62,6 +62,7 @@ class PortalTPNForm(http.Controller):
         tpn_indications = kw.get('tpn_indications')
 
         # Prescription Details
+        date_field = kw.get('date', str(date.today()))
         tpn_day = kw.get('tpn_day')
         tpn_route = kw.get('tpn_route')
 
@@ -69,22 +70,58 @@ class PortalTPNForm(http.Controller):
         dextrose_mg_kg_min = kw.get('dextrose_mg_kg_min')
         dextrose_gm_day = kw.get('dextrose_gm_day')
         amino_acids_gm_kg_day = kw.get('amino_acids_gm_kg_day')
+        amino_acids_gm_day = kw.get('amino_acids_gm_day')
         fat_emulsion_gm_kg_day = kw.get('fat_emulsion_gm_kg_day')
+        fat_emulsion_gm_day = kw.get('fat_emulsion_gm_day')
         total_fluid_intake = kw.get('total_fluid_intake')
+        total_fluid_intake_ml_hr = kw.get('total_fluid_intake_ml_hr')
+        total_fluid_intake_ml_day = kw.get('total_fluid_intake_ml_day')
         total_volume_tpn = kw.get('total_volume_tpn')
 
         # Additives
         sodium = kw.get('sodium')
+        sodium_range = kw.get('sodium_range')
+        sodium_notes = kw.get('sodium_notes')
+
         potassium = kw.get('potassium')
+        potassium_range = kw.get('potassium_range')
+        potassium_notes = kw.get('potassium_notes')
+
         calcium = kw.get('calcium')
+        calcium_range = kw.get('calcium_range')
+        calcium_notes = kw.get('calcium_notes')
+
         magnesium = kw.get('magnesium')
+        magnesium_range = kw.get('magnesium_range')
+        magnesium_notes = kw.get('magnesium_notes')
+
         phosphate = kw.get('phosphate')
+        phosphate_range = kw.get('phosphate_range')
+        phosphate_notes = kw.get('phosphate_notes')
+
         chloride = kw.get('chloride')
+        chloride_range = kw.get('chloride_range')
+        chloride_notes = kw.get('chloride_notes')
+
         acetate = kw.get('acetate')
+        acetate_range = kw.get('acetate_range')
+        acetate_notes = kw.get('acetate_notes')
+
         fat_soluble_vitamins = kw.get('fat_soluble_vitamins')
+        fat_soluble_vitamins_range = kw.get('fat_soluble_vitamins_range')
+        fat_soluble_vitamins_notes = kw.get('fat_soluble_vitamins_notes')
+
         water_soluble_vitamins = kw.get('water_soluble_vitamins')
+        water_soluble_vitamins_range = kw.get('water_soluble_vitamins_range')
+        water_soluble_vitamins_notes = kw.get('water_soluble_vitamins_notes')
+
         trace_elements = kw.get('trace_elements')
+        trace_elements_range = kw.get('trace_elements_range')
+        trace_elements_notes = kw.get('trace_elements_notes')
+
         heparin = kw.get('heparin')
+        heparin_range = kw.get('heparin_range')
+        heparin_notes = kw.get('heparin_notes')
 
         # Pharmacy Information
         base_solution_dextrose = kw.get('base_solution_dextrose')
@@ -123,25 +160,52 @@ class PortalTPNForm(http.Controller):
             'height': height,
             'diagnosis': diagnosis,
             'tpn_indications': tpn_indications,
+            'date': date_field,
             'tpn_day': tpn_day,
             'tpn_route': tpn_route,
             'dextrose_mg_kg_min': dextrose_mg_kg_min,
             'dextrose_gm_day': dextrose_gm_day,
             'amino_acids_gm_kg_day': amino_acids_gm_kg_day,
+            'amino_acids_gm_day': amino_acids_gm_day,
             'fat_emulsion_gm_kg_day': fat_emulsion_gm_kg_day,
+            'fat_emulsion_gm_day': fat_emulsion_gm_day,
             'total_fluid_intake': total_fluid_intake,
+            'total_fluid_intake_ml_hr': total_fluid_intake_ml_hr,
+            'total_fluid_intake_ml_day': total_fluid_intake_ml_day,
             'total_volume_tpn': total_volume_tpn,
             'sodium': sodium,
+            'sodium_range': sodium_range,
+            'sodium_notes': sodium_notes,
             'potassium': potassium,
+            'potassium_range': potassium_range,
+            'potassium_notes': potassium_notes,
             'calcium': calcium,
+            'calcium_range': calcium_range,
+            'calcium_notes': calcium_notes,
             'magnesium': magnesium,
+            'magnesium_range': magnesium_range,
+            'magnesium_notes': magnesium_notes,
             'phosphate': phosphate,
+            'phosphate_range': phosphate_range,
+            'phosphate_notes': phosphate_notes,
             'chloride': chloride,
+            'chloride_range': chloride_range,
+            'chloride_notes': chloride_notes,
             'acetate': acetate,
+            'acetate_range': acetate_range,
+            'acetate_notes': acetate_notes,
             'fat_soluble_vitamins': fat_soluble_vitamins,
+            'fat_soluble_vitamins_range': fat_soluble_vitamins_range,
+            'fat_soluble_vitamins_notes': fat_soluble_vitamins_notes,
             'water_soluble_vitamins': water_soluble_vitamins,
+            'water_soluble_vitamins_range': water_soluble_vitamins_range,
+            'water_soluble_vitamins_notes': water_soluble_vitamins_notes,
             'trace_elements': trace_elements,
+            'trace_elements_range': trace_elements_range,
+            'trace_elements_notes': trace_elements_notes,
             'heparin': heparin,
+            'heparin_range': heparin_range,
+            'heparin_notes': heparin_notes,
             'base_solution_dextrose': base_solution_dextrose,
             'base_solution_amino': base_solution_amino,
             'base_solution_water': base_solution_water,
@@ -160,8 +224,7 @@ class PortalTPNForm(http.Controller):
             'prescriber_id': prescriber_id,
             'nurse_name': nurse_name,
             'pharmacy_technician': pharmacy_technician,
-            'notes': notes
+            'notes': notes,
         })
-
         # Redirect to a success page after saving
         return request.redirect('/my')  # Redirect to the success page or show a confirmation message

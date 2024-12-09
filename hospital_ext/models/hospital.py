@@ -1,4 +1,5 @@
 from odoo import models, fields
+from datetime import datetime, date
 
 class TPNForm(models.Model):
     _name = 'tpn.form'
@@ -57,6 +58,7 @@ class TPNForm(models.Model):
     )
 
     # Prescription Details
+    date = fields.Date(default=date.today())
     tpn_day = fields.Integer(
         string="Day(s) of TPN",
         tracking=True
@@ -80,12 +82,28 @@ class TPNForm(models.Model):
         string="Amino Acids (gm/kg/day)",
         tracking=True
     )
+    amino_acids_gm_day = fields.Float(
+        string="Amino Acids (gm/day)",
+        tracking=True
+    )
     fat_emulsion_gm_kg_day = fields.Float(
         string="Fat Emulsion 20% (gm/kg/day)",
         tracking=True
     )
+    fat_emulsion_gm_day = fields.Float(
+        string="Fat Emulsion 20% (gm/day)",
+        tracking=True
+    )
     total_fluid_intake = fields.Float(
         string="Total Fluid Intake (ml/kg/day)",
+        tracking=True
+    )
+    total_fluid_intake_ml_hr = fields.Float(
+        string="Total Fluid Intake (ml/hour)",
+        tracking=True
+    )
+    total_fluid_intake_ml_day = fields.Float(
+        string="Total Fluid Intake (ml/day)",
         tracking=True
     )
     total_volume_tpn = fields.Float(
@@ -98,44 +116,141 @@ class TPNForm(models.Model):
         string="Sodium (mmol/day)",
         tracking=True
     )
+    sodium_range = fields.Char(
+        string="Sodium Range",
+        tracking=True
+    )
+    sodium_notes = fields.Char(
+        string="Sodium Notes",
+        tracking=True
+    )
+
     potassium = fields.Float(
         string="Potassium (mmol/day)",
         tracking=True
     )
+    potassium_range = fields.Char(
+        string="Potassium Range",
+        tracking=True
+    )
+    potassium_notes = fields.Char(
+        string="Potassium Notes",
+        tracking=True
+    )
+
     calcium = fields.Float(
         string="Calcium (mmol/day)",
         tracking=True
     )
+    calcium_range = fields.Char(
+        string="Calcium Range",
+        tracking=True
+    )
+    calcium_notes = fields.Char(
+        string="Calcium Notes",
+        tracking=True
+    )
+
     magnesium = fields.Float(
         string="Magnesium (mmol/day)",
+        tracking=True
+    )
+    magnesium_range = fields.Char(
+        string="Magnesium Range",
+        tracking=True
+    )
+    magnesium_notes = fields.Char(
+        string="Magnesium Notes",
         tracking=True
     )
     phosphate = fields.Float(
         string="Phosphate (mmol/day)",
         tracking=True
     )
+    phosphate_range = fields.Char(
+        string="Phosphate Range",
+        tracking=True
+    )
+    phosphate_notes = fields.Char(
+        string="Phosphate Notes",
+        tracking=True
+    )
+
     chloride = fields.Float(
         string="Chloride (mmol/day)",
         tracking=True
     )
+    chloride_range = fields.Char(
+        string="Chloride Range",
+        tracking=True
+    )
+    chloride_notes = fields.Char(
+        string="Chloride Notes",
+        tracking=True
+    )
+
     acetate = fields.Float(
         string="Acetate",
         tracking=True
     )
+    acetate_range = fields.Char(
+        string="Acetate Range",
+        tracking=True
+    )
+    acetate_notes = fields.Char(
+        string="Acetate Notes",
+        tracking=True
+    )
+
     fat_soluble_vitamins = fields.Float(
         string="Fat Soluble Vitamins (ml/day)",
         tracking=True
     )
+    fat_soluble_vitamins_range = fields.Char(
+        string="Fat Soluble Vitamins Range",
+        tracking=True
+    )
+    fat_soluble_vitamins_notes = fields.Char(
+        string="Fat Soluble Vitamins Notes",
+        tracking=True
+    )
+
     water_soluble_vitamins = fields.Float(
         string="Water Soluble Vitamins (ml/day)",
         tracking=True
     )
+    water_soluble_vitamins_range = fields.Char(
+        string="Water Soluble Vitamins Range",
+        tracking=True
+    )
+    water_soluble_vitamins_notes = fields.Char(
+        string="Water Soluble Vitamins Notes",
+        tracking=True
+    )
+
     trace_elements = fields.Float(
         string="Trace Elements (ml/day)",
         tracking=True
     )
+    trace_elements_range = fields.Char(
+        string="Trace Elements Range",
+        tracking=True
+    )
+    trace_elements_notes = fields.Char(
+        string="Trace Elements Notes",
+        tracking=True
+    )
+
     heparin = fields.Float(
         string="Heparin (units/ml)",
+        tracking=True
+    )
+    heparin_range = fields.Char(
+        string="Heparin Range",
+        tracking=True
+    )
+    heparin_notes = fields.Char(
+        string="Heparin Notes",
         tracking=True
     )
 

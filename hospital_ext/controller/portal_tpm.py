@@ -2,6 +2,7 @@ from odoo import http
 from odoo.http import request
 import logging
 _logger = logging.getLogger(__name__)
+from datetime import datetime, date
 
 class PortalTPNForm(http.Controller):
 
@@ -46,6 +47,7 @@ class PortalTPNForm(http.Controller):
 
     @http.route('/portal/save_tpn_form', auth='user', methods=['POST'], website=True)
     def save_tpn_form(self, **kw):
+        print("====================")
         # Handle form submission and create a new TPN form record
         tpn_form_obj = request.env['tpn.form'].sudo()
 
@@ -62,7 +64,7 @@ class PortalTPNForm(http.Controller):
         tpn_indications = kw.get('tpn_indications')
 
         # Prescription Details
-        date_field = kw.get('date', str(date.today()))
+        # date = fields.date.today()
         tpn_day = kw.get('tpn_day')
         tpn_route = kw.get('tpn_route')
 
@@ -160,7 +162,7 @@ class PortalTPNForm(http.Controller):
             'height': height,
             'diagnosis': diagnosis,
             'tpn_indications': tpn_indications,
-            'date': date_field,
+            # 'date': date_field,
             'tpn_day': tpn_day,
             'tpn_route': tpn_route,
             'dextrose_mg_kg_min': dextrose_mg_kg_min,

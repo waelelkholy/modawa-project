@@ -116,7 +116,7 @@ class TPNForm(models.Model):
         string="Sodium (mmol/day)",
         tracking=True
     )
-    sodium_range = fields.Char(
+    sodium_range = fields.Html(
         string="Sodium Range",
         tracking=True
     )
@@ -129,7 +129,7 @@ class TPNForm(models.Model):
         string="Potassium (mmol/day)",
         tracking=True
     )
-    potassium_range = fields.Char(
+    potassium_range = fields.Html(
         string="Potassium Range",
         tracking=True
     )
@@ -142,7 +142,7 @@ class TPNForm(models.Model):
         string="Calcium (mmol/day)",
         tracking=True
     )
-    calcium_range = fields.Char(
+    calcium_range = fields.Html(
         string="Calcium Range",
         tracking=True
     )
@@ -155,7 +155,7 @@ class TPNForm(models.Model):
         string="Magnesium (mmol/day)",
         tracking=True
     )
-    magnesium_range = fields.Char(
+    magnesium_range = fields.Html(
         string="Magnesium Range",
         tracking=True
     )
@@ -167,7 +167,7 @@ class TPNForm(models.Model):
         string="Phosphate (mmol/day)",
         tracking=True
     )
-    phosphate_range = fields.Char(
+    phosphate_range = fields.Html(
         string="Phosphate Range",
         tracking=True
     )
@@ -180,7 +180,7 @@ class TPNForm(models.Model):
         string="Chloride (mmol/day)",
         tracking=True
     )
-    chloride_range = fields.Char(
+    chloride_range = fields.Html(
         string="Chloride Range",
         tracking=True
     )
@@ -193,7 +193,7 @@ class TPNForm(models.Model):
         string="Acetate",
         tracking=True
     )
-    acetate_range = fields.Char(
+    acetate_range = fields.Html(
         string="Acetate Range",
         tracking=True
     )
@@ -206,7 +206,7 @@ class TPNForm(models.Model):
         string="Fat Soluble Vitamins (ml/day)",
         tracking=True
     )
-    fat_soluble_vitamins_range = fields.Char(
+    fat_soluble_vitamins_range = fields.Html(
         string="Fat Soluble Vitamins Range",
         tracking=True
     )
@@ -219,7 +219,7 @@ class TPNForm(models.Model):
         string="Water Soluble Vitamins (ml/day)",
         tracking=True
     )
-    water_soluble_vitamins_range = fields.Char(
+    water_soluble_vitamins_range = fields.Html(
         string="Water Soluble Vitamins Range",
         tracking=True
     )
@@ -232,7 +232,7 @@ class TPNForm(models.Model):
         string="Trace Elements (ml/day)",
         tracking=True
     )
-    trace_elements_range = fields.Char(
+    trace_elements_range = fields.Html(
         string="Trace Elements Range",
         tracking=True
     )
@@ -245,7 +245,7 @@ class TPNForm(models.Model):
         string="Heparin (units/ml)",
         tracking=True
     )
-    heparin_range = fields.Char(
+    heparin_range = fields.Html(
         string="Heparin Range",
         tracking=True
     )

@@ -606,7 +606,10 @@
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="calcium_range">Calcium Range:</label>
-                            <input type="text" name="calcium_range" id="calcium_range" class="form-control" />
+                            <textarea name="calcium_range" id="calcium_range" class="form-control" rows="2">
+                                Give as Calcium Gluconate
+                                PHARMACY: check Ca/PO4 compatibility
+                            </textarea>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="calcium_notes">Calcium Notes:</label>
@@ -634,7 +637,10 @@
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="phosphate_range">Phosphate Range:</label>
-                            <input type="text" name="phosphate_range" id="phosphate_range" class="form-control" />
+                             <textarea name="phosphate_range" id="phosphate_range" class="form-control" rows="2">
+                                Na PO4(1 ml = 3 Mmol PO4 &amp; 4 Mmol Na)
+                                 KP04(1mL= 3 Mmol PO4 &amp; 4 4 Mmol Na)
+                            </textarea>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="phosphate_notes">Phosphate Notes:</label>
@@ -662,7 +668,8 @@
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="acetate_range">Acetate Range:</label>
-                            <input type="text" name="acetate_range" id="acetate_range" class="form-control" />
+                            <input type="text" name="acetate_range" id="acetate_range" class="form-control" value="Acetate and CI should be in 1:1, unless it is
+indicated"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="acetate_notes">Acetate Notes:</label>

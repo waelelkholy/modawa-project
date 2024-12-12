@@ -1,10 +1,16 @@
-from odoo import models, fields
+from odoo import models, fields, api
 from datetime import datetime, date
 
 class TPNForm(models.Model):
     _name = 'tpn.form'
     _description = 'Total Parenteral Nutrition Neonatal Form'
     _inherit = ['mail.thread', 'mail.activity.mixin']  # Adding chatter
+
+    seq_no = fields.Char(string='Reference', required=True, readonly=True, default=lambda self: self._get_default_sequence())
+
+    @api.model
+    def _get_default_sequence(self):
+        return self.env['ir.sequence'].next_by_code('tpm.tpm') or '/'
 
     portal_user_id = fields.Many2one(
         'res.users',

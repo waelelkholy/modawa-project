@@ -102,9 +102,16 @@
                                 <td><t t-esc="form.hospital_no"/></td>
                                 <td><t t-esc="form.ward"/></td>
                                 <td>
-                                    <a t-att-href="'/my/tpn_forms/%s' % form.id" class="btn btn-primary">
-                                        View
-                                    </a>
+                                    <td>
+                                        <!-- View Button -->
+                                        <a t-att-href="'/my/tpn_forms/%s' % form.id" class="btn btn-primary">
+                                            View
+                                        </a>
+                                        <!-- Edit Button -->
+                                        <a t-att-href="'/portal/edit_tpn_form/%s' % form.id" class="btn btn-warning">
+                                            Edit
+                                        </a>
+                                    </td>
                                 </td>
                             </tr>
                         </t>
@@ -170,7 +177,7 @@
                                 <th>Name</th>
                                 <td t-esc="tpn_form.name"/>
                                 <th>Portal User</th>
-                                <td t-esc="tpn_form.portal_user_id"/>
+                                <td t-esc="tpn_form.portal_user_id.name"/>
                             </tr>
                             <tr>
                                 <th>Hospital No</th>
@@ -193,6 +200,8 @@
                             <tr>
                                 <th>Height</th>
                                 <td t-esc="tpn_form.height"/>
+                                <th>Seq</th>
+                                <td t-esc="tpn_form.seq_no"/>
                             </tr>
                         </table>
                     </div>
@@ -637,9 +646,9 @@
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="phosphate_range">Phosphate Range:</label>
-                             <textarea name="phosphate_range" id="phosphate_range" class="form-control" rows="2">
+                            <textarea name="phosphate_range" id="phosphate_range" class="form-control" rows="2">
                                 Na PO4(1 ml = 3 Mmol PO4 &amp; 4 Mmol Na)
-                                 KP04(1mL= 3 Mmol PO4 &amp; 4 4 Mmol Na)
+                                KP04(1mL= 3 Mmol PO4 &amp; 4 4 Mmol Na)
                             </textarea>
                         </div>
                         <div class="col-md-4 form-group">
@@ -745,6 +754,209 @@ indicated"/>
                 <!-- Submit -->
                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
                 <button type="submit" class="btn btn-primary">Save Form</button>
+            </form>
+        </t>
+    </template>
+
+    <template id="portal_tpn_edit_form">
+        <t t-call="portal.portal_layout">
+            <h3>Edit TPN Form</h3>
+            <form action="/portal/save_tpn_form" method="post">
+                <!-- General Information -->
+                <fieldset class="form-section">
+                    <legend>General Information</legend>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="name">Patient Name:</label>
+                            <input type="text" name="name" id="name" class="form-control" t-att-value="form_data.name" required="1" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="hospital_no">Hospital No.:</label>
+                            <input type="text" name="hospital_no" id="hospital_no" class="form-control" t-att-value="form_data.hospital_no" required="1" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="nationality">Nationality:</label>
+                            <input type="text" name="nationality" id="nationality" class="form-control" t-att-value="form_data.nationality" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="treating_physician">Treating Physician:</label>
+                            <input type="text" name="treating_physician" id="treating_physician" class="form-control" t-att-value="form_data.treating_physician" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="ward">Ward:</label>
+                            <input type="text" name="ward" id="ward" class="form-control" t-att-value="form_data.ward" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="age">Age (days):</label>
+                            <input type="number" name="age" id="age" class="form-control" t-att-value="form_data.age" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="weight">Weight (kg):</label>
+                            <input type="number" name="weight" id="weight" class="form-control" t-att-value="form_data.weight" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="height">Height (cm):</label>
+                            <input type="number" name="height" id="height" class="form-control" t-att-value="form_data.height" />
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="diagnosis">Diagnosis:</label>
+                            <textarea name="diagnosis" id="diagnosis" class="form-control"><t t-esc="form_data.diagnosis"/></textarea>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="tpn_indications">TPN Indications:</label>
+                            <textarea name="tpn_indications" id="tpn_indications" class="form-control"><t t-esc="form_data.tpn_indications"/></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Prescription Details -->
+                <fieldset class="form-section">
+                    <legend>Prescription Details</legend>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="date">Date:</label>
+                            <input type="date" name="date" id="date" class="form-control" t-att-value="form_data.date" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="tpn_day">Day(s) of TPN:</label>
+                            <input type="number" name="tpn_day" id="tpn_day" class="form-control" t-att-value="form_data.tpn_day" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="tpn_route">TPN Route:</label>
+                            <select name="tpn_route" id="tpn_route" class="form-control">
+                                <option t-att-selected="form_data.tpn_route == 'central'" value="central">Central</option>
+                                <option t-att-selected="form_data.tpn_route == 'peripheral'" value="peripheral">Peripheral</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Nutritional Fields -->
+                <fieldset class="form-section">
+                    <legend>Nutritional Fields</legend>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="dextrose_mg_kg_min">Dextrose (mg/kg/min):</label>
+                            <input type="number" name="dextrose_mg_kg_min" id="dextrose_mg_kg_min" class="form-control" t-att-value="form_data.dextrose_mg_kg_min" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="dextrose_gm_day">Dextrose (gm/day):</label>
+                            <input type="number" name="dextrose_gm_day" id="dextrose_gm_day" class="form-control" t-att-value="form_data.dextrose_gm_day" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="amino_acids_gm_kg_day">Amino Acids (gm/kg/day):</label>
+                            <input type="number" name="amino_acids_gm_kg_day" id="amino_acids_gm_kg_day" class="form-control" t-att-value="form_data.amino_acids_gm_kg_day" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="amino_acids_gm_day">Amino Acids (gm/day):</label>
+                            <input type="number" name="amino_acids_gm_day" id="amino_acids_gm_day" class="form-control" t-att-value="form_data.amino_acids_gm_day" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="fat_emulsion_gm_kg_day">Fat Emulsion 20% (gm/kg/day):</label>
+                            <input type="number" name="fat_emulsion_gm_kg_day" id="fat_emulsion_gm_kg_day" class="form-control" t-att-value="form_data.fat_emulsion_gm_kg_day" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="fat_emulsion_gm_day">Fat Emulsion 20% (gm/day):</label>
+                            <input type="number" name="fat_emulsion_gm_day" id="fat_emulsion_gm_day" class="form-control" t-att-value="form_data.fat_emulsion_gm_day" />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Additives -->
+                <fieldset class="form-section">
+                    <legend>Additives</legend>
+                    <div class="row">
+                        <!-- Sodium -->
+                        <div class="col-md-4 form-group">
+                            <label for="sodium">Sodium (mmol/day):</label>
+                            <input type="number" name="sodium" id="sodium" class="form-control" t-att-value="form_data.sodium" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="sodium_range">Sodium Range:</label>
+                            <input type="text" name="sodium_range" id="sodium_range" class="form-control" t-att-value="form_data.sodium_range" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="sodium_notes">Sodium Notes:</label>
+                            <input type="text" name="sodium_notes" id="sodium_notes" class="form-control" t-att-value="form_data.sodium_notes" />
+                        </div>
+
+                        <!-- Potassium -->
+                        <div class="col-md-4 form-group">
+                            <label for="potassium">Potassium (mmol/day):</label>
+                            <input type="number" name="potassium" id="potassium" class="form-control" t-att-value="form_data.potassium" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="potassium_range">Potassium Range:</label>
+                            <input type="text" name="potassium_range" id="potassium_range" class="form-control" t-att-value="form_data.potassium_range" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="potassium_notes">Potassium Notes:</label>
+                            <input type="text" name="potassium_notes" id="potassium_notes" class="form-control" t-att-value="form_data.potassium_notes" />
+                        </div>
+
+                        <!-- Calcium -->
+                        <div class="col-md-4 form-group">
+                            <label for="calcium">Calcium (mmol/day):</label>
+                            <input type="number" name="calcium" id="calcium" class="form-control" t-att-value="form_data.calcium" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="calcium_range">Calcium Range:</label>
+                            <textarea name="calcium_range" id="calcium_range" class="form-control" rows="2"><t t-esc="form_data.calcium_range"/></textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="calcium_notes">Calcium Notes:</label>
+                            <input type="text" name="calcium_notes" id="calcium_notes" class="form-control" t-att-value="form_data.calcium_notes" />
+                        </div>
+
+                        <!-- Magnesium -->
+                        <div class="col-md-4 form-group">
+                            <label for="magnesium">Magnesium (mmol/day):</label>
+                            <input type="number" name="magnesium" id="magnesium" class="form-control" t-att-value="form_data.magnesium" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="magnesium_range">Magnesium Range:</label>
+                            <input type="text" name="magnesium_range" id="magnesium_range" class="form-control" t-att-value="form_data.magnesium_range" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="magnesium_notes">Magnesium Notes:</label>
+                            <input type="text" name="magnesium_notes" id="magnesium_notes" class="form-control" t-att-value="form_data.magnesium_notes" />
+                        </div>
+
+                        <!-- Phosphate -->
+                        <div class="col-md-4 form-group">
+                            <label for="phosphate">Phosphate (mmol/day):</label>
+                            <input type="number" name="phosphate" id="phosphate" class="form-control" t-att-value="form_data.phosphate" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="phosphate_range">Phosphate Range:</label>
+                            <textarea name="phosphate_range" id="phosphate_range" class="form-control" rows="2"><t t-esc="form_data.phosphate_range"/></textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="phosphate_notes">Phosphate Notes:</label>
+                            <input type="text" name="phosphate_notes" id="phosphate_notes" class="form-control" t-att-value="form_data.phosphate_notes" />
+                        </div>
+
+                        <!-- Chloride -->
+                        <div class="col-md-4 form-group">
+                            <label for="chloride">Chloride (mmol/day):</label>
+                            <input type="number" name="chloride" id="chloride" class="form-control" t-att-value="form_data.chloride" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="chloride_range">Chloride Range:</label>
+                            <input type="text" name="chloride_range" id="chloride_range" class="form-control" t-att-value="form_data.chloride_range" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="chloride_notes">Chloride Notes:</label>
+                            <input type="text" name="chloride_notes" id="chloride_notes" class="form-control" t-att-value="form_data.chloride_notes" />
+                        </div>
+
+                        <!-- Add Action Button -->
+                        <div class="col-md-12 form-group">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </div>
+                </fieldset>
             </form>
         </t>
     </template>

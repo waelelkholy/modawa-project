@@ -12,6 +12,7 @@
     'website': "https://www.upwork.com/freelancers/~018ff6830780ff04b4",
     'depends': ['base', 'sale','purchase'],
     'data': [
+        'data/sequence.xml',
         'security/ir.model.access.csv',
         'views/hospital_view.xml',
         'views/tpm_portal_template.xml',

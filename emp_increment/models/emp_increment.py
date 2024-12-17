@@ -251,7 +251,7 @@ class EmpIncrement(models.Model):
                 raise UserError(_('Please Configure Hire Date in Employee : %s') % (self.employee_id.name))
             # EOS
             eos_config_id = self.env['provision.configuration'].search(
-                [('type', '=', 'EOS'), ('struct_id', '=', emp.contract_id.struct_id.id)],
+                [('type', '=', 'EOS'), ('struct_id', '=', emp.contract_id.structure_type_id.default_struct_id.id)],
                 limit=1)
             if eos_config_id and eos_config_id.journal_id and eos_config_id.debit_account_id and eos_config_id.credit_account_id:
                 todaydate = fields.date.today()
@@ -278,7 +278,7 @@ class EmpIncrement(models.Model):
                 raise UserError(_('Please Configure Hire Date in Employee : %s') % (emp.name))
             # EOS
             eos_config_id = self.env['provision.configuration'].search(
-                [('type', '=', 'EOS'), ('struct_id', '=', emp.contract_id.struct_id.id)],
+                [('type', '=', 'EOS'), ('struct_id', '=', emp.contract_id.structure_type_id.default_struct_id.id)],
                 limit=1)
             if eos_config_id and eos_config_id.journal_id and eos_config_id.debit_account_id and eos_config_id.credit_account_id:
                 todaydate = fields.date.today()
@@ -463,7 +463,7 @@ class EmpIncrement(models.Model):
                 raise UserError(_('Please Configure Hire Date in Employee : %s') % (self.employee_id.name))
             # EOS
             eos_config_id = self.env['provision.configuration'].search(
-                [('type', '=', 'EOS'), ('struct_id', '=', self.contract_id.struct_id.id)],
+                [('type', '=', 'EOS'), ('struct_id', '=', self.contract_id.structure_type_id.default_struct_id.id)],
                 limit=1)
             if eos_config_id and eos_config_id.journal_id and eos_config_id.debit_account_id and eos_config_id.credit_account_id:
                 todaydate = fields.date.today()
@@ -482,7 +482,7 @@ class EmpIncrement(models.Model):
 
             # Vaction
             vac_config_id = self.env['provision.configuration'].search(
-                [('type', '=', 'Vacation'), ('struct_id', '=', self.contract_id.struct_id.id)], limit=1)
+                [('type', '=', 'Vacation'), ('struct_id', '=', self.contract_id.structure_type_id.default_struct_id.id)], limit=1)
             if vac_config_id and vac_config_id.journal_id and vac_config_id.debit_account_id and vac_config_id.credit_account_id:
                 todaydate = fields.date.today()
                 last_date = calendar._monthlen(int(todaydate.year), int(todaydate.month))
@@ -502,7 +502,7 @@ class EmpIncrement(models.Model):
                 raise UserError(_('Please Configure Hire Date in Employee : %s') % (self.employee_id.name))
             # EOS
             eos_config_id = self.env['provision.configuration'].search(
-                [('type', '=', 'EOS'), ('struct_id', '=', self.contract_id.struct_id.id)],
+                [('type', '=', 'EOS'), ('struct_id', '=', self.contract_id.structure_type_id.default_struct_id.id)],
                 limit=1)
             if eos_config_id and eos_config_id.journal_id and eos_config_id.debit_account_id and eos_config_id.credit_account_id:
                 todaydate = fields.date.today()
@@ -522,7 +522,7 @@ class EmpIncrement(models.Model):
             # Vaction
             vac_config_id = self.env['provision.configuration'].search(
                 [('type', '=', 'Vacation'),
-                 ('struct_id', '=', self.contract_id.struct_id.id)], limit=1)
+                 ('struct_id', '=', self.contract_id.structure_type_id.default_struct_id.id)], limit=1)
             if vac_config_id and vac_config_id.journal_id and vac_config_id.debit_account_id and vac_config_id.credit_account_id:
                 todaydate = fields.date.today()
                 last_date = calendar._monthlen(int(todaydate.year), int(todaydate.month))

@@ -34,95 +34,108 @@ class TPNForm(models.Model):
     )
     nationality = fields.Char(
         string="Nationality",
-        tracking=True
+        tracking=True,
+        required=True,
     )
     treating_physician = fields.Char(
         string="Treating Physician",
-        tracking=True
+        tracking=True,
+        required=True,
     )
     ward = fields.Char(
         string="Ward",
-        tracking=True
+        tracking=True,
+        required=True,
     )
     age = fields.Integer(
         string="Age (days)",
-        tracking=True
+        tracking=True,
+        required=True,
     )
     weight = fields.Float(
         string="Weight (kg)",
-        tracking=True
+        tracking=True,
+        required=True,
     )
     height = fields.Float(
         string="Height (cm)",
-        tracking=True
+        tracking=True,
+        required=True,
     )
     diagnosis = fields.Text(
         string="Diagnosis",
-        tracking=True
+        tracking=True,
+        required=True,
     )
     tpn_indications = fields.Text(
         string="TPN Indications",
-        tracking=True
+        tracking=True,
+        required=True,
     )
 
     # Prescription Details
     date = fields.Date(default=date.today())
     tpn_day = fields.Integer(
         string="Day(s) of TPN",
-        tracking=True
+        tracking=True,
+        required=True,
     )
     tpn_route = fields.Selection(
         [('central', 'Central'), ('peripheral', 'Peripheral')],
         string="TPN Route",
-        tracking=True
+        tracking=True,
+        required=True,
     )
 
     # Nutritional Fields
     dextrose_mg_kg_min = fields.Float(
         string="Dextrose (mg/kg/min)",
-        tracking=True
+        tracking=True,
+        required=True,
     )
     dextrose_gm_day = fields.Float(
         string="Dextrose (gm/day)",
-        tracking=True
+        tracking=True,
+        required=True,
     )
     amino_acids_gm_kg_day = fields.Float(
         string="Amino Acids (gm/kg/day)",
-        tracking=True
+        tracking=True,required=True,
+
     )
     amino_acids_gm_day = fields.Float(
         string="Amino Acids (gm/day)",
-        tracking=True
+        tracking=True,required=True,
     )
     fat_emulsion_gm_kg_day = fields.Float(
         string="Fat Emulsion 20% (gm/kg/day)",
-        tracking=True
+        tracking=True,required=True,
     )
     fat_emulsion_gm_day = fields.Float(
         string="Fat Emulsion 20% (gm/day)",
-        tracking=True
+        tracking=True,required=True,
     )
     total_fluid_intake = fields.Float(
         string="Total Fluid Intake (ml/kg/day)",
-        tracking=True
+        tracking=True,required=True,
     )
     total_fluid_intake_ml_hr = fields.Float(
         string="Total Fluid Intake (ml/hour)",
-        tracking=True
+        tracking=True,required=True,
     )
     total_fluid_intake_ml_day = fields.Float(
         string="Total Fluid Intake (ml/day)",
-        tracking=True
+        tracking=True,required=True,
     )
     total_volume_tpn = fields.Float(
         string="Total Volume of TPN (ml/day)",
-        tracking=True
+        tracking=True,required=True,
     )
 
     # Additives
     sodium = fields.Float(
         string="Sodium (mmol/day)",
-        tracking=True
+        tracking=True,required=True,
     )
     sodium_range = fields.Html(
         string="Sodium Range",
@@ -136,7 +149,7 @@ class TPNForm(models.Model):
 
     potassium = fields.Float(
         string="Potassium (mmol/day)",
-        tracking=True
+        tracking=True,required=True,
     )
     potassium_range = fields.Html(
         string="Potassium Range",
@@ -150,7 +163,7 @@ class TPNForm(models.Model):
 
     calcium = fields.Float(
         string="Calcium (mmol/day)",
-        tracking=True
+        tracking=True,required=True,
     )
     calcium_range = fields.Html(
         string="Calcium Range",
@@ -165,7 +178,7 @@ class TPNForm(models.Model):
 
     magnesium = fields.Float(
         string="Magnesium (mmol/day)",
-        tracking=True
+        tracking=True,required=True,
     )
     magnesium_range = fields.Html(
         string="Magnesium Range",
@@ -178,7 +191,7 @@ class TPNForm(models.Model):
     )
     phosphate = fields.Float(
         string="Phosphate (mmol/day)",
-        tracking=True
+        tracking=True,required=True,
     )
     phosphate_range = fields.Html(
         string="Phosphate Range",
@@ -193,7 +206,7 @@ class TPNForm(models.Model):
 
     chloride = fields.Float(
         string="Chloride (mmol/day)",
-        tracking=True
+        tracking=True,required=True,
     )
     chloride_range = fields.Html(
         string="Chloride Range",
@@ -207,7 +220,7 @@ class TPNForm(models.Model):
 
     acetate = fields.Float(
         string="Acetate",
-        tracking=True
+        tracking=True,required=True,
     )
     acetate_range = fields.Html(
         string="Acetate Range",
@@ -222,7 +235,7 @@ class TPNForm(models.Model):
 
     fat_soluble_vitamins = fields.Float(
         string="Fat Soluble Vitamins (ml/day)",
-        tracking=True
+        tracking=True,required=True,
     )
     fat_soluble_vitamins_range = fields.Html(
         string="Fat Soluble Vitamins Range",
@@ -237,7 +250,7 @@ class TPNForm(models.Model):
 
     water_soluble_vitamins = fields.Float(
         string="Water Soluble Vitamins (ml/day)",
-        tracking=True
+        tracking=True,required=True,
     )
     water_soluble_vitamins_range = fields.Html(
         string="Water Soluble Vitamins Range",
@@ -252,7 +265,7 @@ class TPNForm(models.Model):
 
     trace_elements = fields.Float(
         string="Trace Elements (ml/day)",
-        tracking=True
+        tracking=True,required=True,
     )
     trace_elements_range = fields.Html(
         string="Trace Elements Range",
@@ -267,7 +280,7 @@ class TPNForm(models.Model):
 
     heparin = fields.Float(
         string="Heparin (units/ml)",
-        tracking=True
+        tracking=True,required=True,
     )
     heparin_range = fields.Html(
         string="Heparin Range",
@@ -343,19 +356,19 @@ class TPNForm(models.Model):
     # Prescription and Pharmacy Info
     prescriber_name = fields.Char(
         string="Prescriber Name",
-        tracking=True
+        tracking=True,required=True,
     )
     prescriber_id = fields.Char(
         string="Prescriber ID",
-        tracking=True
+        tracking=True,required=True,
     )
     nurse_name = fields.Char(
         string="Nurse Name",
-        tracking=True
+        tracking=True,required=True,
     )
     pharmacy_technician = fields.Char(
         string="Technician Name",
-        tracking=True
+        tracking=True,required=True,
     )
     notes = fields.Text(
         string="Notes",

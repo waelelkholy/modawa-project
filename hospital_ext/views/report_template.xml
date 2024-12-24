@@ -12,8 +12,8 @@
 
                 <t t-foreach="docs" t-as="doc">
                     <div class="page" style="border: 2px solid black">
-                        <div class="parent-div" style="display: flex;gap: 10px; justify-content: space-between;">
-                            <div class="child-div" style="flex: 1;border: 1px solid #000;padding: 10px;text-align: center;">
+                        <div class="parent-div"  style="overflow: hidden;">
+                            <div class="child-div" style="width:49%;float: left; margin-left: 5px;">
                                 <h6 class="text-center">KINGDOM OF SAUDI ARABIA</h6>
                                 <h6 class="text-center">MINISTRY OF HEALTH</h6>
                                 <h6 class="text-center">Pharmaceutical Services IV Admixture and TPN Department</h6>
@@ -21,7 +21,7 @@
                                 <br></br>
                                 <!-- TPN Details -->
                                 <h5 style="margin-left: 5%;">TPN Prescription Details</h5>
-                                <table style="width: 100%; border-collapse: collapse; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;" border="1">
+                                <table style="width: 99%; border-collapse: collapse; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;" border="1">
                                     <tr style="border: 1px solid black;">
                                         <td style="background-color: #d3d3d3;" rowspan="3">No#1</td>
                                         <td><strong>Day(s) of TPN:</strong></td>
@@ -41,7 +41,7 @@
                                 <!-- Nutritional Details -->
                                 <div class="nutritional-details">
                                     <h5 style="margin-left: 5%;">Nutritional Details</h5>
-                                    <table style="width: 100%; border: 1px solid black; border-collapse: collapse;margin-bottom: 10px;margin-left: 5px;margin-right: 5px;">
+                                    <table style="width: 99%; border: 1px solid black; border-collapse: collapse;margin-bottom: 10px;margin-left: 5px;margin-right: 5px;">
                                         <tr style="border: 1px solid black;">
                                             <td style="background-color: #d3d3d3;">No#2</td>
                                             <th style="text-align:left">Dextrose (mg/kg/min)</th>
@@ -88,8 +88,8 @@
 
                             </div>
 
-                            <div class="child-div" style="flex: 1;border: 1px solid #000;padding: 10px;text-align: center;">
-                                <table style=" border: 1px solid black;width: 100%; border-collapse: collapse; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;" border="1">
+                            <div class="child-div" style="width:49%;float: right; margin-right: 5px;">
+                                <table style=" border: 1px solid black;width: 99%; border-collapse: collapse; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;" border="1">
                                     <tr style=" border: 1px solid black;">
                                         <td colspan="2"><strong>Name:</strong> </td>
                                         <td colspan="2"><t t-esc="doc.name"/></td>
@@ -107,7 +107,7 @@
                                         <td colspan="2"><t t-esc="doc.treating_physician"/></td>
                                     </tr>
                                 </table>
-                                <table style=" border: 1px solid black;width: 100%; border-collapse: collapse; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;" border="1">
+                                <table style=" border: 1px solid black;width: 99%; border-collapse: collapse; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;" border="1">
                                     <tr style="border: 1px solid black;">
                                         <td colspan="2"><strong>Ward:</strong> <t t-esc="doc.ward"/></td>
                                         <td colspan="2"><strong>Age:</strong> <t t-esc="doc.age"/> days</td>
@@ -124,7 +124,7 @@
                                     </tr>
                                 </table>
                                 <h5 style="margin-left: 5%;">Pharmacy Information and Calculations</h5>
-                                <table style="width: 100%; border-collapse: collapse; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;" border="1">
+                                <table style="width: 99%; border-collapse: collapse; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;" border="1">
                                     <tr style="border: 1px solid black;">
                                         <td rowspan="2" style="background-color: #d3d3d3;">No#8</td>
                                         <td><strong>TPN Rate (ml/hr):</strong></td>

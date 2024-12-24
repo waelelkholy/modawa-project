@@ -1,3 +1,5 @@
+from email.policy import default
+
 from odoo import models, fields, api
 from datetime import datetime, date
 
@@ -124,9 +126,10 @@ class TPNForm(models.Model):
     )
     sodium_range = fields.Html(
         string="Sodium Range",
-        tracking=True
+        tracking=True,
+        default="<p>2-4 Mmol/kg/day</p>",
     )
-    sodium_notes = fields.Char(
+    sodium_notes = fields.Html(
         string="Sodium Notes",
         tracking=True
     )
@@ -137,9 +140,10 @@ class TPNForm(models.Model):
     )
     potassium_range = fields.Html(
         string="Potassium Range",
-        tracking=True
+        tracking=True,
+        default="<p>2-4 Mmol/kg/day</p>",
     )
-    potassium_notes = fields.Char(
+    potassium_notes = fields.Html(
         string="Potassium Notes",
         tracking=True
     )
@@ -150,11 +154,13 @@ class TPNForm(models.Model):
     )
     calcium_range = fields.Html(
         string="Calcium Range",
-        tracking=True
+        tracking=True,
+        default="<p>0.7-1.4 Mmol/kg/day</p>",
     )
-    calcium_notes = fields.Char(
+    calcium_notes = fields.Html(
         string="Calcium Notes",
-        tracking=True
+        tracking=True,
+        default="<p>Give as Calcium Gluconate <br/>PHARMACY: check Ca/PO4 compatibility</p>",
     )
 
     magnesium = fields.Float(
@@ -163,9 +169,10 @@ class TPNForm(models.Model):
     )
     magnesium_range = fields.Html(
         string="Magnesium Range",
-        tracking=True
+        tracking=True,
+        default="<p>0.15-0.25 Mmol/kg/day</p>",
     )
-    magnesium_notes = fields.Char(
+    magnesium_notes = fields.Html(
         string="Magnesium Notes",
         tracking=True
     )
@@ -175,11 +182,13 @@ class TPNForm(models.Model):
     )
     phosphate_range = fields.Html(
         string="Phosphate Range",
-        tracking=True
+        tracking=True,
+        default="<p>0.5-1.5 Mmol/kg/day</p>",
     )
-    phosphate_notes = fields.Char(
+    phosphate_notes = fields.Html(
         string="Phosphate Notes",
-        tracking=True
+        tracking=True,
+        default="<p>Na PO4(1 ml = 3 Mmol PO4 & 4 Mmol Na)<br/>KP04(1mL= 3 Mmol PO4 & 4 4 Mmol Na)</p>",
     )
 
     chloride = fields.Float(
@@ -188,9 +197,10 @@ class TPNForm(models.Model):
     )
     chloride_range = fields.Html(
         string="Chloride Range",
-        tracking=True
+        tracking=True,
+        default="<p>2-4 Mmol/kg/day</p>",
     )
-    chloride_notes = fields.Char(
+    chloride_notes = fields.Html(
         string="Chloride Notes",
         tracking=True
     )
@@ -201,11 +211,13 @@ class TPNForm(models.Model):
     )
     acetate_range = fields.Html(
         string="Acetate Range",
-        tracking=True
+        tracking=True,
+        default="<p>As needed</p>",
     )
-    acetate_notes = fields.Char(
+    acetate_notes = fields.Html(
         string="Acetate Notes",
-        tracking=True
+        tracking=True,
+        default="<p>Acetate and CI should be in 1:1, unless it is<br/>indicated</p>",
     )
 
     fat_soluble_vitamins = fields.Float(
@@ -214,11 +226,13 @@ class TPNForm(models.Model):
     )
     fat_soluble_vitamins_range = fields.Html(
         string="Fat Soluble Vitamins Range",
-        tracking=True
+        tracking=True,
+        default="<p><b>Neonates,</b> <2.5kg: 4mL/kg<br/><b>Children,</b> >2.5kg: 10mL/day<br/> Based on manufacture doing</p>",
     )
-    fat_soluble_vitamins_notes = fields.Char(
+    fat_soluble_vitamins_notes = fields.Html(
         string="Fat Soluble Vitamins Notes",
-        tracking=True
+        tracking=True,
+        default="<p>-Max dose 10 mL/day<br/>(ImL contains 20 mcg Vit K1)<br/>- Use this brand for age of 11 years.</p>",
     )
 
     water_soluble_vitamins = fields.Float(
@@ -227,11 +241,13 @@ class TPNForm(models.Model):
     )
     water_soluble_vitamins_range = fields.Html(
         string="Water Soluble Vitamins Range",
-        tracking=True
+        tracking=True,
+        default="<p><b>>10Kg:</b> 10mL/day <br/> <b><10Kg:</b> 1mL/kg <br/> Based on Manufacture doing</p>",
     )
-    water_soluble_vitamins_notes = fields.Char(
+    water_soluble_vitamins_notes = fields.Html(
         string="Water Soluble Vitamins Notes",
-        tracking=True
+        tracking=True,
+        default="<p>Contains: Vit. BI, B2, nicotinamide, B6,<br/>pantothenic acid, C, biotin, folic acid & B12</p>"
     )
 
     trace_elements = fields.Float(
@@ -240,11 +256,13 @@ class TPNForm(models.Model):
     )
     trace_elements_range = fields.Html(
         string="Trace Elements Range",
-        tracking=True
+        tracking=True,
+        default="<p>0.1 mL/kg <br/> Based on Manufacture doing</p>",
     )
-    trace_elements_notes = fields.Char(
+    trace_elements_notes = fields.Html(
         string="Trace Elements Notes",
-        tracking=True
+        tracking=True,
+        default="<p>Contains: zine, cooper, manganese & chromium<br/>Caution: in renal dyst., biliary tract obstruction</p>"
     )
 
     heparin = fields.Float(
@@ -253,11 +271,13 @@ class TPNForm(models.Model):
     )
     heparin_range = fields.Html(
         string="Heparin Range",
-        tracking=True
+        tracking=True,
+        default="<p>0.5-1 unit/ each mL of TPN </p>",
     )
-    heparin_notes = fields.Char(
+    heparin_notes = fields.Html(
         string="Heparin Notes",
-        tracking=True
+        tracking=True,
+        default="<p>USED FOR PERIPHERAL TPN, Check PT/PTT,<br/>avoid in case of HIT or thromboctpenia</p>"
     )
 
     # Pharmacy Information

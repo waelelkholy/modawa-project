@@ -67,78 +67,78 @@
                                 <!-- Sodium -->
                                 <group string="Sodium">
                                     <field name="sodium"/>
-                                    <field name="sodium_range"/>
-                                    <field name="sodium_notes"/>
+                                    <field name="sodium_range" readonly="1"/>
+                                    <field name="sodium_notes" readonly="1"/>
                                 </group>
 
                                 <!-- Potassium -->
                                 <group string="Potassium">
                                     <field name="potassium"/>
-                                    <field name="potassium_range"/>
-                                    <field name="potassium_notes"/>
+                                    <field name="potassium_range" readonly="1"/>
+                                    <field name="potassium_notes" readonly="1"/>
                                 </group>
 
                                 <!-- Calcium -->
                                 <group string="Calcium">
                                     <field name="calcium"/>
-                                    <field name="calcium_range"/>
-                                    <field name="calcium_notes"/>
+                                    <field name="calcium_range" readonly="1"/>
+                                    <field name="calcium_notes" readonly="1"/>
                                 </group>
 
                                 <!-- Magnesium -->
                                 <group string="Magnesium">
                                     <field name="magnesium"/>
-                                    <field name="magnesium_range"/>
-                                    <field name="magnesium_notes"/>
+                                    <field name="magnesium_range" readonly="1"/>
+                                    <field name="magnesium_notes" readonly="1"/>
                                 </group>
 
                                 <!-- Phosphate -->
                                 <group string="Phosphate">
                                     <field name="phosphate"/>
-                                    <field name="phosphate_range"/>
-                                    <field name="phosphate_notes"/>
+                                    <field name="phosphate_range" readonly="1"/>
+                                    <field name="phosphate_notes" readonly="1"/>
                                 </group>
 
                                 <!-- Chloride -->
                                 <group string="Chloride">
                                     <field name="chloride"/>
-                                    <field name="chloride_range"/>
-                                    <field name="chloride_notes"/>
+                                    <field name="chloride_range" readonly="1"/>
+                                    <field name="chloride_notes" readonly="1"/>
                                 </group>
 
                                 <!-- Acetate -->
                                 <group string="Acetate">
                                     <field name="acetate"/>
-                                    <field name="acetate_range"/>
-                                    <field name="acetate_notes"/>
+                                    <field name="acetate_range" readonly="1"/>
+                                    <field name="acetate_notes" readonly="1"/>
                                 </group>
 
                                 <!-- Fat Soluble Vitamins -->
                                 <group string="Fat Soluble Vitamins">
                                     <field name="fat_soluble_vitamins"/>
-                                    <field name="fat_soluble_vitamins_range"/>
-                                    <field name="fat_soluble_vitamins_notes"/>
+                                    <field name="fat_soluble_vitamins_range" readonly="1"/>
+                                    <field name="fat_soluble_vitamins_notes" readonly="1"/>
                                 </group>
 
                                 <!-- Water Soluble Vitamins -->
                                 <group string="Water Soluble Vitamins">
                                     <field name="water_soluble_vitamins"/>
-                                    <field name="water_soluble_vitamins_range"/>
-                                    <field name="water_soluble_vitamins_notes"/>
+                                    <field name="water_soluble_vitamins_range" readonly="1"/>
+                                    <field name="water_soluble_vitamins_notes" readonly="1"/>
                                 </group>
 
                                 <!-- Trace Elements -->
                                 <group string="Trace Elements">
                                     <field name="trace_elements"/>
-                                    <field name="trace_elements_range"/>
-                                    <field name="trace_elements_notes"/>
+                                    <field name="trace_elements_range" readonly="1"/>
+                                    <field name="trace_elements_notes" readonly="1"/>
                                 </group>
 
                                 <!-- Heparin -->
                                 <group string="Heparin">
                                     <field name="heparin"/>
-                                    <field name="heparin_range"/>
-                                    <field name="heparin_notes"/>
+                                    <field name="heparin_range" readonly="1"/>
+                                    <field name="heparin_notes" readonly="1"/>
                                 </group>
                             </group>
                         </page>

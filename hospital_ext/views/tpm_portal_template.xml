@@ -587,11 +587,14 @@
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="sodium_range">Sodium Range:</label>
-                            <input type="text" name="sodium_range" id="sodium_range" class="form-control" />
+                            <textarea name="sodium_range" id="sodium_range" class="form-control" readonly="1">
+                                2-4 Mmol/kg/day
+                            </textarea>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="sodium_notes">Sodium Notes:</label>
-                            <input type="text" name="sodium_notes" id="sodium_notes" class="form-control" />
+                            <textarea name="sodium_notes" id="sodium_notes" class="form-control" readonly="1">
+                            </textarea>
                         </div>
 
                         <!-- Potassium -->
@@ -601,11 +604,14 @@
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="potassium_range">Potassium Range:</label>
-                            <input type="text" name="potassium_range" id="potassium_range" class="form-control" />
+                            <textarea name="potassium_range" id="potassium_range" class="form-control" readonly="1">
+                                2-4 Mmol/kg/day
+                            </textarea>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="potassium_notes">Potassium Notes:</label>
-                            <input type="text" name="potassium_notes" id="potassium_notes" class="form-control" />
+                            <textarea name="potassium_notes" id="potassium_notes" class="form-control" readonly="1">
+                            </textarea>
                         </div>
 
                         <!-- Calcium -->
@@ -615,14 +621,17 @@
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="calcium_range">Calcium Range:</label>
-                            <textarea name="calcium_range" id="calcium_range" class="form-control" rows="2">
-                                Give as Calcium Gluconate
-                                PHARMACY: check Ca/PO4 compatibility
+                            <textarea name="calcium_range" id="calcium_range" class="form-control" readonly="1">
+                                0.7-1.4 Mmol/kg/day
                             </textarea>
+
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="calcium_notes">Calcium Notes:</label>
-                            <input type="text" name="calcium_notes" id="calcium_notes" class="form-control" />
+                            <textarea name="calcium_notes" id="calcium_notes" class="form-control" rows="2" readonly="1">
+                                Give as Calcium Gluconate
+                                PHARMACY: check Ca/PO4 compatibility
+                            </textarea>
                         </div>
 
                         <!-- Magnesium -->
@@ -632,11 +641,14 @@
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="magnesium_range">Magnesium Range:</label>
-                            <input type="text" name="magnesium_range" id="magnesium_range" class="form-control" />
+                            <textarea name="magnesium_range" id="magnesium_range" class="form-control" rows="1" readonly="1">
+                                0.15-0.25 Mmol/kg/day
+                            </textarea>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="magnesium_notes">Magnesium Notes:</label>
-                            <input type="text" name="magnesium_notes" id="magnesium_notes" class="form-control" />
+                            <textarea name="magnesium_notes" id="magnesium_notes" class="form-control" rows="1" readonly="1">
+                            </textarea>
                         </div>
 
                         <!-- Phosphate -->
@@ -646,14 +658,16 @@
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="phosphate_range">Phosphate Range:</label>
-                            <textarea name="phosphate_range" id="phosphate_range" class="form-control" rows="2">
-                                Na PO4(1 ml = 3 Mmol PO4 &amp; 4 Mmol Na)
-                                KP04(1mL= 3 Mmol PO4 &amp; 4 4 Mmol Na)
+                            <textarea name="phosphate_range" id="phosphate_range" class="form-control" rows="1" readonly="1">
+                                0.5-1.5 Mmol/kg/day
                             </textarea>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="phosphate_notes">Phosphate Notes:</label>
-                            <input type="text" name="phosphate_notes" id="phosphate_notes" class="form-control" />
+                            <textarea name="phosphate_notes" id="phosphate_notes" class="form-control" rows="2" readonly="1">
+                                Na PO4(1 ml = 3 Mmol PO4 &amp; 4 Mmol Na)
+                                KP04(1mL= 3 Mmol PO4 &amp; 4 4 Mmol Na)
+                            </textarea>
                         </div>
 
                         <!-- Chloride -->
@@ -663,11 +677,14 @@
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="chloride_range">Chloride Range:</label>
-                            <input type="text" name="chloride_range" id="chloride_range" class="form-control" />
+                            <textarea name="chloride_range" id="chloride_range" class="form-control" rows="1" readonly="1">
+                                2-4 Mmol/kg/day
+                            </textarea>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="chloride_notes">Chloride Notes:</label>
-                            <input type="text" name="chloride_notes" id="chloride_notes" class="form-control" />
+                            <textarea name="chloride_notes" id="chloride_notes" class="form-control" rows="1" readonly="1">
+                            </textarea>
                         </div>
 
                         <!-- Acetate -->
@@ -677,12 +694,92 @@
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="acetate_range">Acetate Range:</label>
-                            <input type="text" name="acetate_range" id="acetate_range" class="form-control" value="Acetate and CI should be in 1:1, unless it is
-indicated"/>
+                            <textarea name="acetate_range" id="acetate_range" class="form-control" rows="1" readonly="1">
+                                As needed
+                            </textarea>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="acetate_notes">Acetate Notes:</label>
-                            <input type="text" name="acetate_notes" id="acetate_notes" class="form-control" />
+                            <textarea name="acetate_notes" id="acetate_notes" class="form-control" rows="2" readonly="1">
+                                Acetate and CI should be in 1:1, unless it is<br/>indicated
+                            </textarea>
+                        </div>
+
+                        <!--                        -->
+                        <div class="col-md-4 form-group">
+                            <label for="fat_soluble_vitamins">Fat Soluble Vitamins (ml/day):</label>
+                            <input type="number" name="fat_soluble_vitamins" id="fat_soluble_vitamins" class="form-control" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="fat_soluble_vitamins_range">Fat Soluble Vitamins Range:</label>
+                            <textarea name="fat_soluble_vitamins_range" id="fat_soluble_vitamins_range" class="form-control" rows="2" readonly="1">
+                                Neonates, &amp; 2.5kg: 4mL/kg Children,
+                                >2.5kg:10mL/day Based on manufacture doing
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="fat_soluble_vitamins_notes">Fat Soluble Vitamins Notes:</label>
+                            <textarea name="fat_soluble_vitamins_notes" id="fat_soluble_vitamins_notes" class="form-control" rows="3" readonly="1">
+                                - Max dose 10 mL/day
+                                (1mL contains 20 mcg Vit K1)
+                                - Use this brand for age of 11 years.
+                            </textarea>
+                        </div>
+
+                        <div class="col-md-4 form-group">
+                            <label for="water_soluble_vitamins">Water Soluble Vitamins (ml/day):</label>
+                            <input type="number" name="water_soluble_vitamins" id="water_soluble_vitamins" class="form-control" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="water_soluble_vitamins_range">Water Soluble Vitamins Range:</label>
+                            <textarea name="water_soluble_vitamins_range" id="water_soluble_vitamins_range" class="form-control" rows="3" readonly="1">
+                                >10Kg: 10mL/day
+                                &gt; 10Kg:1mL/kg
+                                Based on Manufacture doing
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="water_soluble_vitamins_notes">Water Soluble Vitamins Notes:</label>
+                            <textarea name="water_soluble_vitamins_notes" id="water_soluble_vitamins_notes" class="form-control" rows="3" readonly="1">
+                                Contains: Vit. B1, B2, nicotinamide, B6,
+                                pantothenic acid, C, biotin, folic acid &amp; B12
+                            </textarea>
+                        </div>
+
+                        <div class="col-md-4 form-group">
+                            <label for="trace_elements">Trace Elements (ml/day):</label>
+                            <input type="number" name="trace_elements" id="trace_elements" class="form-control" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="trace_elements_range">Trace Elements Range:</label>
+                            <textarea name="trace_elements_range" id="trace_elements_range" class="form-control" rows="2" readonly="1">
+                                0.1 mL/kg Based on Manufacture doing
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="trace_elements_notes">Trace Elements Notes:</label>
+                            <textarea name="trace_elements_notes" id="trace_elements_notes" class="form-control" rows="3" readonly="1">
+                                Contains: zinc, copper, manganese &amp; chromium
+                                Caution: in renal dyst., biliary tract obstruction
+                            </textarea>
+                        </div>
+
+                        <div class="col-md-4 form-group">
+                            <label for="heparin">Heparin (units/ml):</label>
+                            <input type="number" name="heparin" id="heparin" class="form-control" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="heparin_range">Heparin Range:</label>
+                            <textarea name="heparin_range" id="heparin_range" class="form-control" rows="1" readonly="1">
+                                0.5-1 unit/ each mL of TPN
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="heparin_notes">Heparin Notes:</label>
+                            <textarea name="heparin_notes" id="heparin_notes" class="form-control" rows="2" readonly="1">
+                                USED FOR PERIPHERAL TPN, Check PT/PTT,
+                                avoid in case of HIT or thrombocytopenia
+                            </textarea>
                         </div>
                     </div>
                 </fieldset>
@@ -873,11 +970,14 @@ indicated"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="sodium_range">Sodium Range:</label>
-                            <input type="text" name="sodium_range" id="sodium_range" class="form-control" t-att-value="form_data.sodium_range" />
+                            <textarea name="sodium_range" id="sodium_range" class="form-control" readonly="1">
+                                2-4 Mmol/kg/day
+                            </textarea>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="sodium_notes">Sodium Notes:</label>
-                            <input type="text" name="sodium_notes" id="sodium_notes" class="form-control" t-att-value="form_data.sodium_notes" />
+                            <textarea name="sodium_notes" id="sodium_notes" class="form-control" readonly="1">
+                            </textarea>
                         </div>
 
                         <!-- Potassium -->
@@ -887,11 +987,14 @@ indicated"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="potassium_range">Potassium Range:</label>
-                            <input type="text" name="potassium_range" id="potassium_range" class="form-control" t-att-value="form_data.potassium_range" />
+                            <textarea name="potassium_range" id="potassium_range" class="form-control" readonly="1">
+                                2-4 Mmol/kg/day
+                            </textarea>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="potassium_notes">Potassium Notes:</label>
-                            <input type="text" name="potassium_notes" id="potassium_notes" class="form-control" t-att-value="form_data.potassium_notes" />
+                            <textarea name="potassium_notes" id="potassium_notes" class="form-control" readonly="1">
+                            </textarea>
                         </div>
 
                         <!-- Calcium -->
@@ -901,11 +1004,17 @@ indicated"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="calcium_range">Calcium Range:</label>
-                            <textarea name="calcium_range" id="calcium_range" class="form-control" rows="2"><t t-esc="form_data.calcium_range"/></textarea>
+                            <textarea name="calcium_range" id="calcium_range" class="form-control" readonly="1">
+                                0.7-1.4 Mmol/kg/day
+                            </textarea>
+
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="calcium_notes">Calcium Notes:</label>
-                            <input type="text" name="calcium_notes" id="calcium_notes" class="form-control" t-att-value="form_data.calcium_notes" />
+                            <textarea name="calcium_notes" id="calcium_notes" class="form-control" rows="2" readonly="1">
+                                Give as Calcium Gluconate
+                                PHARMACY: check Ca/PO4 compatibility
+                            </textarea>
                         </div>
 
                         <!-- Magnesium -->
@@ -915,11 +1024,14 @@ indicated"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="magnesium_range">Magnesium Range:</label>
-                            <input type="text" name="magnesium_range" id="magnesium_range" class="form-control" t-att-value="form_data.magnesium_range" />
+                            <textarea name="magnesium_range" id="magnesium_range" class="form-control" rows="1" readonly="1">
+                                0.15-0.25 Mmol/kg/day
+                            </textarea>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="magnesium_notes">Magnesium Notes:</label>
-                            <input type="text" name="magnesium_notes" id="magnesium_notes" class="form-control" t-att-value="form_data.magnesium_notes" />
+                            <textarea name="magnesium_notes" id="magnesium_notes" class="form-control" rows="1" readonly="1">
+                            </textarea>
                         </div>
 
                         <!-- Phosphate -->
@@ -929,11 +1041,16 @@ indicated"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="phosphate_range">Phosphate Range:</label>
-                            <textarea name="phosphate_range" id="phosphate_range" class="form-control" rows="2"><t t-esc="form_data.phosphate_range"/></textarea>
+                            <textarea name="phosphate_range" id="phosphate_range" class="form-control" rows="1" readonly="1">
+                                0.5-1.5 Mmol/kg/day
+                            </textarea>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="phosphate_notes">Phosphate Notes:</label>
-                            <input type="text" name="phosphate_notes" id="phosphate_notes" class="form-control" t-att-value="form_data.phosphate_notes" />
+                            <textarea name="phosphate_notes" id="phosphate_notes" class="form-control" rows="2" readonly="1">
+                                Na PO4(1 ml = 3 Mmol PO4 &amp; 4 Mmol Na)
+                                KP04(1mL= 3 Mmol PO4 &amp; 4 4 Mmol Na)
+                            </textarea>
                         </div>
 
                         <!-- Chloride -->
@@ -943,11 +1060,107 @@ indicated"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="chloride_range">Chloride Range:</label>
-                            <input type="text" name="chloride_range" id="chloride_range" class="form-control" t-att-value="form_data.chloride_range" />
+                            <textarea name="chloride_range" id="chloride_range" class="form-control" rows="1" readonly="1">
+                                2-4 Mmol/kg/day
+                            </textarea>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="chloride_notes">Chloride Notes:</label>
-                            <input type="text" name="chloride_notes" id="chloride_notes" class="form-control" t-att-value="form_data.chloride_notes" />
+                            <textarea name="chloride_notes" id="chloride_notes" class="form-control" rows="1" readonly="1">
+                            </textarea>
+                        </div>
+
+                        <!-- Acetate -->
+                        <div class="col-md-4 form-group">
+                            <label for="acetate">Acetate:</label>
+                            <input type="number" name="acetate" id="acetate" class="form-control" t-att-value="form_data.acetate"/>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="acetate_range">Acetate Range:</label>
+                            <textarea name="acetate_range" id="acetate_range" class="form-control" rows="1" readonly="1">
+                                As needed
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="acetate_notes">Acetate Notes:</label>
+                            <textarea name="acetate_notes" id="acetate_notes" class="form-control" rows="2" readonly="1">
+                                Acetate and CI should be in 1:1, unless it is<br/>indicated
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="fat_soluble_vitamins">Fat Soluble Vitamins (ml/day):</label>
+                            <input type="number" name="fat_soluble_vitamins" id="fat_soluble_vitamins" class="form-control" t-att-value="form_data.fat_soluble_vitamins" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="fat_soluble_vitamins_range">Fat Soluble Vitamins Range:</label>
+                            <textarea name="fat_soluble_vitamins_range" id="fat_soluble_vitamins_range" class="form-control" rows="2" readonly="1">
+                                Neonates, &amp; 2.5kg: 4mL/kg Children,
+                                >2.5kg:10mL/day Based on manufacture doing
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="fat_soluble_vitamins_notes">Fat Soluble Vitamins Notes:</label>
+                            <textarea name="fat_soluble_vitamins_notes" id="fat_soluble_vitamins_notes" class="form-control" rows="3" readonly="1">
+                                - Max dose 10 mL/day
+                                (1mL contains 20 mcg Vit K1)
+                                - Use this brand for age of 11 years.
+                            </textarea>
+                        </div>
+
+                        <div class="col-md-4 form-group">
+                            <label for="water_soluble_vitamins">Water Soluble Vitamins (ml/day):</label>
+                            <input type="number" name="water_soluble_vitamins" id="water_soluble_vitamins" class="form-control" t-att-value="form_data.water_soluble_vitamins" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="water_soluble_vitamins_range">Water Soluble Vitamins Range:</label>
+                            <textarea name="water_soluble_vitamins_range" id="water_soluble_vitamins_range" class="form-control" rows="3" readonly="1">
+                                >10Kg: 10mL/day
+                                &gt; 10Kg:1mL/kg
+                                Based on Manufacture doing
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="water_soluble_vitamins_notes">Water Soluble Vitamins Notes:</label>
+                            <textarea name="water_soluble_vitamins_notes" id="water_soluble_vitamins_notes" class="form-control" rows="3" readonly="1">
+                                Contains: Vit. B1, B2, nicotinamide, B6,
+                                pantothenic acid, C, biotin, folic acid &amp; B12
+                            </textarea>
+                        </div>
+
+                        <div class="col-md-4 form-group">
+                            <label for="trace_elements">Trace Elements (ml/day):</label>
+                            <input type="number" name="trace_elements" id="trace_elements" class="form-control"  t-att-value="form_data.trace_elements"/>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="trace_elements_range">Trace Elements Range:</label>
+                            <textarea name="trace_elements_range" id="trace_elements_range" class="form-control" rows="2" readonly="1">
+                                0.1 mL/kg Based on Manufacture doing
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="trace_elements_notes">Trace Elements Notes:</label>
+                            <textarea name="trace_elements_notes" id="trace_elements_notes" class="form-control" rows="3" readonly="1">
+                                Contains: zinc, copper, manganese &amp; chromium
+                                Caution: in renal dyst., biliary tract obstruction
+                            </textarea>
+                        </div>
+
+                        <div class="col-md-4 form-group">
+                            <label for="heparin">Heparin (units/ml):</label>
+                            <input type="number" name="heparin" id="heparin" class="form-control"  t-att-value="form_data.heparin"/>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="heparin_range">Heparin Range:</label>
+                            <textarea name="heparin_range" id="heparin_range" class="form-control" rows="1" readonly="1">
+                                0.5-1 unit/ each mL of TPN
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="heparin_notes">Heparin Notes:</label>
+                            <textarea name="heparin_notes" id="heparin_notes" class="form-control" rows="2" readonly="1">
+                                USED FOR PERIPHERAL TPN, Check PT/PTT,
+                                avoid in case of HIT or thrombocytopenia
+                            </textarea>
                         </div>
 
                         <!-- Add Action Button -->

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tpn_form,tpn.form,hospital_ext.model_tpn_form,,1,1,1,1
+access_tpn_form_portal,tpn.form access for portal,model_tpn_form,base.group_portal,1,1,1,0

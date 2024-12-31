@@ -1,0 +1,1176 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="portal_tpn_form_list" name="TPN Form List">
+        <t t-call="portal.portal_layout">
+            <style>
+                .container {
+                margin-top: 30px;
+                max-width: 1200px;
+                margin-left: auto;
+                margin-right: auto;
+                }
+
+                h2 {
+                text-align: center;
+                font-size: 24px;
+                color: #003366;
+                margin-bottom: 30px;
+                }
+
+                .add-button {
+                text-align: center;
+                margin-bottom: 20px;
+                }
+
+                .add-button .btn {
+                background-color: #28a745;
+                color: white;
+                font-weight: bold;
+                padding: 12px 25px;
+                text-decoration: none;
+                border-radius: 5px;
+                font-size: 16px;
+                }
+
+                .add-button .btn:hover {
+                background-color: #218838;
+                }
+
+                .table {
+                width: 100%;
+                margin-bottom: 30px;
+                border-collapse: collapse;
+                }
+
+                .table th, .table td {
+                padding: 12px;
+                text-align: left;
+                font-size: 14px;
+                border: 1px solid #ddd;
+                }
+
+                .table th {
+                background-color: #f8f9fa;
+                color: #003366;
+                font-weight: bold;
+                }
+
+                .table tbody tr:hover {
+                background-color: #f1f1f1;
+                }
+
+                .btn-primary {
+                padding: 8px 16px;
+                background-color: #007bff;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                font-weight: bold;
+                }
+
+                .btn-primary:hover {
+                background-color: #0056b3;
+                }
+            </style>
+
+            <div class="container">
+                <!-- Page Title -->
+                <h2>Your TPN Forms</h2>
+
+                <!-- Add New TPN Form Button -->
+                <div class="add-button">
+                    <a href="/portal/add_tpn_form" class="btn btn-primary">Add New TPN Form</a>
+                </div>
+
+                <!-- TPN Forms Table -->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Patient Name</th>
+                            <th>Hospital No</th>
+                            <th>Ward</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="tpn_forms" t-as="form">
+                            <tr>
+                                <td><t t-esc="form.id"/></td>
+                                <td><t t-esc="form.name"/></td>
+                                <td><t t-esc="form.hospital_no"/></td>
+                                <td><t t-esc="form.ward"/></td>
+                                <td>
+                                    <td>
+                                        <!-- View Button -->
+                                        <a t-att-href="'/my/tpn_forms/%s' % form.id" class="btn btn-primary">
+                                            View
+                                        </a>
+                                        <!-- Edit Button -->
+                                        <a t-att-href="'/portal/edit_tpn_form/%s' % form.id" class="btn btn-warning">
+                                            Edit
+                                        </a>
+                                    </td>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+
+
+    <template id="portal_tpn_form_view">
+        <t t-call="portal.portal_layout">
+            <style>
+                .tpn-form {
+                font-family: Arial, sans-serif;
+                margin: 30px auto;
+                max-width: 900px;
+                border: 1px solid #d1d1d1;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                }
+                .form-section h5 {
+                font-size: 18px;
+                color: #0066cc;
+                margin-bottom: 10px;
+                }
+                .form-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+                }
+                .form-table th, .form-table td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+                font-size: 14px;
+                }
+                .form-table th {
+                background-color: #f4f4f4;
+                font-weight: bold;
+                }
+            </style>
+
+            <div class="container">
+                <div class="tpn-form">
+                    <!-- Header -->
+                    <div class="header">
+                        <h5>Kingdom of Saudi Arabia</h5>
+                        <h5>Ministry of Health</h5>
+                        <h4>Pharmaceutical Services</h4>
+                        <h4>IV Admixture and TPN Department</h4>
+                        <h3>Total Parenteral Nutrition Neonatal Form</h3>
+                    </div>
+
+                    <!-- Patient Details -->
+                    <div class="form-section">
+                        <h5>Patient Details</h5>
+                        <table class="form-table">
+                            <tr>
+                                <th>Name</th>
+                                <td t-esc="tpn_form.name"/>
+                                <th>Portal User</th>
+                                <td t-esc="tpn_form.portal_user_id.name"/>
+                            </tr>
+                            <tr>
+                                <th>Hospital No</th>
+                                <td t-esc="tpn_form.hospital_no"/>
+                                <th>Nationality</th>
+                                <td t-esc="tpn_form.nationality"/>
+                            </tr>
+                            <tr>
+                                <th>Physician</th>
+                                <td t-esc="tpn_form.treating_physician"/>
+                                <th>Ward</th>
+                                <td t-esc="tpn_form.ward"/>
+                            </tr>
+                            <tr>
+                                <th>Age</th>
+                                <td t-esc="tpn_form.age"/>
+                                <th>Weight</th>
+                                <td t-esc="tpn_form.weight"/>
+                            </tr>
+                            <tr>
+                                <th>Height</th>
+                                <td t-esc="tpn_form.height"/>
+                                <th>Seq</th>
+                                <td t-esc="tpn_form.seq_no"/>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- TPN Details -->
+                    <div class="form-section">
+                        <h5>TPN Details</h5>
+                        <table class="form-table">
+                            <tr>
+                                <th>Diagnosis</th>
+                                <td colspan="3" t-esc="tpn_form.diagnosis"/>
+                            </tr>
+                            <tr>
+                                <th>Indications</th>
+                                <td colspan="3" t-esc="tpn_form.tpn_indications"/>
+                            </tr>
+                            <tr>
+                                <th>Date</th>
+                                <td t-esc="tpn_form.date"/>
+                                <th>Day(s) of TPN</th>
+                                <td t-esc="tpn_form.tpn_day"/>
+                            </tr>
+                            <tr>
+                                <th>Route</th>
+                                <td t-esc="tpn_form.tpn_route"/>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Nutritional Requirements -->
+                    <div class="form-section">
+                        <h5>Nutritional Requirements</h5>
+                        <table class="form-table">
+                            <tr>
+                                <th>Dextrose (mg/kg/min)</th>
+                                <td t-esc="tpn_form.dextrose_mg_kg_min"/>
+                                <th>Dextrose (gm/day)</th>
+                                <td t-esc="tpn_form.dextrose_gm_day"/>
+                            </tr>
+                            <tr>
+                                <th>Amino Acids (gm/kg/day)</th>
+                                <td t-esc="tpn_form.amino_acids_gm_kg_day"/>
+                                <th>Amino Acids (gm/day)</th>
+                                <td t-esc="tpn_form.amino_acids_gm_day"/>
+                            </tr>
+                            <tr>
+                                <th>Fat Emulsion (gm/kg/day)</th>
+                                <td t-esc="tpn_form.fat_emulsion_gm_kg_day"/>
+                                <th>Fat Emulsion (gm/day)</th>
+                                <td t-esc="tpn_form.fat_emulsion_gm_day"/>
+                            </tr>
+                            <tr>
+                                <th>Total Fluid Intake</th>
+                                <td t-esc="tpn_form.total_fluid_intake"/>
+                                <th>Total Fluid Intake (ml/hr)</th>
+                                <td t-esc="tpn_form.total_fluid_intake_ml_hr"/>
+                            </tr>
+                            <tr>
+                                <th>Total Fluid Intake (ml/day)</th>
+                                <td t-esc="tpn_form.total_fluid_intake_ml_day"/>
+                                <th>Total Volume of TPN</th>
+                                <td t-esc="tpn_form.total_volume_tpn"/>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Additives -->
+                    <div class="form-section">
+                        <h5>Additives</h5>
+                        <table class="form-table">
+                            <thead>
+                                <tr>
+                                    <th>Additive</th>
+                                    <th>Value</th>
+                                    <th>Range</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Sodium</th>
+                                    <td t-esc="tpn_form.sodium"/>
+                                    <td t-esc="tpn_form.sodium_range"/>
+                                    <td t-esc="tpn_form.sodium_notes"/>
+                                </tr>
+                                <tr>
+                                    <th>Potassium</th>
+                                    <td t-esc="tpn_form.potassium"/>
+                                    <td t-esc="tpn_form.potassium_range"/>
+                                    <td t-esc="tpn_form.potassium_notes"/>
+                                </tr>
+                                <tr>
+                                    <th>Calcium</th>
+                                    <td t-esc="tpn_form.calcium"/>
+                                    <td t-esc="tpn_form.calcium_range"/>
+                                    <td t-esc="tpn_form.calcium_notes"/>
+                                </tr>
+                                <tr>
+                                    <th>Magnesium</th>
+                                    <td t-esc="tpn_form.magnesium"/>
+                                    <td t-esc="tpn_form.magnesium_range"/>
+                                    <td t-esc="tpn_form.magnesium_notes"/>
+                                </tr>
+                                <tr>
+                                    <th>Phosphate</th>
+                                    <td t-esc="tpn_form.phosphate"/>
+                                    <td t-esc="tpn_form.phosphate_range"/>
+                                    <td t-esc="tpn_form.phosphate_notes"/>
+                                </tr>
+                                <tr>
+                                    <th>Chloride</th>
+                                    <td t-esc="tpn_form.chloride"/>
+                                    <td t-esc="tpn_form.chloride_range"/>
+                                    <td t-esc="tpn_form.chloride_notes"/>
+                                </tr>
+                                <tr>
+                                    <th>Acetate</th>
+                                    <td t-esc="tpn_form.acetate"/>
+                                    <td t-esc="tpn_form.acetate_range"/>
+                                    <td t-esc="tpn_form.acetate_notes"/>
+                                </tr>
+                                <tr>
+                                    <th>Fat Soluble Vitamins</th>
+                                    <td t-esc="tpn_form.fat_soluble_vitamins"/>
+                                    <td t-esc="tpn_form.fat_soluble_vitamins_range"/>
+                                    <td t-esc="tpn_form.fat_soluble_vitamins_notes"/>
+                                </tr>
+                                <tr>
+                                    <th>Water Soluble Vitamins</th>
+                                    <td t-esc="tpn_form.water_soluble_vitamins"/>
+                                    <td t-esc="tpn_form.water_soluble_vitamins_range"/>
+                                    <td t-esc="tpn_form.water_soluble_vitamins_notes"/>
+                                </tr>
+                                <tr>
+                                    <th>Trace Elements</th>
+                                    <td t-esc="tpn_form.trace_elements"/>
+                                    <td t-esc="tpn_form.trace_elements_range"/>
+                                    <td t-esc="tpn_form.trace_elements_notes"/>
+                                </tr>
+                                <tr>
+                                    <th>Heparin</th>
+                                    <td t-esc="tpn_form.heparin"/>
+                                    <td t-esc="tpn_form.heparin_range"/>
+                                    <td t-esc="tpn_form.heparin_notes"/>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="form-section">
+                        <h5>Pharmacy Details</h5>
+                        <table class="form-table">
+                            <tr>
+                                <th>Base Solution (Dextrose)</th>
+                                <td t-esc="tpn_form.base_solution_dextrose"/>
+                                <th>Base Solution (Amino)</th>
+                                <td t-esc="tpn_form.base_solution_amino"/>
+                            </tr>
+                            <tr>
+                                <th>Base Solution (Water)</th>
+                                <td t-esc="tpn_form.base_solution_water"/>
+                                <th>Additives (Sodium Chloride)</th>
+                                <td t-esc="tpn_form.additives_sodium_chloride"/>
+                            </tr>
+                            <tr>
+                                <th>Additives (Potassium Chloride)</th>
+                                <td t-esc="tpn_form.additives_potassium_chloride"/>
+                                <th>Additives (Calcium Gluconate)</th>
+                                <td t-esc="tpn_form.additives_calcium_gluconate"/>
+                            </tr>
+                            <tr>
+                                <th>Additives (Magnesium Sulfate)</th>
+                                <td t-esc="tpn_form.additives_magnesium_sulfate"/>
+                                <th>Additives (Sodium Phosphate)</th>
+                                <td t-esc="tpn_form.additives_sodium_phosphate"/>
+                            </tr>
+                            <tr>
+                                <th>Additives (Vitamins)</th>
+                                <td t-esc="tpn_form.additives_vitamins"/>
+                                <th>Additives (Trace Elements)</th>
+                                <td t-esc="tpn_form.additives_trace_elements"/>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Calculated Fields -->
+                    <div class="form-section">
+                        <h5>Calculated Fields</h5>
+                        <table class="form-table">
+                            <tr>
+                                <th>TPN Rate</th>
+                                <td t-esc="tpn_form.tpn_rate"/>
+                                <th>Total TPN Fluid Rate</th>
+                                <td t-esc="tpn_form.total_tpn_fluid_rate"/>
+                            </tr>
+                            <tr>
+                                <th>Non-protein Calories</th>
+                                <td t-esc="tpn_form.non_protein_calories"/>
+                                <th>Nitrogen Ratio</th>
+                                <td t-esc="tpn_form.nitrogen_ratio"/>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Prescriber Information -->
+                    <div class="form-section">
+                        <h5>Prescriber Information</h5>
+                        <table class="form-table">
+                            <tr>
+                                <th width="25%">Prescriber Name</th>
+                                <td width="25%" t-esc="tpn_form.prescriber_name"/>
+                                <th width="25%">Prescriber ID</th>
+                                <td width="25%" t-esc="tpn_form.prescriber_id"/>
+                            </tr>
+                            <tr>
+                                <th>Nurse Name</th>
+                                <td t-esc="tpn_form.nurse_name"/>
+                                <th>Pharmacy Technician</th>
+                                <td t-esc="tpn_form.pharmacy_technician"/>
+                            </tr>
+                            <tr>
+                                <th>Notes</th>
+                                <td colspan="3" t-esc="tpn_form.notes"/>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="portal_chatter">
+                        <h5>Discussion</h5>
+                        <!-- Display Existing Messages -->
+                        <div class="chatter">
+                            <ul class="message-list">
+                                <t t-foreach="messages" t-as="message">
+                                    <li class="message-item">
+                                        <div class="message-header">
+                                            <span class="author"><t t-esc="message.author_id.name"/></span>
+                                            <span class="date"><t t-esc="message.date"/></span>
+                                        </div>
+
+                                        <div class="message-body">
+                                            <!-- Display Message Body -->
+                                            <t t-raw="message.body"/>
+                                        </div>
+
+                                        <!-- Display Tracking Changes (if any) -->
+                                        <t t-if="tracking_values.filtered(lambda t: t.mail_message_id.id == message.id)">
+                                            <div class="tracking-changes">
+                                                <ul>
+                                                    <t t-foreach="tracking_values.filtered(lambda t: t.mail_message_id.id == message.id)" t-as="tracking">
+                                                        <li>
+                                                            <strong><t t-esc="tracking.field_desc"/>:</strong>
+                                                            <span><t t-esc="tracking.old_value_char"/> → <t t-esc="tracking.new_value_char"/></span>
+                                                        </li>
+                                                    </t>
+                                                </ul>
+                                            </div>
+                                        </t>
+                                    </li>
+                                </t>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+
+
+
+
+    <template id="portal_tpn_add_form">
+        <t t-call="portal.portal_layout">
+            <h3>Add New TPN Form</h3>
+            <form action="/portal/save_tpn_form" method="post">
+                <!-- General Information -->
+                <fieldset class="form-section">
+                    <legend>General Information</legend>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="name">Patient Name:</label>
+                            <input type="text" name="name" id="name" class="form-control" required="1" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="hospital_no">Hospital No.:</label>
+                            <input type="text" name="hospital_no" id="hospital_no" class="form-control" required="1" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="nationality">Nationality:</label>
+                            <input type="text" name="nationality" id="nationality" class="form-control" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="treating_physician">Treating Physician:</label>
+                            <input type="text" name="treating_physician" id="treating_physician" class="form-control" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="ward">Ward:</label>
+                            <input type="text" name="ward" id="ward" class="form-control" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="age">Age (days):</label>
+                            <input type="number" name="age" id="age" class="form-control" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="weight">Weight (kg):</label>
+                            <input type="number" name="weight" id="weight" class="form-control" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="height">Height (cm):</label>
+                            <input type="number" name="height" id="height" class="form-control" />
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="diagnosis">Diagnosis:</label>
+                            <textarea name="diagnosis" id="diagnosis" class="form-control"></textarea>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="tpn_indications">TPN Indications:</label>
+                            <textarea name="tpn_indications" id="tpn_indications" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Prescription Details -->
+                <fieldset class="form-section">
+                    <legend>Prescription Details</legend>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="date">Date:</label>
+                            <input type="date" name="date" id="date" class="form-control" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="tpn_day">Day(s) of TPN:</label>
+                            <input type="number" name="tpn_day" id="tpn_day" class="form-control" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="tpn_route">TPN Route:</label>
+                            <select name="tpn_route" id="tpn_route" class="form-control">
+                                <option value="central">Central</option>
+                                <option value="peripheral">Peripheral</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Nutritional Fields -->
+                <fieldset class="form-section">
+                    <legend>Nutritional Fields</legend>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="dextrose_mg_kg_min">Dextrose (mg/kg/min):</label>
+                            <input type="number" name="dextrose_mg_kg_min" id="dextrose_mg_kg_min" class="form-control" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="dextrose_gm_day">Dextrose (gm/day):</label>
+                            <input type="number" name="dextrose_gm_day" id="dextrose_gm_day" class="form-control" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="amino_acids_gm_kg_day">Amino Acids (gm/kg/day):</label>
+                            <input type="number" name="amino_acids_gm_kg_day" id="amino_acids_gm_kg_day" class="form-control" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="amino_acids_gm_day">Amino Acids (gm/day):</label>
+                            <input type="number" name="amino_acids_gm_day" id="amino_acids_gm_day" class="form-control" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="fat_emulsion_gm_kg_day">Fat Emulsion 20% (gm/kg/day):</label>
+                            <input type="number" name="fat_emulsion_gm_kg_day" id="fat_emulsion_gm_kg_day" class="form-control" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="fat_emulsion_gm_day">Fat Emulsion 20% (gm/day):</label>
+                            <input type="number" name="fat_emulsion_gm_day" id="fat_emulsion_gm_day" class="form-control" />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Additives -->
+                <fieldset class="form-section">
+                    <legend>Additives</legend>
+                    <div class="row">
+                        <!-- Sodium -->
+                        <div class="col-md-4 form-group">
+                            <label for="sodium">Sodium (mmol/day):</label>
+                            <input type="number" name="sodium" id="sodium" class="form-control" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="sodium_range">Sodium Range:</label>
+                            <textarea name="sodium_range" id="sodium_range" class="form-control" readonly="1">
+                                2-4 Mmol/kg/day
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="sodium_notes">Sodium Notes:</label>
+                            <textarea name="sodium_notes" id="sodium_notes" class="form-control" readonly="1">
+                            </textarea>
+                        </div>
+
+                        <!-- Potassium -->
+                        <div class="col-md-4 form-group">
+                            <label for="potassium">Potassium (mmol/day):</label>
+                            <input type="number" name="potassium" id="potassium" class="form-control" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="potassium_range">Potassium Range:</label>
+                            <textarea name="potassium_range" id="potassium_range" class="form-control" readonly="1">
+                                2-4 Mmol/kg/day
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="potassium_notes">Potassium Notes:</label>
+                            <textarea name="potassium_notes" id="potassium_notes" class="form-control" readonly="1">
+                            </textarea>
+                        </div>
+
+                        <!-- Calcium -->
+                        <div class="col-md-4 form-group">
+                            <label for="calcium">Calcium (mmol/day):</label>
+                            <input type="number" name="calcium" id="calcium" class="form-control" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="calcium_range">Calcium Range:</label>
+                            <textarea name="calcium_range" id="calcium_range" class="form-control" readonly="1">
+                                0.7-1.4 Mmol/kg/day
+                            </textarea>
+
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="calcium_notes">Calcium Notes:</label>
+                            <textarea name="calcium_notes" id="calcium_notes" class="form-control" rows="2" readonly="1">
+                                Give as Calcium Gluconate
+                                PHARMACY: check Ca/PO4 compatibility
+                            </textarea>
+                        </div>
+
+                        <!-- Magnesium -->
+                        <div class="col-md-4 form-group">
+                            <label for="magnesium">Magnesium (mmol/day):</label>
+                            <input type="number" name="magnesium" id="magnesium" class="form-control" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="magnesium_range">Magnesium Range:</label>
+                            <textarea name="magnesium_range" id="magnesium_range" class="form-control" rows="1" readonly="1">
+                                0.15-0.25 Mmol/kg/day
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="magnesium_notes">Magnesium Notes:</label>
+                            <textarea name="magnesium_notes" id="magnesium_notes" class="form-control" rows="1" readonly="1">
+                            </textarea>
+                        </div>
+
+                        <!-- Phosphate -->
+                        <div class="col-md-4 form-group">
+                            <label for="phosphate">Phosphate (mmol/day):</label>
+                            <input type="number" name="phosphate" id="phosphate" class="form-control" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="phosphate_range">Phosphate Range:</label>
+                            <textarea name="phosphate_range" id="phosphate_range" class="form-control" rows="1" readonly="1">
+                                0.5-1.5 Mmol/kg/day
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="phosphate_notes">Phosphate Notes:</label>
+                            <textarea name="phosphate_notes" id="phosphate_notes" class="form-control" rows="2" readonly="1">
+                                Na PO4(1 ml = 3 Mmol PO4 &amp; 4 Mmol Na)
+                                KP04(1mL= 3 Mmol PO4 &amp; 4 4 Mmol Na)
+                            </textarea>
+                        </div>
+
+                        <!-- Chloride -->
+                        <div class="col-md-4 form-group">
+                            <label for="chloride">Chloride (mmol/day):</label>
+                            <input type="number" name="chloride" id="chloride" class="form-control" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="chloride_range">Chloride Range:</label>
+                            <textarea name="chloride_range" id="chloride_range" class="form-control" rows="1" readonly="1">
+                                2-4 Mmol/kg/day
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="chloride_notes">Chloride Notes:</label>
+                            <textarea name="chloride_notes" id="chloride_notes" class="form-control" rows="1" readonly="1">
+                            </textarea>
+                        </div>
+
+                        <!-- Acetate -->
+                        <div class="col-md-4 form-group">
+                            <label for="acetate">Acetate:</label>
+                            <input type="number" name="acetate" id="acetate" class="form-control" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="acetate_range">Acetate Range:</label>
+                            <textarea name="acetate_range" id="acetate_range" class="form-control" rows="1" readonly="1">
+                                As needed
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="acetate_notes">Acetate Notes:</label>
+                            <textarea name="acetate_notes" id="acetate_notes" class="form-control" rows="2" readonly="1">
+                                Acetate and CI should be in 1:1, unless it is<br/>indicated
+                            </textarea>
+                        </div>
+
+                        <!--                        -->
+                        <div class="col-md-4 form-group">
+                            <label for="fat_soluble_vitamins">Fat Soluble Vitamins (ml/day):</label>
+                            <input type="number" name="fat_soluble_vitamins" id="fat_soluble_vitamins" class="form-control" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="fat_soluble_vitamins_range">Fat Soluble Vitamins Range:</label>
+                            <textarea name="fat_soluble_vitamins_range" id="fat_soluble_vitamins_range" class="form-control" rows="2" readonly="1">
+                                Neonates, &amp; 2.5kg: 4mL/kg Children,
+                                >2.5kg:10mL/day Based on manufacture doing
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="fat_soluble_vitamins_notes">Fat Soluble Vitamins Notes:</label>
+                            <textarea name="fat_soluble_vitamins_notes" id="fat_soluble_vitamins_notes" class="form-control" rows="3" readonly="1">
+                                - Max dose 10 mL/day
+                                (1mL contains 20 mcg Vit K1)
+                                - Use this brand for age of 11 years.
+                            </textarea>
+                        </div>
+
+                        <div class="col-md-4 form-group">
+                            <label for="water_soluble_vitamins">Water Soluble Vitamins (ml/day):</label>
+                            <input type="number" name="water_soluble_vitamins" id="water_soluble_vitamins" class="form-control" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="water_soluble_vitamins_range">Water Soluble Vitamins Range:</label>
+                            <textarea name="water_soluble_vitamins_range" id="water_soluble_vitamins_range" class="form-control" rows="3" readonly="1">
+                                >10Kg: 10mL/day
+                                &gt; 10Kg:1mL/kg
+                                Based on Manufacture doing
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="water_soluble_vitamins_notes">Water Soluble Vitamins Notes:</label>
+                            <textarea name="water_soluble_vitamins_notes" id="water_soluble_vitamins_notes" class="form-control" rows="3" readonly="1">
+                                Contains: Vit. B1, B2, nicotinamide, B6,
+                                pantothenic acid, C, biotin, folic acid &amp; B12
+                            </textarea>
+                        </div>
+
+                        <div class="col-md-4 form-group">
+                            <label for="trace_elements">Trace Elements (ml/day):</label>
+                            <input type="number" name="trace_elements" id="trace_elements" class="form-control" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="trace_elements_range">Trace Elements Range:</label>
+                            <textarea name="trace_elements_range" id="trace_elements_range" class="form-control" rows="2" readonly="1">
+                                0.1 mL/kg Based on Manufacture doing
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="trace_elements_notes">Trace Elements Notes:</label>
+                            <textarea name="trace_elements_notes" id="trace_elements_notes" class="form-control" rows="3" readonly="1">
+                                Contains: zinc, copper, manganese &amp; chromium
+                                Caution: in renal dyst., biliary tract obstruction
+                            </textarea>
+                        </div>
+
+                        <div class="col-md-4 form-group">
+                            <label for="heparin">Heparin (units/ml):</label>
+                            <input type="number" name="heparin" id="heparin" class="form-control" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="heparin_range">Heparin Range:</label>
+                            <textarea name="heparin_range" id="heparin_range" class="form-control" rows="1" readonly="1">
+                                0.5-1 unit/ each mL of TPN
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="heparin_notes">Heparin Notes:</label>
+                            <textarea name="heparin_notes" id="heparin_notes" class="form-control" rows="2" readonly="1">
+                                USED FOR PERIPHERAL TPN, Check PT/PTT,
+                                avoid in case of HIT or thrombocytopenia
+                            </textarea>
+                        </div>
+                    </div>
+                </fieldset>
+                <!-- Pharmacy Information -->
+                <fieldset class="form-section">
+                    <legend>Pharmacy Information</legend>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="base_solution_dextrose">Base Solution - Dextrose (ml):</label>
+                            <input type="number" name="base_solution_dextrose" id="base_solution_dextrose" class="form-control" />
+                        </div>
+                        <!-- Add all other pharmacy fields similarly -->
+                    </div>
+                </fieldset>
+
+                <!-- Pharmacy Details Section -->
+                <fieldset name="pharmacy_details">
+                    <legend>Pharmacy Details</legend>
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label for="pharmacy_name">Pharmacy Name:</label>
+                            <input type="text" name="pharmacy_name" id="pharmacy_name" class="form-control" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="pharmacy_contact">Pharmacy Contact:</label>
+                            <input type="text" name="pharmacy_contact" id="pharmacy_contact" class="form-control" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="pharmacy_notes">Notes:</label>
+                            <textarea name="pharmacy_notes" id="pharmacy_notes" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Prescriber Information Section -->
+                <fieldset name="prescriber_information">
+                    <legend>Prescriber Information</legend>
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label for="prescriber_name">Prescriber Name:</label>
+                            <input type="text" name="prescriber_name" id="prescriber_name" class="form-control" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="prescriber_contact">Prescriber Contact:</label>
+                            <input type="text" name="prescriber_contact" id="prescriber_contact" class="form-control" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="prescriber_notes">Notes:</label>
+                            <textarea name="prescriber_notes" id="prescriber_notes" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Calculated Fields Section -->
+                <fieldset name="calculated_fields">
+                    <legend>Calculated Fields</legend>
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label for="calculated_total_tpn">Calculated Total TPN Volume (ml/day):</label>
+                            <input type="number" name="calculated_total_tpn" id="calculated_total_tpn" class="form-control" readonly="1"/>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="calculated_fluid_intake">Calculated Fluid Intake (ml/day):</label>
+                            <input type="number" name="calculated_fluid_intake" id="calculated_fluid_intake" class="form-control" readonly="1"/>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Submit -->
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                <button type="submit" class="btn btn-primary">Save Form</button>
+            </form>
+        </t>
+    </template>
+
+    <template id="portal_tpn_edit_form">
+        <t t-call="portal.portal_layout">
+            <h3>Edit TPN Form</h3>
+            <form action="/portal/save_tpn_form" method="post">
+                <!-- General Information -->
+                <fieldset class="form-section">
+                    <legend>General Information</legend>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="name">Patient Name:</label>
+                            <input type="text" name="name" id="name" class="form-control" t-att-value="form_data.name" required="1" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="hospital_no">Hospital No.:</label>
+                            <input type="text" name="hospital_no" id="hospital_no" class="form-control" t-att-value="form_data.hospital_no" required="1" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="nationality">Nationality:</label>
+                            <input type="text" name="nationality" id="nationality" class="form-control" t-att-value="form_data.nationality" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="treating_physician">Treating Physician:</label>
+                            <input type="text" name="treating_physician" id="treating_physician" class="form-control" t-att-value="form_data.treating_physician" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="ward">Ward:</label>
+                            <input type="text" name="ward" id="ward" class="form-control" t-att-value="form_data.ward" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="age">Age (days):</label>
+                            <input type="number" name="age" id="age" class="form-control" t-att-value="form_data.age" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="weight">Weight (kg):</label>
+                            <input type="number" name="weight" id="weight" class="form-control" t-att-value="form_data.weight" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="height">Height (cm):</label>
+                            <input type="number" name="height" id="height" class="form-control" t-att-value="form_data.height" />
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="diagnosis">Diagnosis:</label>
+                            <textarea name="diagnosis" id="diagnosis" class="form-control"><t t-esc="form_data.diagnosis"/></textarea>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="tpn_indications">TPN Indications:</label>
+                            <textarea name="tpn_indications" id="tpn_indications" class="form-control"><t t-esc="form_data.tpn_indications"/></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Prescription Details -->
+                <fieldset class="form-section">
+                    <legend>Prescription Details</legend>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="date">Date:</label>
+                            <input type="date" name="date" id="date" class="form-control" t-att-value="form_data.date" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="tpn_day">Day(s) of TPN:</label>
+                            <input type="number" name="tpn_day" id="tpn_day" class="form-control" t-att-value="form_data.tpn_day" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="tpn_route">TPN Route:</label>
+                            <select name="tpn_route" id="tpn_route" class="form-control">
+                                <option t-att-selected="form_data.tpn_route == 'central'" value="central">Central</option>
+                                <option t-att-selected="form_data.tpn_route == 'peripheral'" value="peripheral">Peripheral</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Nutritional Fields -->
+                <fieldset class="form-section">
+                    <legend>Nutritional Fields</legend>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="dextrose_mg_kg_min">Dextrose (mg/kg/min):</label>
+                            <input type="number" name="dextrose_mg_kg_min" id="dextrose_mg_kg_min" class="form-control" t-att-value="form_data.dextrose_mg_kg_min" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="dextrose_gm_day">Dextrose (gm/day):</label>
+                            <input type="number" name="dextrose_gm_day" id="dextrose_gm_day" class="form-control" t-att-value="form_data.dextrose_gm_day" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="amino_acids_gm_kg_day">Amino Acids (gm/kg/day):</label>
+                            <input type="number" name="amino_acids_gm_kg_day" id="amino_acids_gm_kg_day" class="form-control" t-att-value="form_data.amino_acids_gm_kg_day" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="amino_acids_gm_day">Amino Acids (gm/day):</label>
+                            <input type="number" name="amino_acids_gm_day" id="amino_acids_gm_day" class="form-control" t-att-value="form_data.amino_acids_gm_day" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="fat_emulsion_gm_kg_day">Fat Emulsion 20% (gm/kg/day):</label>
+                            <input type="number" name="fat_emulsion_gm_kg_day" id="fat_emulsion_gm_kg_day" class="form-control" t-att-value="form_data.fat_emulsion_gm_kg_day" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="fat_emulsion_gm_day">Fat Emulsion 20% (gm/day):</label>
+                            <input type="number" name="fat_emulsion_gm_day" id="fat_emulsion_gm_day" class="form-control" t-att-value="form_data.fat_emulsion_gm_day" />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Additives -->
+                <fieldset class="form-section">
+                    <legend>Additives</legend>
+                    <div class="row">
+                        <!-- Sodium -->
+                        <div class="col-md-4 form-group">
+                            <label for="sodium">Sodium (mmol/day):</label>
+                            <input type="number" name="sodium" id="sodium" class="form-control" t-att-value="form_data.sodium" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="sodium_range">Sodium Range:</label>
+                            <textarea name="sodium_range" id="sodium_range" class="form-control" readonly="1">
+                                2-4 Mmol/kg/day
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="sodium_notes">Sodium Notes:</label>
+                            <textarea name="sodium_notes" id="sodium_notes" class="form-control" readonly="1">
+                            </textarea>
+                        </div>
+
+                        <!-- Potassium -->
+                        <div class="col-md-4 form-group">
+                            <label for="potassium">Potassium (mmol/day):</label>
+                            <input type="number" name="potassium" id="potassium" class="form-control" t-att-value="form_data.potassium" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="potassium_range">Potassium Range:</label>
+                            <textarea name="potassium_range" id="potassium_range" class="form-control" readonly="1">
+                                2-4 Mmol/kg/day
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="potassium_notes">Potassium Notes:</label>
+                            <textarea name="potassium_notes" id="potassium_notes" class="form-control" readonly="1">
+                            </textarea>
+                        </div>
+
+                        <!-- Calcium -->
+                        <div class="col-md-4 form-group">
+                            <label for="calcium">Calcium (mmol/day):</label>
+                            <input type="number" name="calcium" id="calcium" class="form-control" t-att-value="form_data.calcium" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="calcium_range">Calcium Range:</label>
+                            <textarea name="calcium_range" id="calcium_range" class="form-control" readonly="1">
+                                0.7-1.4 Mmol/kg/day
+                            </textarea>
+
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="calcium_notes">Calcium Notes:</label>
+                            <textarea name="calcium_notes" id="calcium_notes" class="form-control" rows="2" readonly="1">
+                                Give as Calcium Gluconate
+                                PHARMACY: check Ca/PO4 compatibility
+                            </textarea>
+                        </div>
+
+                        <!-- Magnesium -->
+                        <div class="col-md-4 form-group">
+                            <label for="magnesium">Magnesium (mmol/day):</label>
+                            <input type="number" name="magnesium" id="magnesium" class="form-control" t-att-value="form_data.magnesium" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="magnesium_range">Magnesium Range:</label>
+                            <textarea name="magnesium_range" id="magnesium_range" class="form-control" rows="1" readonly="1">
+                                0.15-0.25 Mmol/kg/day
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="magnesium_notes">Magnesium Notes:</label>
+                            <textarea name="magnesium_notes" id="magnesium_notes" class="form-control" rows="1" readonly="1">
+                            </textarea>
+                        </div>
+
+                        <!-- Phosphate -->
+                        <div class="col-md-4 form-group">
+                            <label for="phosphate">Phosphate (mmol/day):</label>
+                            <input type="number" name="phosphate" id="phosphate" class="form-control" t-att-value="form_data.phosphate" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="phosphate_range">Phosphate Range:</label>
+                            <textarea name="phosphate_range" id="phosphate_range" class="form-control" rows="1" readonly="1">
+                                0.5-1.5 Mmol/kg/day
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="phosphate_notes">Phosphate Notes:</label>
+                            <textarea name="phosphate_notes" id="phosphate_notes" class="form-control" rows="2" readonly="1">
+                                Na PO4(1 ml = 3 Mmol PO4 &amp; 4 Mmol Na)
+                                KP04(1mL= 3 Mmol PO4 &amp; 4 4 Mmol Na)
+                            </textarea>
+                        </div>
+
+                        <!-- Chloride -->
+                        <div class="col-md-4 form-group">
+                            <label for="chloride">Chloride (mmol/day):</label>
+                            <input type="number" name="chloride" id="chloride" class="form-control" t-att-value="form_data.chloride" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="chloride_range">Chloride Range:</label>
+                            <textarea name="chloride_range" id="chloride_range" class="form-control" rows="1" readonly="1">
+                                2-4 Mmol/kg/day
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="chloride_notes">Chloride Notes:</label>
+                            <textarea name="chloride_notes" id="chloride_notes" class="form-control" rows="1" readonly="1">
+                            </textarea>
+                        </div>
+
+                        <!-- Acetate -->
+                        <div class="col-md-4 form-group">
+                            <label for="acetate">Acetate:</label>
+                            <input type="number" name="acetate" id="acetate" class="form-control" t-att-value="form_data.acetate"/>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="acetate_range">Acetate Range:</label>
+                            <textarea name="acetate_range" id="acetate_range" class="form-control" rows="1" readonly="1">
+                                As needed
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="acetate_notes">Acetate Notes:</label>
+                            <textarea name="acetate_notes" id="acetate_notes" class="form-control" rows="2" readonly="1">
+                                Acetate and CI should be in 1:1, unless it is<br/>indicated
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="fat_soluble_vitamins">Fat Soluble Vitamins (ml/day):</label>
+                            <input type="number" name="fat_soluble_vitamins" id="fat_soluble_vitamins" class="form-control" t-att-value="form_data.fat_soluble_vitamins" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="fat_soluble_vitamins_range">Fat Soluble Vitamins Range:</label>
+                            <textarea name="fat_soluble_vitamins_range" id="fat_soluble_vitamins_range" class="form-control" rows="2" readonly="1">
+                                Neonates, &amp; 2.5kg: 4mL/kg Children,
+                                >2.5kg:10mL/day Based on manufacture doing
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="fat_soluble_vitamins_notes">Fat Soluble Vitamins Notes:</label>
+                            <textarea name="fat_soluble_vitamins_notes" id="fat_soluble_vitamins_notes" class="form-control" rows="3" readonly="1">
+                                - Max dose 10 mL/day
+                                (1mL contains 20 mcg Vit K1)
+                                - Use this brand for age of 11 years.
+                            </textarea>
+                        </div>
+
+                        <div class="col-md-4 form-group">
+                            <label for="water_soluble_vitamins">Water Soluble Vitamins (ml/day):</label>
+                            <input type="number" name="water_soluble_vitamins" id="water_soluble_vitamins" class="form-control" t-att-value="form_data.water_soluble_vitamins" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="water_soluble_vitamins_range">Water Soluble Vitamins Range:</label>
+                            <textarea name="water_soluble_vitamins_range" id="water_soluble_vitamins_range" class="form-control" rows="3" readonly="1">
+                                >10Kg: 10mL/day
+                                &gt; 10Kg:1mL/kg
+                                Based on Manufacture doing
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="water_soluble_vitamins_notes">Water Soluble Vitamins Notes:</label>
+                            <textarea name="water_soluble_vitamins_notes" id="water_soluble_vitamins_notes" class="form-control" rows="3" readonly="1">
+                                Contains: Vit. B1, B2, nicotinamide, B6,
+                                pantothenic acid, C, biotin, folic acid &amp; B12
+                            </textarea>
+                        </div>
+
+                        <div class="col-md-4 form-group">
+                            <label for="trace_elements">Trace Elements (ml/day):</label>
+                            <input type="number" name="trace_elements" id="trace_elements" class="form-control"  t-att-value="form_data.trace_elements"/>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="trace_elements_range">Trace Elements Range:</label>
+                            <textarea name="trace_elements_range" id="trace_elements_range" class="form-control" rows="2" readonly="1">
+                                0.1 mL/kg Based on Manufacture doing
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="trace_elements_notes">Trace Elements Notes:</label>
+                            <textarea name="trace_elements_notes" id="trace_elements_notes" class="form-control" rows="3" readonly="1">
+                                Contains: zinc, copper, manganese &amp; chromium
+                                Caution: in renal dyst., biliary tract obstruction
+                            </textarea>
+                        </div>
+
+                        <div class="col-md-4 form-group">
+                            <label for="heparin">Heparin (units/ml):</label>
+                            <input type="number" name="heparin" id="heparin" class="form-control"  t-att-value="form_data.heparin"/>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="heparin_range">Heparin Range:</label>
+                            <textarea name="heparin_range" id="heparin_range" class="form-control" rows="1" readonly="1">
+                                0.5-1 unit/ each mL of TPN
+                            </textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="heparin_notes">Heparin Notes:</label>
+                            <textarea name="heparin_notes" id="heparin_notes" class="form-control" rows="2" readonly="1">
+                                USED FOR PERIPHERAL TPN, Check PT/PTT,
+                                avoid in case of HIT or thrombocytopenia
+                            </textarea>
+                        </div>
+
+                        <!-- Add Action Button -->
+                        <div class="col-md-12 form-group">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </t>
+    </template>
+</odoo>

@@ -19,27 +19,28 @@ class SaleOrder(models.Model):
         mo_ids = self.manufacturing_order_ids.ids
         for line in self.order_line:
             if line.manufacturing_true:
-                bom = self.env['mrp.bom'].search([('product_tmpl_id', '=', line.product_id.id)])[0]
-                mo = self.env['mrp.production'].create({
-                    'bom_id': bom.id,
-                    'product_qty': line.product_uom_qty,
-                    'origin': str(self.name) + " " + line.product_id.name,
-                    'date_planned_start': self.commitment_date
-                })
-                line.manufacturing_order_id = mo.id
-                recipe = self.env['sale.line.recipe'].create({
-                    'product_id': line.product_id.id,
-                    'sale_id': self.id,
-                    'sale_line_id': line.id,
-                    'mo_id': mo.id,
-                })
-                mo.update({
-                    'recipe_id' : recipe.id
-                })
-                line.update({
-                    'recipe_id' : recipe.id
-                })
-                mo_ids.append(mo.id)
+                bom = self.env['mrp.bom'].search([('product_tmpl_id', '=', line.product_id.id)])
+                if bom:
+                    mo = self.env['mrp.production'].create({
+                        'bom_id': bom[0].id,
+                        'product_qty': line.product_uom_qty,
+                        'origin': str(self.name) + " " + line.product_id.name,
+                        'date_planned_start': self.commitment_date
+                    })
+                    line.manufacturing_order_id = mo.id
+                    recipe = self.env['sale.line.recipe'].create({
+                        'product_id': line.product_id.id,
+                        'sale_id': self.id,
+                        'sale_line_id': line.id,
+                        'mo_id': mo.id,
+                    })
+                    mo.update({
+                        'recipe_id' : recipe.id
+                    })
+                    line.update({
+                        'recipe_id' : recipe.id
+                    })
+                    mo_ids.append(mo.id)
         self.manufacturing_order_ids = mo_ids
         self.create_mo = True
 

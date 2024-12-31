@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="internal_layout_po">
+        <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <t t-raw="0"/>
+        </div>
+    </template>
+
+    <template id="report_tpn_form_document">
+        <t t-call="web.html_container">
+            <t t-call="hospital_ext.internal_layout_po">
+
+                <t t-foreach="docs" t-as="doc">
+                    <div class="page" style="border: 2px solid black">
+                        <div class="parent-div"  style="overflow: hidden;">
+                            <div class="child-div" style="width:49%;float: left; margin-left: 5px;">
+                                <h6 class="text-center">KINGDOM OF SAUDI ARABIA</h6>
+                                <h6 class="text-center">MINISTRY OF HEALTH</h6>
+                                <h6 class="text-center">Pharmaceutical Services IV Admixture and TPN Department</h6>
+                                <h6 class="text-center">TOTAL PARENTERAL NUTRITION NEONATAL FORM</h6>
+                                <br></br>
+                                <!-- TPN Details -->
+                                <h5 style="margin-left: 5%;">TPN Prescription Details</h5>
+                                <table style="width: 99%; border-collapse: collapse; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;" border="1">
+                                    <tr style="border: 1px solid black;">
+                                        <td style="background-color: #d3d3d3;" rowspan="3">No#1</td>
+                                        <td><strong>Day(s) of TPN:</strong></td>
+                                        <td><t t-esc="doc.tpn_day"/></td>
+                                    </tr>
+                                    <tr style="border: 1px solid black;">
+                                        <td><strong>Date:</strong></td>
+                                        <td><t t-esc="doc.date"/></td>
+                                    </tr>
+                                    <tr style="border: 1px solid black;">
+                                        <td><strong>Route:</strong></td>
+                                        <td><t t-esc="dict(doc._fields['tpn_route'].selection).get(doc.tpn_route)"/></td>
+                                    </tr>
+
+                                </table>
+
+                                <!-- Nutritional Details -->
+                                <div class="nutritional-details">
+                                    <h5 style="margin-left: 5%;">Nutritional Details</h5>
+                                    <table style="font-size:13px;width: 99%; border: 1px solid black; border-collapse: collapse;margin-bottom: 10px;margin-left: 5px;margin-right: 5px;">
+                                        <tr style="border: 1px solid black;">
+                                            <td style="background-color: #d3d3d3;">No#2</td>
+                                            <th style="text-align:left">Dextrose (mg/kg/min)</th>
+                                            <td style="text-align:center"><t t-esc="doc.dextrose_mg_kg_min"/></td>
+                                            <th style="text-align:left">Dextrose (gm/day)</th>
+                                            <td style="text-align:center"><t t-esc="doc.dextrose_gm_day"/></td>
+
+                                        </tr>
+                                        <tr style="border: 1px solid black;">
+                                            <td style="background-color: #d3d3d3;">No#3</td>
+                                            <th  style="text-align:left">Amino Acids (gm/kg/day)</th>
+                                            <td style="text-align:center"><t t-esc="doc.dextrose_gm_day"/></td>
+                                            <th  style="text-align:left">Amino Acids (gm/day)</th>
+                                            <td style="text-align:center"><t t-esc="doc.amino_acids_gm_day"/></td>
+                                        </tr>
+                                        <tr style="border: 1px solid black;">
+                                            <td style="background-color: #d3d3d3;">No#4</td>
+
+                                            <th  style="text-align:left">Fat Emulsion 20% (gm/kg/day)</th>
+                                            <td style="text-align:center"><t t-esc="doc.fat_emulsion_gm_kg_day"/></td>
+
+                                            <th  style="text-align:left">Fat Emulsion 20% (gm/day)</th>
+                                            <td style="text-align:center"><t t-esc="doc.fat_emulsion_gm_day"/></td>
+                                        </tr>
+                                        <tr style="border: 1px solid black;">
+                                            <td style="background-color: #d3d3d3;">No#5</td>
+
+                                            <th  style="text-align:left">Total Fluid Intake (ml/kg/day)</th>
+                                            <td style="text-align:center"><t t-esc="doc.total_fluid_intake"/></td>
+                                            <th  style="text-align:left">Total Fluid Intake (ml/hour)</th>
+                                            <td style="text-align:center"><t t-esc="doc.total_fluid_intake_ml_hr"/></td>
+                                        </tr>
+                                        <tr style="border: 1px solid black;">
+                                            <td style="background-color: #d3d3d3;">No#6</td>
+
+                                            <th  style="text-align:left">Total Fluid Intake (ml/day)</th>
+                                            <td style="text-align:center"><t t-esc="doc.total_fluid_intake_ml_day"/></td>
+                                            <th  style="text-align:left">Total Volume of TPN (ml/day)</th>
+                                            <td style="text-align:center"><t t-esc="doc.total_volume_tpn"/></td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+
+                            </div>
+
+                            <div class="child-div" style="width:49%;float: right; margin-right: 5px;">
+                                <table style=" border: 1px solid black;width: 99%; border-collapse: collapse; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;" border="1">
+                                    <tr style=" border: 1px solid black;">
+                                        <td colspan="2"><strong>Name:</strong> </td>
+                                        <td colspan="2"><t t-esc="doc.name"/></td>
+                                    </tr>
+                                    <tr style=" border: 1px solid black;">
+                                        <td colspan="2"><strong>Hospital No.:</strong></td>
+                                        <td colspan="2"><t t-esc="doc.hospital_no"/></td>
+                                    </tr>
+                                    <tr style="border: 1px solid black;">
+                                        <td colspan="2"><strong>Nationality:</strong> <t t-esc="doc.nationality"/></td>
+                                        <td colspan="2"><t t-esc="doc.nationality"/></td>
+                                    </tr>
+                                    <tr style="border: 1px solid black;">
+                                        <td colspan="2"><strong>Treating Physician:</strong></td>
+                                        <td colspan="2"><t t-esc="doc.treating_physician"/></td>
+                                    </tr>
+                                </table>
+                                <table style=" border: 1px solid black;width: 99%; border-collapse: collapse; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;" border="1">
+                                    <tr style="border: 1px solid black;">
+                                        <td colspan="2"><strong>Ward:</strong> <t t-esc="doc.ward"/></td>
+                                        <td colspan="2"><strong>Age:</strong> <t t-esc="doc.age"/> days</td>
+                                    </tr>
+                                    <tr style="border: 1px solid black;">
+                                        <td colspan="2"><strong>Weight:</strong> <t t-esc="doc.weight"/> kg</td>
+                                        <td colspan="2"><strong>Height:</strong> <t t-esc="doc.height"/> cm</td>
+                                    </tr>
+                                    <tr style="border: 1px solid black;">
+                                        <td colspan="4"><strong>Diagnosis:</strong> <t t-esc="doc.diagnosis"/></td>
+                                    </tr>
+                                    <tr style="border: 1px solid black;">
+                                        <td colspan="4"><strong>TPN Indication(s):</strong> <t t-esc="doc.tpn_indications"/></td>
+                                    </tr>
+                                </table>
+                                <h5 style="margin-left: 5%;">Pharmacy Information and Calculations</h5>
+                                <table style="font-size:13px;width: 99%; border-collapse: collapse; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;" border="1">
+                                    <tr style="border: 1px solid black;">
+                                        <td rowspan="2" style="background-color: #d3d3d3;">No#8</td>
+                                        <td><strong>TPN Rate (ml/hr):</strong></td>
+                                        <td><t t-esc="doc.tpn_rate"/></td>
+                                        <td><strong>Total TPN Fluid Rate (ml/hr):</strong></td>
+                                        <td><t t-esc="doc.total_tpn_fluid_rate"/></td>
+                                    </tr>
+                                    <tr style="border: 1px solid black;">
+                                        <td><strong>Non-Protein Calories (kcal/day):</strong></td>
+                                        <td><t t-esc="doc.non_protein_calories"/></td>
+                                        <td><strong>Nitrogen Ratio:</strong></td>
+                                        <td><t t-esc="doc.nitrogen_ratio"/></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Additives Section -->
+                        <!-- Additives Section -->
+                        <div class="additives-section">
+                            <h5 style="margin-left: 5%;">Additives</h5>
+                            <table style="font-size:13px;border: 1px solid black; border-collapse: collapse; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;">
+                                <tr style="border: 1px solid black;">
+                                    <td></td>
+                                    <th style="background-color: #d3d3d3;">No#7</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr style="background-color: #d3d3d3;border: 1px solid black;page-break-inside: avoid;">
+                                    <th style="width:10%;text-align:center;border: 1px solid black;">Additive</th>
+                                    <th style="width:10%;text-align:center;border: 1px solid black;">Prescribed Amt/Day</th>
+                                    <th style="width:25%;text-align:center;border: 1px solid black;">Maintenance Range</th>
+                                    <th style="width:30%%;text-align:center;border: 1px solid black;">Notes</th>
+                                    <th style="width:25%%;text-align:center;border: 1px solid black;">FOR PHARMACY ONLY</th>
+                                </tr>
+                                <tr style="border: 1px solid black; ">
+                                    <td style="text-align:center;border: 1px solid black;">Sodium</td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.sodium"/></td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.sodium_range"/></td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.sodium_notes"/></td>
+                                    <td style="text-align:center;;border: 1px solid black;background-color: #d3d3d3;">Base Solution</td>
+                                </tr>
+                                <tr style="border: 1px solid black; ">
+                                    <td style="text-align:center;border: 1px solid black;">Potassium</td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.potassium"/></td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.potassium_range"/></td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.potassium_notes"/></td>
+                                    <td style="text-align:center;border: 1px solid black;">Dextrose (ml): <t t-esc="doc.base_solution_dextrose or 0.0"/></td>
+                                </tr>
+                                <tr style="border: 1px solid black; ">
+                                    <td style="text-align:center;border: 1px solid black;">Calcium</td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.calcium"/></td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.calcium_range"/></td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.calcium_notes"/></td>
+                                    <td style="text-align:center;border: 1px solid black;">Amino Acids (ml): <t t-esc="doc.base_solution_amino or 0.0"/></td>
+                                </tr>
+                                <tr style="border: 1px solid black; ">
+                                    <td style="text-align:center;border: 1px solid black;">Magnesium</td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.magnesium"/></td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.magnesium_range"/></td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.magnesium_notes"/></td>
+                                    <td style="text-align:center;border: 1px solid black;">Sterile Water (ml): <t t-esc="doc.base_solution_water or 0.0"/></td>
+                                </tr>
+                                <tr style="border: 1px solid black; ">
+                                    <td style="text-align:center;border: 1px solid black;">Phosphate</td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.phosphate"/></td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.phosphate_range"/></td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.phosphate_notes"/></td>
+                                    <td style="text-align:center;;border: 1px solid black;">Sterile Water (ml): <t t-esc="doc.base_solution_water or 0.0"/></td>
+                                </tr>
+                                <tr style="border: 1px solid black; ">
+                                    <td style="text-align:center;border: 1px solid black;">Chloride</td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.chloride"/></td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.chloride_range"/></td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.chloride_notes"/></td>
+                                    <td style="text-align:center;background-color: #d3d3d3;border: 1px solid black;">Additives</td>
+                                </tr>
+                                <tr style="border: 1px solid black; ">
+                                    <td style="text-align:center;border: 1px solid black;">Acetate</td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.acetate"/></td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.acetate_range"/></td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.acetate_notes"/></td>
+                                    <td style="text-align:center;border: 1px solid black;">Sodium Chloride (ml): <t t-esc="doc.additives_sodium_chloride or 0.0"/></td>
+                                </tr>
+                                <tr style="border: 1px solid black; ">
+                                    <td style="text-align:center;border: 1px solid black;">Fat Soluble Vitamins</td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.fat_soluble_vitamins"/></td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.fat_soluble_vitamins_range"/></td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.fat_soluble_vitamins_notes"/></td>
+                                    <td style="text-align:center;border: 1px solid black;">Potassium Chloride (ml): <t t-esc="doc.additives_potassium_chloride or 0.0"/></td>
+                                </tr>
+                                <tr style="border: 1px solid black; ">
+                                    <td style="text-align:center;border: 1px solid black;">Water Soluble Vitamins</td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.water_soluble_vitamins"/></td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.water_soluble_vitamins_range"/></td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.water_soluble_vitamins_notes"/></td>
+                                    <td style="text-align:center;border: 1px solid black;">Calcium Gluconate (ml): <t t-esc="doc.additives_calcium_gluconate or 0.0"/></td>
+                                </tr>
+                                <tr style="border: 1px solid black; ">
+                                    <td style="text-align:center;border: 1px solid black;">Trace Elements</td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.trace_elements"/></td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.trace_elements_range"/></td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.trace_elements_notes"/></td>
+                                    <td style="text-align:center;border: 1px solid black;">Magnesium Sulfate (ml): <t t-esc="doc.additives_magnesium_sulfate or 0.0"/></td>
+                                </tr>
+                                <tr style="border: 1px solid black; ">
+                                    <td style="text-align:center;border: 1px solid black;">Heparin</td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.heparin"/></td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.heparin_range"/></td>
+                                    <td style="text-align:center;border: 1px solid black;"><t t-esc="doc.heparin_notes"/></td>
+                                    <td style="text-align:center;border: 1px solid black;">Sodium Phosphate (ml): <t t-esc="doc.additives_sodium_phosphate or 0.0"/></td>
+                                </tr>
+                                <tr style="border: 1px solid black; ">
+                                    <td style="text-align:center;border: 1px solid black;"></td>
+                                    <td style="text-align:center;border: 1px solid black;"></td>
+                                    <td style="text-align:center;border: 1px solid black;"></td>
+                                    <td style="text-align:center;border: 1px solid black;"></td>
+                                    <td style="text-align:center;border: 1px solid black;">Vitamins Mixture (ml): <t t-esc="doc.additives_vitamins or 0.0"/></td>
+                                </tr>
+                                <tr style="border: 1px solid black; ">
+                                    <td style="text-align:center;border: 1px solid black;"></td>
+                                    <td style="text-align:center;border: 1px solid black;"></td>
+                                    <td style="text-align:center;border: 1px solid black;"></td>
+                                    <td style="text-align:center;border: 1px solid black;"></td>
+                                    <td style="text-align:center;border: 1px solid black;">Trace Elements (ml): <t t-esc="doc.additives_trace_elements or 0.0"/></td>
+                                </tr>
+                            </table>
+                        </div>
+
+
+                        <!-- Prescriber Section -->
+                        <h5 style="margin-left: 5%;">Prescriber and Technician Information</h5>
+                        <table style="width: 90%; border-collapse: collapse; margin-left: 5%;margin-right: 5%;page-break-inside: avoid;" border="1">
+                            <tr style="border: 1px solid black;">
+                                <td><strong>Prescriber Name:</strong></td>
+                                <td><t t-esc="doc.prescriber_name"/></td>
+                                <td><strong>Prescriber ID:</strong></td>
+                                <td><t t-esc="doc.prescriber_id"/></td>
+                            </tr>
+                            <tr style="border: 1px solid black;">
+                                <td><strong>Nurse Name:</strong></td>
+                                <td><t t-esc="doc.nurse_name"/></td>
+                                <td><strong>Technician Name:</strong></td>
+                                <td><t t-esc="doc.pharmacy_technician"/></td>
+                            </tr>
+                        </table>
+
+                        <p  style="margin-left: 5%;"><strong>Notes:</strong> <t t-esc="doc.notes"/></p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+    <record id="paperformat_po_req" model="report.paperformat">
+        <field name="name">Tax Invoice Paper Format</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">10</field>
+        <field name="margin_bottom">10</field>
+        <field name="margin_left">1</field>
+        <field name="margin_right">1</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">10</field>
+        <field name="dpi">90</field>
+    </record>
+    <!--    <report-->
+    <!--            id="action_report_tpn_form"-->
+    <!--            string="TPN Form Report"-->
+    <!--            model="tpn.form"-->
+    <!--            report_type="qweb-pdf"-->
+    <!--            name="hospital_ext.report_tpn_form_document"-->
+    <!--            file="hospital_ext.report_tpn_form_document"-->
+    <!--            print_report_name="'TPN_Form_Report_%s' % (object.name)"-->
+    <!--            paperformat_id="paperformat_po_req"-->
+    <!--    />-->
+
+    <record id="action_report_tpn_form" model="ir.actions.report">
+        <field name="name">TPN Form Report</field>
+        <field name="model">tpn.form</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hospital_ext.report_tpn_form_document</field>
+        <field name="report_file">hospital_ext.report_tpn_form_document</field>
+        <field name="binding_model_id" ref="hospital_ext.model_tpn_form"/>
+        <field name="paperformat_id" ref="paperformat_po_req"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

@@ -506,11 +506,11 @@
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="weight">Weight (kg):</label>
-                            <input type="number" name="weight" id="weight" class="form-control" />
+                            <input type="number" name="weight" id="weight" class="form-control" step="0.001"  />
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="height">Height (cm):</label>
-                            <input type="number" name="height" id="height" class="form-control" />
+                            <input type="number" name="height" id="height" class="form-control" step="0.001"/>
                         </div>
                         <div class="col-md-12 form-group">
                             <label for="diagnosis">Diagnosis:</label>
@@ -551,27 +551,27 @@
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label for="dextrose_mg_kg_min">Dextrose (mg/kg/min):</label>
-                            <input type="number" name="dextrose_mg_kg_min" id="dextrose_mg_kg_min" class="form-control" />
+                            <input type="number" name="dextrose_mg_kg_min" id="dextrose_mg_kg_min" class="form-control" step="0.001"/>
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="dextrose_gm_day">Dextrose (gm/day):</label>
-                            <input type="number" name="dextrose_gm_day" id="dextrose_gm_day" class="form-control" />
+                            <input type="number" name="dextrose_gm_day" id="dextrose_gm_day" class="form-control" step="0.001"/>
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="amino_acids_gm_kg_day">Amino Acids (gm/kg/day):</label>
-                            <input type="number" name="amino_acids_gm_kg_day" id="amino_acids_gm_kg_day" class="form-control" />
+                            <input type="number" name="amino_acids_gm_kg_day" id="amino_acids_gm_kg_day" class="form-control" step="0.001"/>
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="amino_acids_gm_day">Amino Acids (gm/day):</label>
-                            <input type="number" name="amino_acids_gm_day" id="amino_acids_gm_day" class="form-control" />
+                            <input type="number" name="amino_acids_gm_day" id="amino_acids_gm_day" class="form-control" step="0.001"/>
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="fat_emulsion_gm_kg_day">Fat Emulsion 20% (gm/kg/day):</label>
-                            <input type="number" name="fat_emulsion_gm_kg_day" id="fat_emulsion_gm_kg_day" class="form-control" />
+                            <input type="number" name="fat_emulsion_gm_kg_day" id="fat_emulsion_gm_kg_day" class="form-control" step="0.001"/>
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="fat_emulsion_gm_day">Fat Emulsion 20% (gm/day):</label>
-                            <input type="number" name="fat_emulsion_gm_day" id="fat_emulsion_gm_day" class="form-control" />
+                            <input type="number" name="fat_emulsion_gm_day" id="fat_emulsion_gm_day" class="form-control" step="0.001"/>
                         </div>
                     </div>
                 </fieldset>
@@ -583,7 +583,7 @@
                         <!-- Sodium -->
                         <div class="col-md-4 form-group">
                             <label for="sodium">Sodium (mmol/day):</label>
-                            <input type="number" name="sodium" id="sodium" class="form-control" />
+                            <input type="number" name="sodium" id="sodium" class="form-control" step="0.001"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="sodium_range">Sodium Range:</label>
@@ -600,7 +600,7 @@
                         <!-- Potassium -->
                         <div class="col-md-4 form-group">
                             <label for="potassium">Potassium (mmol/day):</label>
-                            <input type="number" name="potassium" id="potassium" class="form-control" />
+                            <input type="number" name="potassium" id="potassium" class="form-control" step="0.001"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="potassium_range">Potassium Range:</label>
@@ -617,7 +617,7 @@
                         <!-- Calcium -->
                         <div class="col-md-4 form-group">
                             <label for="calcium">Calcium (mmol/day):</label>
-                            <input type="number" name="calcium" id="calcium" class="form-control" />
+                            <input type="number" name="calcium" id="calcium" class="form-control" step="0.001"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="calcium_range">Calcium Range:</label>
@@ -637,7 +637,7 @@
                         <!-- Magnesium -->
                         <div class="col-md-4 form-group">
                             <label for="magnesium">Magnesium (mmol/day):</label>
-                            <input type="number" name="magnesium" id="magnesium" class="form-control" />
+                            <input type="number" name="magnesium" id="magnesium" class="form-control" step="0.001"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="magnesium_range">Magnesium Range:</label>
@@ -654,7 +654,7 @@
                         <!-- Phosphate -->
                         <div class="col-md-4 form-group">
                             <label for="phosphate">Phosphate (mmol/day):</label>
-                            <input type="number" name="phosphate" id="phosphate" class="form-control" />
+                            <input type="number" name="phosphate" id="phosphate" class="form-control" step="0.001"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="phosphate_range">Phosphate Range:</label>
@@ -673,7 +673,7 @@
                         <!-- Chloride -->
                         <div class="col-md-4 form-group">
                             <label for="chloride">Chloride (mmol/day):</label>
-                            <input type="number" name="chloride" id="chloride" class="form-control" />
+                            <input type="number" name="chloride" id="chloride" class="form-control" step="0.001"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="chloride_range">Chloride Range:</label>
@@ -690,7 +690,7 @@
                         <!-- Acetate -->
                         <div class="col-md-4 form-group">
                             <label for="acetate">Acetate:</label>
-                            <input type="number" name="acetate" id="acetate" class="form-control" />
+                            <input type="number" name="acetate" id="acetate" class="form-control" step="0.001"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="acetate_range">Acetate Range:</label>
@@ -708,7 +708,7 @@
                         <!--                        -->
                         <div class="col-md-4 form-group">
                             <label for="fat_soluble_vitamins">Fat Soluble Vitamins (ml/day):</label>
-                            <input type="number" name="fat_soluble_vitamins" id="fat_soluble_vitamins" class="form-control" />
+                            <input type="number" name="fat_soluble_vitamins" id="fat_soluble_vitamins" class="form-control" step="0.001"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="fat_soluble_vitamins_range">Fat Soluble Vitamins Range:</label>
@@ -728,7 +728,7 @@
 
                         <div class="col-md-4 form-group">
                             <label for="water_soluble_vitamins">Water Soluble Vitamins (ml/day):</label>
-                            <input type="number" name="water_soluble_vitamins" id="water_soluble_vitamins" class="form-control" />
+                            <input type="number" name="water_soluble_vitamins" id="water_soluble_vitamins" class="form-control" step="0.001"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="water_soluble_vitamins_range">Water Soluble Vitamins Range:</label>
@@ -748,7 +748,7 @@
 
                         <div class="col-md-4 form-group">
                             <label for="trace_elements">Trace Elements (ml/day):</label>
-                            <input type="number" name="trace_elements" id="trace_elements" class="form-control" />
+                            <input type="number" name="trace_elements" id="trace_elements" class="form-control" step="0.001"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="trace_elements_range">Trace Elements Range:</label>
@@ -766,7 +766,7 @@
 
                         <div class="col-md-4 form-group">
                             <label for="heparin">Heparin (units/ml):</label>
-                            <input type="number" name="heparin" id="heparin" class="form-control" />
+                            <input type="number" name="heparin" id="heparin" class="form-control" step="0.001"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="heparin_range">Heparin Range:</label>
@@ -789,7 +789,7 @@
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label for="base_solution_dextrose">Base Solution - Dextrose (ml):</label>
-                            <input type="number" name="base_solution_dextrose" id="base_solution_dextrose" class="form-control" />
+                            <input type="number" name="base_solution_dextrose" id="base_solution_dextrose" class="form-control" step="0.001"/>
                         </div>
                         <!-- Add all other pharmacy fields similarly -->
                     </div>
@@ -839,11 +839,11 @@
                     <div class="row">
                         <div class="col-md-4 form-group">
                             <label for="calculated_total_tpn">Calculated Total TPN Volume (ml/day):</label>
-                            <input type="number" name="calculated_total_tpn" id="calculated_total_tpn" class="form-control" readonly="1"/>
+                            <input type="number" name="calculated_total_tpn" id="calculated_total_tpn" class="form-control" readonly="1" step="0.001"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="calculated_fluid_intake">Calculated Fluid Intake (ml/day):</label>
-                            <input type="number" name="calculated_fluid_intake" id="calculated_fluid_intake" class="form-control" readonly="1"/>
+                            <input type="number" name="calculated_fluid_intake" id="calculated_fluid_intake" class="form-control" readonly="1" step="0.001"/>
                         </div>
                     </div>
                 </fieldset>
@@ -858,10 +858,12 @@
     <template id="portal_tpn_edit_form">
         <t t-call="portal.portal_layout">
             <h3>Edit TPN Form</h3>
-            <form action="/portal/save_tpn_form" method="post">
+            <form action="/portal/update_tpn_form" method="post">
                 <!-- General Information -->
                 <fieldset class="form-section">
                     <legend>General Information</legend>
+                        <input type="hidden" name="form_id" t-att-value="form_data.id" />
+
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label for="name">Patient Name:</label>
@@ -889,11 +891,11 @@
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="weight">Weight (kg):</label>
-                            <input type="number" name="weight" id="weight" class="form-control" t-att-value="form_data.weight" />
+                            <input type="number" name="weight" id="weight" class="form-control" t-att-value="form_data.weight" step="0.001"/>
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="height">Height (cm):</label>
-                            <input type="number" name="height" id="height" class="form-control" t-att-value="form_data.height" />
+                            <input type="number" name="height" id="height" class="form-control" t-att-value="form_data.height" step="0.001"/>
                         </div>
                         <div class="col-md-12 form-group">
                             <label for="diagnosis">Diagnosis:</label>
@@ -916,7 +918,7 @@
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="tpn_day">Day(s) of TPN:</label>
-                            <input type="number" name="tpn_day" id="tpn_day" class="form-control" t-att-value="form_data.tpn_day" />
+                            <input type="number" name="tpn_day" id="tpn_day" class="form-control" t-att-value="form_data.tpn_day" step="0.001"/>
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="tpn_route">TPN Route:</label>
@@ -934,27 +936,27 @@
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label for="dextrose_mg_kg_min">Dextrose (mg/kg/min):</label>
-                            <input type="number" name="dextrose_mg_kg_min" id="dextrose_mg_kg_min" class="form-control" t-att-value="form_data.dextrose_mg_kg_min" />
+                            <input type="number" name="dextrose_mg_kg_min" id="dextrose_mg_kg_min" class="form-control" t-att-value="form_data.dextrose_mg_kg_min" step="0.001"/>
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="dextrose_gm_day">Dextrose (gm/day):</label>
-                            <input type="number" name="dextrose_gm_day" id="dextrose_gm_day" class="form-control" t-att-value="form_data.dextrose_gm_day" />
+                            <input type="number" name="dextrose_gm_day" id="dextrose_gm_day" class="form-control" t-att-value="form_data.dextrose_gm_day" step="0.001"/>
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="amino_acids_gm_kg_day">Amino Acids (gm/kg/day):</label>
-                            <input type="number" name="amino_acids_gm_kg_day" id="amino_acids_gm_kg_day" class="form-control" t-att-value="form_data.amino_acids_gm_kg_day" />
+                            <input type="number" name="amino_acids_gm_kg_day" id="amino_acids_gm_kg_day" class="form-control" t-att-value="form_data.amino_acids_gm_kg_day" step="0.001"/>
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="amino_acids_gm_day">Amino Acids (gm/day):</label>
-                            <input type="number" name="amino_acids_gm_day" id="amino_acids_gm_day" class="form-control" t-att-value="form_data.amino_acids_gm_day" />
+                            <input type="number" name="amino_acids_gm_day" id="amino_acids_gm_day" class="form-control" t-att-value="form_data.amino_acids_gm_day" step="0.001"/>
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="fat_emulsion_gm_kg_day">Fat Emulsion 20% (gm/kg/day):</label>
-                            <input type="number" name="fat_emulsion_gm_kg_day" id="fat_emulsion_gm_kg_day" class="form-control" t-att-value="form_data.fat_emulsion_gm_kg_day" />
+                            <input type="number" name="fat_emulsion_gm_kg_day" id="fat_emulsion_gm_kg_day" class="form-control" t-att-value="form_data.fat_emulsion_gm_kg_day" step="0.001"/>
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="fat_emulsion_gm_day">Fat Emulsion 20% (gm/day):</label>
-                            <input type="number" name="fat_emulsion_gm_day" id="fat_emulsion_gm_day" class="form-control" t-att-value="form_data.fat_emulsion_gm_day" />
+                            <input type="number" name="fat_emulsion_gm_day" id="fat_emulsion_gm_day" class="form-control" t-att-value="form_data.fat_emulsion_gm_day" step="0.001"/>
                         </div>
                     </div>
                 </fieldset>
@@ -966,7 +968,7 @@
                         <!-- Sodium -->
                         <div class="col-md-4 form-group">
                             <label for="sodium">Sodium (mmol/day):</label>
-                            <input type="number" name="sodium" id="sodium" class="form-control" t-att-value="form_data.sodium" />
+                            <input type="number" name="sodium" id="sodium" class="form-control" t-att-value="form_data.sodium" step="0.001"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="sodium_range">Sodium Range:</label>
@@ -983,7 +985,7 @@
                         <!-- Potassium -->
                         <div class="col-md-4 form-group">
                             <label for="potassium">Potassium (mmol/day):</label>
-                            <input type="number" name="potassium" id="potassium" class="form-control" t-att-value="form_data.potassium" />
+                            <input type="number" name="potassium" id="potassium" class="form-control" t-att-value="form_data.potassium" step="0.001"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="potassium_range">Potassium Range:</label>
@@ -1000,7 +1002,7 @@
                         <!-- Calcium -->
                         <div class="col-md-4 form-group">
                             <label for="calcium">Calcium (mmol/day):</label>
-                            <input type="number" name="calcium" id="calcium" class="form-control" t-att-value="form_data.calcium" />
+                            <input type="number" name="calcium" id="calcium" class="form-control" t-att-value="form_data.calcium" step="0.001"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="calcium_range">Calcium Range:</label>
@@ -1020,7 +1022,7 @@
                         <!-- Magnesium -->
                         <div class="col-md-4 form-group">
                             <label for="magnesium">Magnesium (mmol/day):</label>
-                            <input type="number" name="magnesium" id="magnesium" class="form-control" t-att-value="form_data.magnesium" />
+                            <input type="number" name="magnesium" id="magnesium" class="form-control" t-att-value="form_data.magnesium" step="0.001"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="magnesium_range">Magnesium Range:</label>
@@ -1037,7 +1039,7 @@
                         <!-- Phosphate -->
                         <div class="col-md-4 form-group">
                             <label for="phosphate">Phosphate (mmol/day):</label>
-                            <input type="number" name="phosphate" id="phosphate" class="form-control" t-att-value="form_data.phosphate" />
+                            <input type="number" name="phosphate" id="phosphate" class="form-control" t-att-value="form_data.phosphate" step="0.001"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="phosphate_range">Phosphate Range:</label>
@@ -1056,7 +1058,7 @@
                         <!-- Chloride -->
                         <div class="col-md-4 form-group">
                             <label for="chloride">Chloride (mmol/day):</label>
-                            <input type="number" name="chloride" id="chloride" class="form-control" t-att-value="form_data.chloride" />
+                            <input type="number" name="chloride" id="chloride" class="form-control" t-att-value="form_data.chloride" step="0.001"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="chloride_range">Chloride Range:</label>
@@ -1073,7 +1075,7 @@
                         <!-- Acetate -->
                         <div class="col-md-4 form-group">
                             <label for="acetate">Acetate:</label>
-                            <input type="number" name="acetate" id="acetate" class="form-control" t-att-value="form_data.acetate"/>
+                            <input type="number" name="acetate" id="acetate" class="form-control" t-att-value="form_data.acetate" step="0.001"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="acetate_range">Acetate Range:</label>
@@ -1089,7 +1091,7 @@
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="fat_soluble_vitamins">Fat Soluble Vitamins (ml/day):</label>
-                            <input type="number" name="fat_soluble_vitamins" id="fat_soluble_vitamins" class="form-control" t-att-value="form_data.fat_soluble_vitamins" />
+                            <input type="number" name="fat_soluble_vitamins" id="fat_soluble_vitamins" class="form-control" t-att-value="form_data.fat_soluble_vitamins" step="0.001"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="fat_soluble_vitamins_range">Fat Soluble Vitamins Range:</label>
@@ -1109,7 +1111,7 @@
 
                         <div class="col-md-4 form-group">
                             <label for="water_soluble_vitamins">Water Soluble Vitamins (ml/day):</label>
-                            <input type="number" name="water_soluble_vitamins" id="water_soluble_vitamins" class="form-control" t-att-value="form_data.water_soluble_vitamins" />
+                            <input type="number" name="water_soluble_vitamins" id="water_soluble_vitamins" step="0.001" class="form-control" t-att-value="form_data.water_soluble_vitamins" />
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="water_soluble_vitamins_range">Water Soluble Vitamins Range:</label>
@@ -1129,7 +1131,7 @@
 
                         <div class="col-md-4 form-group">
                             <label for="trace_elements">Trace Elements (ml/day):</label>
-                            <input type="number" name="trace_elements" id="trace_elements" class="form-control"  t-att-value="form_data.trace_elements"/>
+                            <input type="number" name="trace_elements" id="trace_elements" class="form-control"  t-att-value="form_data.trace_elements" step="0.001"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="trace_elements_range">Trace Elements Range:</label>
@@ -1147,7 +1149,7 @@
 
                         <div class="col-md-4 form-group">
                             <label for="heparin">Heparin (units/ml):</label>
-                            <input type="number" name="heparin" id="heparin" class="form-control"  t-att-value="form_data.heparin"/>
+                            <input type="number" name="heparin" id="heparin" class="form-control"  t-att-value="form_data.heparin" step="0.001"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="heparin_range">Heparin Range:</label>

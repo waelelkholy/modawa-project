@@ -360,7 +360,7 @@ class TPNForm(models.Model):
     )
     prescriber_id = fields.Char(
         string="Prescriber ID",
-        tracking=True,
+        tracking=True,required=True,
     )
     nurse_name = fields.Char(
         string="Nurse Name",

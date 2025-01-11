@@ -490,35 +490,35 @@
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="nationality">Nationality:</label>
-                            <input type="text" name="nationality" id="nationality" class="form-control" />
+                            <input type="text" name="nationality" id="nationality" class="form-control" required="1"/>
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="treating_physician">Treating Physician:</label>
-                            <input type="text" name="treating_physician" id="treating_physician" class="form-control" />
+                            <input type="text" name="treating_physician" id="treating_physician" class="form-control" required="1"/>
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="ward">Ward:</label>
-                            <input type="text" name="ward" id="ward" class="form-control" />
+                            <input type="text" name="ward" id="ward" class="form-control" required="1"/>
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="age">Age (days):</label>
-                            <input type="number" name="age" id="age" class="form-control" />
+                            <input type="number" name="age" id="age" class="form-control" required="1"/>
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="weight">Weight (kg):</label>
-                            <input type="number" name="weight" id="weight" class="form-control" step="0.001"  />
+                            <input type="number" name="weight" id="weight" class="form-control" step="0.001"  required="1"/>
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="height">Height (cm):</label>
-                            <input type="number" name="height" id="height" class="form-control" step="0.001"/>
+                            <input type="number" name="height" id="height" class="form-control" step="0.001" required="1"/>
                         </div>
                         <div class="col-md-12 form-group">
                             <label for="diagnosis">Diagnosis:</label>
-                            <textarea name="diagnosis" id="diagnosis" class="form-control"></textarea>
+                            <textarea name="diagnosis" id="diagnosis" class="form-control" required="1"></textarea>
                         </div>
                         <div class="col-md-12 form-group">
                             <label for="tpn_indications">TPN Indications:</label>
-                            <textarea name="tpn_indications" id="tpn_indications" class="form-control"></textarea>
+                            <textarea name="tpn_indications" id="tpn_indications" class="form-control" required="1"></textarea>
                         </div>
                     </div>
                 </fieldset>
@@ -529,7 +529,7 @@
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label for="date">Date:</label>
-                            <input type="date" name="date" id="date" class="form-control" />
+                            <input type="date" name="date" id="date" class="form-control" required="1"/>
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="tpn_day">Day(s) of TPN:</label>
@@ -796,23 +796,23 @@
                 </fieldset>
 
                 <!-- Pharmacy Details Section -->
-                <fieldset name="pharmacy_details">
-                    <legend>Pharmacy Details</legend>
-                    <div class="row">
-                        <div class="col-md-4 form-group">
-                            <label for="pharmacy_name">Pharmacy Name:</label>
-                            <input type="text" name="pharmacy_name" id="pharmacy_name" class="form-control" />
-                        </div>
-                        <div class="col-md-4 form-group">
-                            <label for="pharmacy_contact">Pharmacy Contact:</label>
-                            <input type="text" name="pharmacy_contact" id="pharmacy_contact" class="form-control" />
-                        </div>
-                        <div class="col-md-4 form-group">
-                            <label for="pharmacy_notes">Notes:</label>
-                            <textarea name="pharmacy_notes" id="pharmacy_notes" class="form-control"></textarea>
-                        </div>
-                    </div>
-                </fieldset>
+<!--                <fieldset name="pharmacy_details">-->
+<!--                    <legend>Pharmacy Details</legend>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-md-4 form-group">-->
+<!--                            <label for="pharmacy_name">Pharmacy Name:</label>-->
+<!--                            <input type="text" name="pharmacy_name" id="pharmacy_name" class="form-control" />-->
+<!--                        </div>-->
+<!--                        <div class="col-md-4 form-group">-->
+<!--                            <label for="pharmacy_contact">Pharmacy Contact:</label>-->
+<!--                            <input type="text" name="pharmacy_contact" id="pharmacy_contact" class="form-control" />-->
+<!--                        </div>-->
+<!--                        <div class="col-md-4 form-group">-->
+<!--                            <label for="pharmacy_notes">Notes:</label>-->
+<!--                            <textarea name="pharmacy_notes" id="pharmacy_notes" class="form-control"></textarea>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </fieldset>-->
 
                 <!-- Prescriber Information Section -->
                 <fieldset name="prescriber_information">
@@ -820,15 +820,25 @@
                     <div class="row">
                         <div class="col-md-4 form-group">
                             <label for="prescriber_name">Prescriber Name:</label>
-                            <input type="text" name="prescriber_name" id="prescriber_name" class="form-control" />
+                            <input type="text" name="prescriber_name" id="prescriber_name" class="form-control" required=""/>
                         </div>
                         <div class="col-md-4 form-group">
-                            <label for="prescriber_contact">Prescriber Contact:</label>
-                            <input type="text" name="prescriber_contact" id="prescriber_contact" class="form-control" />
+                            <label for="prescriber_contact">Prescriber ID:</label>
+                            <input type="text" name="prescriber_id" id="prescriber_id" class="form-control" required="1"/>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="prescriber_notes">Nurse:</label>
+                            <input type="text" name="nurse_name" id="nurse_name" class="form-control" required="1"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label for="prescriber_name">Pharmacy Technician:</label>
+                            <input type="text" name="pharmacy_technician" id="pharmacy_technician" class="form-control" required="1"/>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="prescriber_notes">Notes:</label>
-                            <textarea name="prescriber_notes" id="prescriber_notes" class="form-control"></textarea>
+                            <textarea name="notes" id="notes" class="form-control"></textarea>
                         </div>
                     </div>
                 </fieldset>
@@ -862,7 +872,7 @@
                 <!-- General Information -->
                 <fieldset class="form-section">
                     <legend>General Information</legend>
-                        <input type="hidden" name="form_id" t-att-value="form_data.id" />
+                    <input type="hidden" name="form_id" t-att-value="form_data.id" />
 
                     <div class="row">
                         <div class="col-md-6 form-group">

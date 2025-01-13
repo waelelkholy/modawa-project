@@ -244,7 +244,7 @@ class PortalTPNForm(http.Controller):
             return request.not_found()
 
         # Render the edit form template with the TPN form data
-        if tpn_form.state != 'approve':
+        if tpn_form.state == 'reject':
             return request.render('hospital_ext.portal_tpn_edit_form', {
                 'form_data': tpn_form
             })

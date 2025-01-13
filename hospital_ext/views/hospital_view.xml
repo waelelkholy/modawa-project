@@ -4,6 +4,12 @@
         <field name="model">tpn.form</field>
         <field name="arch" type="xml">
             <form string="Total Parenteral Nutrition Form">
+                <header>
+                    <button name="action_approve" type="object" string="Approve" states="draft" groups="hospital_ext.group_tpm"/>
+                    <button name="action_reject" type="object" string="Reject" states="draft"  groups="hospital_ext.group_tpm"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" states="reject"  groups="hospital_ext.group_tpm"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
                 <sheet>
                     <group string="Patient Details" colspan="2">
                         <group>

@@ -244,9 +244,21 @@ class PortalTPNForm(http.Controller):
             return request.not_found()
 
         # Render the edit form template with the TPN form data
-        return request.render('hospital_ext.portal_tpn_edit_form', {
-            'form_data': tpn_form
-        })
+        if tpn_form.state != 'approve':
+            return request.render('hospital_ext.portal_tpn_edit_form', {
+                'form_data': tpn_form
+            })
+        else:
+            messages = tpn_form.message_ids.sudo()
+            tracking_values = request.env['mail.tracking.value'].sudo().search([
+                ('mail_message_id', 'in', messages.ids)
+            ])
+            return request.render('hospital_ext.portal_tpn_form_view', {
+                'tpn_form': tpn_form,
+                'messages': messages,
+                'tracking_values': tracking_values,
+            })
+
 
 
     @http.route('/portal/update_tpn_form', auth='user', methods=['POST'], website=True)

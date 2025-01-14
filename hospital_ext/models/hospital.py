@@ -374,3 +374,14 @@ class TPNForm(models.Model):
         string="Notes",
         tracking=True
     )
+
+    state = fields.Selection([('draft','Draft'),('approve','Approve'),('reject','Reject')],default='draft')
+
+    def action_approve(self):
+        self.state = 'approve'
+
+    def action_reject(self):
+        self.state = 'reject'
+
+    def action_reset(self):
+        self.state = 'draft'

@@ -14,6 +14,7 @@
     'data': [
         'data/sequence.xml',
         'security/ir.model.access.csv',
+        'security/security.xml',
         'views/hospital_view.xml',
         'views/tpm_portal_template.xml',
         'views/report_template.xml',

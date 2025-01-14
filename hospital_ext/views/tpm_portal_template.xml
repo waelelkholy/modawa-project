@@ -91,6 +91,7 @@
                             <th>Patient Name</th>
                             <th>Hospital No</th>
                             <th>Ward</th>
+                            <th>State</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -102,17 +103,19 @@
                                 <td><t t-esc="form.hospital_no"/></td>
                                 <td><t t-esc="form.ward"/></td>
                                 <td>
-                                    <td>
-                                        <!-- View Button -->
-                                        <a t-att-href="'/my/tpn_forms/%s' % form.id" class="btn btn-primary">
-                                            View
-                                        </a>
-                                        <!-- Edit Button -->
-                                        <a t-att-href="'/portal/edit_tpn_form/%s' % form.id" class="btn btn-warning">
-                                            Edit
-                                        </a>
-                                    </td>
+                                    <t t-esc="form.state"/>
                                 </td>
+                                <td>
+                                    <!-- View Button -->
+                                    <a t-att-href="'/my/tpn_forms/%s' % form.id" class="btn btn-primary">
+                                        View
+                                    </a>
+                                    <!-- Edit Button -->
+                                    <a t-att-href="'/portal/edit_tpn_form/%s' % form.id" class="btn btn-warning">
+                                        Edit
+                                    </a>
+                                </td>
+
                             </tr>
                         </t>
                     </tbody>
@@ -573,6 +576,22 @@
                             <label for="fat_emulsion_gm_day">Fat Emulsion 20% (gm/day):</label>
                             <input type="number" name="fat_emulsion_gm_day" id="fat_emulsion_gm_day" class="form-control" step="0.001"/>
                         </div>
+                        <div class="col-md-6 form-group">
+                            <label for="total_fluid_intake">Total Fluid Intake (ml/kg/day):</label>
+                            <input type="number" name="total_fluid_intake" id="total_fluid_intake" class="form-control" step="0.001"/>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="total_fluid_intake_ml_hr">Total Fluid Intake (ml/hour):</label>
+                            <input type="number" name="total_fluid_intake_ml_hr" id="total_fluid_intake_ml_hr" class="form-control" step="0.001"/>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="total_fluid_intake_ml_day">Total Fluid Intake (ml/day):</label>
+                            <input type="number" name="total_fluid_intake_ml_day" id="total_fluid_intake_ml_day" class="form-control" step="0.001"/>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="total_volume_tpn">Total Volume of TPN (ml/day):</label>
+                            <input type="number" name="total_volume_tpn" id="total_volume_tpn" class="form-control" step="0.001"/>
+                        </div>
                     </div>
                 </fieldset>
 
@@ -796,23 +815,23 @@
                 </fieldset>
 
                 <!-- Pharmacy Details Section -->
-<!--                <fieldset name="pharmacy_details">-->
-<!--                    <legend>Pharmacy Details</legend>-->
-<!--                    <div class="row">-->
-<!--                        <div class="col-md-4 form-group">-->
-<!--                            <label for="pharmacy_name">Pharmacy Name:</label>-->
-<!--                            <input type="text" name="pharmacy_name" id="pharmacy_name" class="form-control" />-->
-<!--                        </div>-->
-<!--                        <div class="col-md-4 form-group">-->
-<!--                            <label for="pharmacy_contact">Pharmacy Contact:</label>-->
-<!--                            <input type="text" name="pharmacy_contact" id="pharmacy_contact" class="form-control" />-->
-<!--                        </div>-->
-<!--                        <div class="col-md-4 form-group">-->
-<!--                            <label for="pharmacy_notes">Notes:</label>-->
-<!--                            <textarea name="pharmacy_notes" id="pharmacy_notes" class="form-control"></textarea>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </fieldset>-->
+                <!--                <fieldset name="pharmacy_details">-->
+                <!--                    <legend>Pharmacy Details</legend>-->
+                <!--                    <div class="row">-->
+                <!--                        <div class="col-md-4 form-group">-->
+                <!--                            <label for="pharmacy_name">Pharmacy Name:</label>-->
+                <!--                            <input type="text" name="pharmacy_name" id="pharmacy_name" class="form-control" />-->
+                <!--                        </div>-->
+                <!--                        <div class="col-md-4 form-group">-->
+                <!--                            <label for="pharmacy_contact">Pharmacy Contact:</label>-->
+                <!--                            <input type="text" name="pharmacy_contact" id="pharmacy_contact" class="form-control" />-->
+                <!--                        </div>-->
+                <!--                        <div class="col-md-4 form-group">-->
+                <!--                            <label for="pharmacy_notes">Notes:</label>-->
+                <!--                            <textarea name="pharmacy_notes" id="pharmacy_notes" class="form-control"></textarea>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </fieldset>-->
 
                 <!-- Prescriber Information Section -->
                 <fieldset name="prescriber_information">
@@ -967,6 +986,22 @@
                         <div class="col-md-6 form-group">
                             <label for="fat_emulsion_gm_day">Fat Emulsion 20% (gm/day):</label>
                             <input type="number" name="fat_emulsion_gm_day" id="fat_emulsion_gm_day" class="form-control" t-att-value="form_data.fat_emulsion_gm_day" step="0.001"/>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="total_fluid_intake">Total Fluid Intake (ml/kg/day):</label>
+                            <input type="number" name="total_fluid_intake" id="total_fluid_intake" class="form-control" t-att-value="form_data.total_fluid_intake" step="0.001"/>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="total_fluid_intake_ml_hr">Total Fluid Intake (ml/hour):</label>
+                            <input type="number" name="total_fluid_intake_ml_hr" id="total_fluid_intake_ml_hr" class="form-control" t-att-value="form_data.total_fluid_intake_ml_hr" step="0.001"/>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="total_fluid_intake_ml_day">Total Fluid Intake (ml/day):</label>
+                            <input type="number" name="total_fluid_intake_ml_day" id="total_fluid_intake_ml_day" class="form-control" t-att-value="form_data.total_fluid_intake_ml_day" step="0.001"/>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="total_volume_tpn">Total Volume of TPN (ml/day):</label>
+                            <input type="number" name="total_volume_tpn" id="total_volume_tpn" class="form-control" t-att-value="form_data.total_volume_tpn" step="0.001"/>
                         </div>
                     </div>
                 </fieldset>

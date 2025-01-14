@@ -576,6 +576,22 @@
                             <label for="fat_emulsion_gm_day">Fat Emulsion 20% (gm/day):</label>
                             <input type="number" name="fat_emulsion_gm_day" id="fat_emulsion_gm_day" class="form-control" step="0.001"/>
                         </div>
+                        <div class="col-md-6 form-group">
+                            <label for="total_fluid_intake">Total Fluid Intake (ml/kg/day):</label>
+                            <input type="number" name="total_fluid_intake" id="total_fluid_intake" class="form-control" step="0.001"/>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="total_fluid_intake_ml_hr">Total Fluid Intake (ml/hour):</label>
+                            <input type="number" name="total_fluid_intake_ml_hr" id="total_fluid_intake_ml_hr" class="form-control" step="0.001"/>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="total_fluid_intake_ml_day">Total Fluid Intake (ml/day):</label>
+                            <input type="number" name="total_fluid_intake_ml_day" id="total_fluid_intake_ml_day" class="form-control" step="0.001"/>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="total_volume_tpn">Total Volume of TPN (ml/day):</label>
+                            <input type="number" name="total_volume_tpn" id="total_volume_tpn" class="form-control" step="0.001"/>
+                        </div>
                     </div>
                 </fieldset>
 
@@ -970,6 +986,22 @@
                         <div class="col-md-6 form-group">
                             <label for="fat_emulsion_gm_day">Fat Emulsion 20% (gm/day):</label>
                             <input type="number" name="fat_emulsion_gm_day" id="fat_emulsion_gm_day" class="form-control" t-att-value="form_data.fat_emulsion_gm_day" step="0.001"/>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="total_fluid_intake">Total Fluid Intake (ml/kg/day):</label>
+                            <input type="number" name="total_fluid_intake" id="total_fluid_intake" class="form-control" t-att-value="form_data.total_fluid_intake" step="0.001"/>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="total_fluid_intake_ml_hr">Total Fluid Intake (ml/hour):</label>
+                            <input type="number" name="total_fluid_intake_ml_hr" id="total_fluid_intake_ml_hr" class="form-control" t-att-value="form_data.total_fluid_intake_ml_hr" step="0.001"/>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="total_fluid_intake_ml_day">Total Fluid Intake (ml/day):</label>
+                            <input type="number" name="total_fluid_intake_ml_day" id="total_fluid_intake_ml_day" class="form-control" t-att-value="form_data.total_fluid_intake_ml_day" step="0.001"/>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="total_volume_tpn">Total Volume of TPN (ml/day):</label>
+                            <input type="number" name="total_volume_tpn" id="total_volume_tpn" class="form-control" t-att-value="form_data.total_volume_tpn" step="0.001"/>
                         </div>
                     </div>
                 </fieldset>

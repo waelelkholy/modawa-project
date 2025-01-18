@@ -353,11 +353,11 @@ class PortalTPNForm(http.Controller):
                 'total_tpn_fluid_rate': kw.get('total_tpn_fluid_rate'),
                 'non_protein_calories': kw.get('non_protein_calories'),
                 'nitrogen_ratio': kw.get('nitrogen_ratio'),
-                'prescriber_name': kw.get('prescriber_name'),
-                'prescriber_id': kw.get('prescriber_id'),
-                'nurse_name': kw.get('nurse_name'),
-                'pharmacy_technician': kw.get('pharmacy_technician'),
-                'notes': kw.get('notes'),
+                # 'prescriber_name': kw.get('prescriber_name'),
+                # 'prescriber_id': kw.get('prescriber_id'),
+                # 'nurse_name': kw.get('nurse_name'),
+                # 'pharmacy_technician': kw.get('pharmacy_technician'),
+                # 'notes': kw.get('notes'),
             })
 
         # Redirect back to the TPN form list

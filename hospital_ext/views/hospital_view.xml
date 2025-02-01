@@ -222,26 +222,32 @@
     </template>
     <template id="sale.portal_my_home_sale" name="Show Quotations / Sales Orders" customize_show="True" inherit_id="portal.portal_my_home" priority="20">
         <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
-<!--            <t t-call="portal.portal_docs_entry">-->
-<!--                <t t-set="title">Quotations</t>-->
-<!--                <t t-set="url" t-value="'/my/quotes'"/>-->
-<!--                <t t-set="placeholder_count" t-value="'quotation_count'"/>-->
-<!--            </t>-->
-<!--            <t t-call="portal.portal_docs_entry">-->
-<!--                <t t-set="title">Sales Orders</t>-->
-<!--                <t t-set="url" t-value="'/my/orders'"/>-->
-<!--                <t t-set="placeholder_count" t-value="'order_count'"/>-->
-<!--            </t>-->
+            <!--            <t t-call="portal.portal_docs_entry">-->
+            <!--                <t t-set="title">Quotations</t>-->
+            <!--                <t t-set="url" t-value="'/my/quotes'"/>-->
+            <!--                <t t-set="placeholder_count" t-value="'quotation_count'"/>-->
+            <!--            </t>-->
+            <!--            <t t-call="portal.portal_docs_entry">-->
+            <!--                <t t-set="title">Sales Orders</t>-->
+            <!--                <t t-set="url" t-value="'/my/orders'"/>-->
+            <!--                <t t-set="placeholder_count" t-value="'order_count'"/>-->
+            <!--            </t>-->
         </xpath>
     </template>
 
-        <template id="account.portal_my_home_invoice" name="Show Invoices &amp; Bills" inherit_id="portal.portal_my_home" customize_show="True" priority="30">
+    <template id="account.portal_my_home_invoice" name="Show Invoices &amp; Bills" inherit_id="portal.portal_my_home" customize_show="True" priority="30">
         <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
-<!--            <t t-call="portal.portal_docs_entry">-->
-<!--                <t t-set="title">Invoices &amp; Bills</t>-->
-<!--                <t t-set="url" t-value="'/my/invoices'"/>-->
-<!--                <t t-set="placeholder_count" t-value="'invoice_count'"/>-->
-<!--            </t>-->
+            <!--            <t t-call="portal.portal_docs_entry">-->
+            <!--                <t t-set="title">Invoices &amp; Bills</t>-->
+            <!--                <t t-set="url" t-value="'/my/invoices'"/>-->
+            <!--                <t t-set="placeholder_count" t-value="'invoice_count'"/>-->
+            <!--            </t>-->
+        </xpath>
+    </template>
+
+    <template id="remove_edit_profile" inherit_id="portal.portal_layout">
+        <xpath expr="//div[hasclass('o_portal_my_details')]" position="replace">
+            <span> </span>
         </xpath>
     </template>
 </odoo>

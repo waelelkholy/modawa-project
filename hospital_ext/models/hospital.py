@@ -385,3 +385,10 @@ class TPNForm(models.Model):
 
     def action_reset(self):
         self.state = 'draft'
+
+    def write(self, vals):
+        """Move record to draft if it's in rejected state and any field changes."""
+        for record in self:
+            if record.state == 'reject' and any(field != 'state' for field in vals):
+                vals['state'] = 'draft'  # Change state to draft
+        return super(TPNForm, self).write(vals)

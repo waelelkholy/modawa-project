@@ -53,7 +53,7 @@
                                         <tr style="border: 1px solid black;">
                                             <td style="background-color: #d3d3d3;">No#3</td>
                                             <th  style="text-align:left">Amino Acids (gm/kg/day)</th>
-                                            <td style="text-align:center"><t t-esc="doc.dextrose_gm_day"/></td>
+                                            <td style="text-align:center"><t t-esc="doc.amino_acids_gm_kg_day"/></td>
                                             <th  style="text-align:left">Amino Acids (gm/day)</th>
                                             <td style="text-align:center"><t t-esc="doc.amino_acids_gm_day"/></td>
                                         </tr>

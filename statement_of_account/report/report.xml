@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="soa_report" model="ir.actions.report">
+        <field name="name">Statement Of Account Xlsx</field>
+        <field name="model">soa.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">statement_of_account.soa_template</field>
+        <field name="report_file">Statement Of Account Xlsx</field>
+        <field name="binding_model_id" ref="statement_of_account.model_soa_wizard"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

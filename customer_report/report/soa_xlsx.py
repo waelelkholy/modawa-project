@@ -67,7 +67,7 @@ class CRXlsx(models.AbstractModel):
         if selected_partners:
             partners = selected_partners.ids
         else:
-            partners = self.env['res.partner'].search([])
+            partners = self.env['res.partner'].search([]).ids
 
         domain = [("partner_id", "in", partners), ("move_id.state", "=", "posted")]
 

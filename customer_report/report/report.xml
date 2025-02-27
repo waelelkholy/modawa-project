@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cr_report" model="ir.actions.report">
+        <field name="name">customer report Xlsx</field>
+        <field name="model">customer.report.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">customer_report.cr_report_template</field>
+        <field name="report_file">Customer Report Xlsx</field>
+        <field name="binding_model_id" ref="customer_report.model_customer_report_wizard"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>
